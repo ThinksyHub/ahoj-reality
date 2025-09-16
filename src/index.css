@@ -30,10 +30,10 @@ All colors MUST be HSL.
     --secondary: 0 0% 10%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Golden Accents */
-    --golden: 45 100% 51%;
-    --golden-dark: 43 96% 41%;
-    --golden-light: 48 100% 67%;
+    /* Golden Accents - luxury style from uploaded image */
+    --golden: 45 85% 65%;
+    --golden-dark: 43 80% 55%; 
+    --golden-light: 48 90% 75%;
     --golden-foreground: 0 0% 0%;
 
     /* Muted */
@@ -57,20 +57,20 @@ All colors MUST be HSL.
     --input-dark: 0 0% 15%;
     --ring: 45 100% 51%;
 
-    /* Gradients */
+    /* Gradients - luxury style */
     --gradient-primary: linear-gradient(135deg, hsl(0 0% 0%) 0%, hsl(0 0% 10%) 100%);
-    --gradient-golden: linear-gradient(135deg, hsl(45 100% 51%) 0%, hsl(43 96% 41%) 100%);
+    --gradient-golden: linear-gradient(135deg, hsl(45 85% 65%) 0%, hsl(48 90% 75%) 100%);
     --gradient-hero: linear-gradient(135deg, hsl(0 0% 0% / 0.95) 0%, hsl(0 0% 10% / 0.9) 100%);
-    --gradient-luxury: linear-gradient(45deg, hsl(0 0% 0%) 0%, hsl(45 100% 51% / 0.1) 50%, hsl(0 0% 0%) 100%);
+    --gradient-luxury: linear-gradient(45deg, hsl(0 0% 0%) 0%, hsl(45 85% 65% / 0.1) 50%, hsl(0 0% 0%) 100%);
 
     /* Shadows */
     --shadow-luxury: 0 25px 50px -12px hsl(0 0% 0% / 0.25);
     --shadow-golden: 0 10px 30px -10px hsl(45 100% 51% / 0.3);
     --shadow-elegant: 0 20px 40px -15px hsl(0 0% 0% / 0.3);
 
-    /* Typography */
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Inter', sans-serif;
+    /* Typography - luxury fonts */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Montserrat', sans-serif;
 
     /* Animations */
     --transition-luxury: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -163,17 +163,17 @@ All colors MUST be HSL.
 }
 
 @layer components {
-  /* Luxury Buttons */
+  /* Minimal Buttons - professional style */
   .btn-golden {
-    @apply bg-gradient-to-r from-golden-dark to-golden text-golden-foreground px-8 py-3 rounded-lg font-semibold tracking-wide transition-all duration-300 hover:shadow-golden hover:scale-105;
+    @apply bg-gradient-golden text-golden-foreground hover:opacity-90 transition-all duration-300 font-light shadow-none border-none px-8 py-3 rounded-lg;
   }
 
   .btn-outline-golden {
-    @apply border-2 border-golden text-golden bg-transparent px-8 py-3 rounded-lg font-semibold tracking-wide transition-all duration-300 hover:bg-golden hover:text-golden-foreground hover:shadow-golden;
+    @apply bg-transparent text-golden hover:bg-golden/10 transition-all duration-300 font-light shadow-none border-none px-8 py-3 rounded-lg;
   }
 
   .btn-luxury {
-    @apply bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold tracking-wide transition-all duration-300 hover:bg-secondary hover:shadow-luxury;
+    @apply bg-primary text-primary-foreground hover:bg-secondary transition-all duration-300 font-light shadow-none border-none px-8 py-3 rounded-lg;
   }
 
   /* Gradient Backgrounds */

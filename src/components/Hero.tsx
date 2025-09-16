@@ -21,87 +21,87 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-6 text-center">
         <div className="max-w-6xl mx-auto">
           {/* Property Search Filter */}
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-primary mb-6">Find Your Dream Property</h2>
+          <div className="bg-white/20 backdrop-blur-md rounded-2xl p-8 max-w-4xl mx-auto border border-white/10">
+            <h2 className="text-2xl font-light text-white mb-6">Nájdite svoju vysnívanú nehnuteľnosť</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
               <div className="space-y-2">
-                <label className="text-sm font-medium text-primary block text-left">City</label>
+                <label className="text-sm font-light text-white block text-left">Mesto</label>
                 <Select>
-                  <SelectTrigger className="bg-white">
-                    <SelectValue placeholder="Select city" />
+                  <SelectTrigger className="bg-white/20 backdrop-blur-md border-white/20 text-white">
+                    <SelectValue placeholder="Vyberte mesto" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="prague">Prague</SelectItem>
-                    <SelectItem value="brno">Brno</SelectItem>
-                    <SelectItem value="ostrava">Ostrava</SelectItem>
-                    <SelectItem value="plzen">Plzen</SelectItem>
+                    <SelectItem value="bratislava">Bratislava</SelectItem>
+                    <SelectItem value="kosice">Košice</SelectItem>
+                    <SelectItem value="presov">Prešov</SelectItem>
+                    <SelectItem value="zilina">Žilina</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-medium text-primary block text-left">Type</label>
+                <label className="text-sm font-light text-white block text-left">Typ</label>
                 <Select>
-                  <SelectTrigger className="bg-white">
-                    <SelectValue placeholder="Property type" />
+                  <SelectTrigger className="bg-white/20 backdrop-blur-md border-white/20 text-white">
+                    <SelectValue placeholder="Typ nehnuteľnosti" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="apartment">Apartment</SelectItem>
-                    <SelectItem value="house">House</SelectItem>
-                    <SelectItem value="villa">Villa</SelectItem>
-                    <SelectItem value="commercial">Commercial</SelectItem>
+                    <SelectItem value="apartment">Byt</SelectItem>
+                    <SelectItem value="house">Dom</SelectItem>
+                    <SelectItem value="villa">Vila</SelectItem>
+                    <SelectItem value="commercial">Komerčný priestor</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-medium text-primary block text-left">Contract</label>
+                <label className="text-sm font-light text-white block text-left">Zmluva</label>
                 <Select>
-                  <SelectTrigger className="bg-white">
-                    <SelectValue placeholder="Contract type" />
+                  <SelectTrigger className="bg-white/20 backdrop-blur-md border-white/20 text-white">
+                    <SelectValue placeholder="Typ zmluvy" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="sale">Sale</SelectItem>
-                    <SelectItem value="rent">Rent</SelectItem>
+                    <SelectItem value="sale">Predaj</SelectItem>
+                    <SelectItem value="rent">Prenájom</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-medium text-primary block text-left">Min Price</label>
+                <label className="text-sm font-light text-white block text-left">Min. cena</label>
                 <Select>
-                  <SelectTrigger className="bg-white">
-                    <SelectValue placeholder="Min price" />
+                  <SelectTrigger className="bg-white/20 backdrop-blur-md border-white/20 text-white">
+                    <SelectValue placeholder="Minimálna cena" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="0">No minimum</SelectItem>
-                    <SelectItem value="1000000">1,000,000 CZK</SelectItem>
-                    <SelectItem value="3000000">3,000,000 CZK</SelectItem>
-                    <SelectItem value="5000000">5,000,000 CZK</SelectItem>
+                    <SelectItem value="0">Bez minima</SelectItem>
+                    <SelectItem value="50000">50 000 €</SelectItem>
+                    <SelectItem value="100000">100 000 €</SelectItem>
+                    <SelectItem value="200000">200 000 €</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-medium text-primary block text-left">Max Price</label>
+                <label className="text-sm font-light text-white block text-left">Max. cena</label>
                 <Select>
-                  <SelectTrigger className="bg-white">
-                    <SelectValue placeholder="Max price" />
+                  <SelectTrigger className="bg-white/20 backdrop-blur-md border-white/20 text-white">
+                    <SelectValue placeholder="Maximálna cena" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="5000000">5,000,000 CZK</SelectItem>
-                    <SelectItem value="10000000">10,000,000 CZK</SelectItem>
-                    <SelectItem value="20000000">20,000,000 CZK</SelectItem>
-                    <SelectItem value="unlimited">No maximum</SelectItem>
+                    <SelectItem value="200000">200 000 €</SelectItem>
+                    <SelectItem value="500000">500 000 €</SelectItem>
+                    <SelectItem value="1000000">1 000 000 €</SelectItem>
+                    <SelectItem value="unlimited">Bez maxima</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
             </div>
 
-            <Button className="btn-golden text-lg px-12 py-4 w-full md:w-auto">
+            <Button className="btn-golden text-lg px-12 py-4 w-full md:w-auto font-light">
               <Search className="mr-2 w-5 h-5" />
-              Search Properties
+              Hľadať nehnuteľnosti
             </Button>
           </div>
         </div>

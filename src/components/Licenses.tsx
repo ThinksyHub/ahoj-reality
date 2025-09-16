@@ -4,26 +4,26 @@ import { Card } from "@/components/ui/card";
 const licenses = [
   {
     id: 1,
-    title: "Real Estate License",
+    title: "Realitná licencia",
     number: "RE-2024-001",
-    description: "Certified real estate broker license valid across Czech Republic",
-    image: "https://via.placeholder.com/300x200/DAA520/FFFFFF?text=Real+Estate+License",
+    description: "Certifikovaná realitná maklerská licencia platná na celom Slovensku",
+    image: "https://via.placeholder.com/300x200/DAA520/FFFFFF?text=Realitna+Licencia",
     icon: Award
   },
   {
     id: 2,
-    title: "Property Management Certification",
+    title: "Certifikát správy nehnuteľností",
     number: "PM-2024-002",
-    description: "Professional property management certification for commercial and residential properties",
-    image: "https://via.placeholder.com/300x200/DAA520/FFFFFF?text=Property+Management",
+    description: "Profesionálny certifikát správy nehnuteľností pre komerčné a rezidenčné objekty",
+    image: "https://via.placeholder.com/300x200/DAA520/FFFFFF?text=Sprava+Nehnutelnosti",
     icon: Shield
   },
   {
     id: 3,
-    title: "Investment Advisory License",
+    title: "Licencia investičného poradenstva",
     number: "IA-2024-003",
-    description: "Licensed to provide real estate investment advisory services",
-    image: "https://via.placeholder.com/300x200/DAA520/FFFFFF?text=Investment+Advisory",
+    description: "Licencia na poskytovanie realitných investičných poradenských služieb",
+    image: "https://via.placeholder.com/300x200/DAA520/FFFFFF?text=Investicne+Poradenstvo",
     icon: CheckCircle
   }
 ];
@@ -35,13 +35,13 @@ const Licenses = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 bg-golden/10 border border-golden/20 rounded-full px-6 py-2 mb-6">
-            <span className="text-golden font-medium">Certified & Licensed</span>
+            <span className="text-golden font-light">Certifikované a licencované</span>
           </div>
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6">
-            Our <span className="text-gradient-golden">Licenses</span>
+          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-light text-primary mb-6">
+            Naše <span className="text-gradient-golden">licencie</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            We are fully licensed and certified to provide professional real estate services
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
+            Sme plne licencovaní a certifikovaní na poskytovanie profesionálnych realitných služieb
           </p>
         </div>
 
@@ -71,11 +71,11 @@ const Licenses = () => {
                     {license.title}
                   </h3>
                   
-                  <div className="text-sm text-golden font-medium mb-4">
-                    License #{license.number}
+                  <div className="text-sm text-golden font-light mb-4">
+                    Licencia #{license.number}
                   </div>
 
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed font-light">
                     {license.description}
                   </p>
                 </div>

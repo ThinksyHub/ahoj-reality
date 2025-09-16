@@ -4,27 +4,27 @@ import { Card } from "@/components/ui/card";
 const references = [
   {
     id: 1,
-    name: "Jan Novák",
+    name: "Ján Novák",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
     rating: 5,
-    text: "Exceptional service and professionalism. AHOJ Reality helped us find our dream home in Prague. The team was always available and guided us through every step of the process.",
-    signature: "Jan Novák, Prague"
+    text: "Výnimočný servis a profesionalita. AHOJ Reality nám pomohla nájsť náš vysnívaný domov v Bratislave. Tím bol vždy k dispozícii a sprevádzal nás každým krokom procesu.",
+    signature: "Ján Novák, Bratislava"
   },
   {
     id: 2,
-    name: "Marie Svobodová",
+    name: "Mária Svobodová",
     image: "https://images.unsplash.com/photo-1494790108755-2616b612b890?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
     rating: 5,
-    text: "Outstanding experience! The agents at AHOJ Reality are true professionals who understand the market perfectly. They found us the perfect investment property.",
-    signature: "Marie Svobodová, Brno"
+    text: "Vynikajúca skúsenosť! Agenti v AHOJ Reality sú skutočnými profesionálmi, ktorí perfektne rozumejú trhu. Našli nám ideálnu investičnú nehnuteľnosť.",
+    signature: "Mária Svobodová, Košice"
   },
   {
     id: 3,
-    name: "Petr Černý",
+    name: "Peter Černý",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
     rating: 5,
-    text: "Highly recommend AHOJ Reality! Their market knowledge and negotiation skills saved us both time and money. Truly exceptional service from start to finish.",
-    signature: "Petr Černý, Ostrava"
+    text: "Vrelo odporúčam AHOJ Reality! Ich znalosti trhu a vyjednávacie schopnosti nám ušetrili čas aj peniaze. Skutočne výnimočný servis od začiatku do konca.",
+    signature: "Peter Černý, Žilina"
   }
 ];
 
@@ -35,13 +35,13 @@ const References = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 bg-golden/10 border border-golden/20 rounded-full px-6 py-2 mb-6">
-            <span className="text-golden font-medium">Client Testimonials</span>
+            <span className="text-golden font-light">Referencie klientov</span>
           </div>
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6">
-            What Our <span className="text-gradient-golden">Clients Say</span>
+          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-light text-primary mb-6">
+            Čo hovoria naši <span className="text-gradient-golden">klienti</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Hear from satisfied clients who found their perfect properties with our help
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
+            Počúvajte spokojných klientov, ktorí našli svoje dokonalé nehnuteľnosti s našou pomocou
           </p>
         </div>
 

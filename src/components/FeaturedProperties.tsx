@@ -78,13 +78,13 @@ const FeaturedProperties = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 bg-golden/10 border border-golden/20 rounded-full px-6 py-2 mb-6">
-            <span className="text-golden font-medium">Exclusive Collection</span>
+            <span className="text-golden font-light">Exkluzívna kolekcia</span>
           </div>
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6">
-            Featured <span className="text-gradient-golden">Properties</span>
+          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-light text-primary mb-6">
+            Vybrané <span className="text-gradient-golden">nehnuteľnosti</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Discover our handpicked selection of luxury properties in the most prestigious locations
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
+            Objavte náš starostlivo vybraný výber luxusných nehnuteľností na najprestížnejších lokalitách
           </p>
         </div>
 
@@ -103,8 +103,8 @@ const FeaturedProperties = () => {
                 {/* Featured Badge */}
                 {property.featured && (
                   <div className="absolute top-4 left-4">
-                    <span className="bg-golden text-golden-foreground px-3 py-1 rounded-full text-sm font-semibold">
-                      Featured
+                    <span className="bg-golden text-golden-foreground px-3 py-1 rounded-full text-sm font-light">
+                      Odporúčané
                     </span>
                   </div>
                 )}
@@ -129,7 +129,7 @@ const FeaturedProperties = () => {
                   <span className="text-sm">{property.location}</span>
                 </div>
 
-                <h3 className="font-heading text-xl font-semibold text-primary mb-4 group-hover:text-golden transition-colors">
+                <h3 className="font-heading text-xl font-light text-primary mb-4 group-hover:text-golden transition-colors">
                   {property.title}
                 </h3>
 
@@ -137,25 +137,25 @@ const FeaturedProperties = () => {
                 <div className="flex items-center justify-between text-sm text-muted-foreground mb-6">
                   <div className="flex items-center space-x-1">
                     <Bed className="w-4 h-4" />
-                    <span>{property.beds} beds</span>
+                    <span>{property.beds} izby</span>
                   </div>
                   <div className="flex items-center space-x-1">
                     <Bath className="w-4 h-4" />
-                    <span>{property.baths} baths</span>
+                    <span>{property.baths} kúp.</span>
                   </div>
                   <div className="flex items-center space-x-1">
                     <Square className="w-4 h-4" />
-                    <span>{property.sqft} sqft</span>
+                    <span>{property.sqft} m²</span>
                   </div>
                 </div>
 
                 {/* Action Buttons */}
                 <div className="flex gap-3">
-                  <Button className="flex-1 btn-golden text-sm">
-                    View Details
+                  <Button className="flex-1 btn-golden text-sm font-light">
+                    Zobraziť detaily
                   </Button>
-                  <Button className="flex-1 btn-outline-golden text-sm">
-                    Schedule Tour
+                  <Button className="flex-1 btn-outline-golden text-sm font-light">
+                    Naplánovať prehliadku
                   </Button>
                 </div>
               </div>
@@ -165,8 +165,8 @@ const FeaturedProperties = () => {
 
         {/* View All Button */}
         <div className="text-center mt-12">
-          <Button className="btn-outline-golden text-lg px-8 py-4">
-            View All Properties
+          <Button className="btn-outline-golden text-lg px-8 py-4 font-light">
+            Zobraziť všetky nehnuteľnosti
           </Button>
         </div>
       </div>

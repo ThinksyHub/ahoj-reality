@@ -22,20 +22,20 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-golden mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-muted-dark-foreground/90">Wenceslas Square 1</p>
-                  <p className="text-muted-dark-foreground/90">110 00 Prague 1</p>
+                  <p className="text-muted-dark-foreground/90 font-light">Václavské námestie 1</p>
+                  <p className="text-muted-dark-foreground/90 font-light">110 00 Bratislava 1</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-golden flex-shrink-0" />
-                <a href="tel:+420123456789" className="text-muted-dark-foreground/90 hover:text-golden transition-colors">
-                  +420 123 456 789
+                <a href="tel:+421123456789" className="text-muted-dark-foreground/90 hover:text-golden transition-colors font-light">
+                  +421 123 456 789
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-golden flex-shrink-0" />
-                <a href="mailto:info@ahojreality.cz" className="text-muted-dark-foreground/90 hover:text-golden transition-colors">
-                  info@ahojreality.cz
+                <a href="mailto:info@ahojreality.sk" className="text-muted-dark-foreground/90 hover:text-golden transition-colors font-light">
+                  info@ahojreality.sk
                 </a>
               </div>
             </div>
@@ -43,28 +43,28 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="font-heading text-lg font-semibold mb-6 text-golden">Services</h4>
+            <h4 className="font-heading text-lg font-light mb-6 text-golden">Služby</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-muted-dark-foreground/80 hover:text-golden transition-colors">Price List</a></li>
-              <li><a href="#contact" className="text-muted-dark-foreground/80 hover:text-golden transition-colors">Contact</a></li>
-              <li><a href="#" className="text-muted-dark-foreground/80 hover:text-golden transition-colors">GDPR</a></li>
-              <li><a href="#" className="text-muted-dark-foreground/80 hover:text-golden transition-colors">FAQ</a></li>
+              <li><a href="#" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Cenník</a></li>
+              <li><a href="#contact" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Kontakt</a></li>
+              <li><a href="#" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">GDPR</a></li>
+              <li><a href="#" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Často kladené otázky</a></li>
             </ul>
           </div>
 
           {/* Legal */}
           <div>
-            <h4 className="font-heading text-lg font-semibold mb-6 text-golden">Legal</h4>
+            <h4 className="font-heading text-lg font-light mb-6 text-golden">Právne informácie</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-muted-dark-foreground/80 hover:text-golden transition-colors">Terms & Conditions</a></li>
-              <li><a href="#" className="text-muted-dark-foreground/80 hover:text-golden transition-colors">Do Business With Us</a></li>
-              <li><a href="#" className="text-muted-dark-foreground/80 hover:text-golden transition-colors">Career With Us</a></li>
+              <li><a href="#" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Všeobecné podmienky</a></li>
+              <li><a href="#" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Podnikajte s nami</a></li>
+              <li><a href="#" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Kariéra u nás</a></li>
             </ul>
           </div>
 
           {/* Social Media */}
           <div>
-            <h4 className="font-heading text-lg font-semibold mb-6 text-golden">Follow Us</h4>
+            <h4 className="font-heading text-lg font-light mb-6 text-golden">Sledujte nás</h4>
             <div className="flex space-x-4">
               <a href="#" className="w-10 h-10 bg-golden/10 hover:bg-golden rounded-lg flex items-center justify-center transition-colors group">
                 <Facebook className="w-5 h-5 text-golden group-hover:text-golden-foreground" />
@@ -79,8 +79,8 @@ const Footer = () => {
         {/* Bottom Footer */}
         <div className="border-t border-golden/20 py-6">
           <div className="text-center">
-            <div className="text-sm text-muted-dark-foreground/70">
-              Copyright © 2025 AHOJ Reality. All rights reserved.
+            <div className="text-sm text-muted-dark-foreground/70 font-light">
+              Copyright © 2025 AHOJ Reality. Všetky práva vyhradené.
             </div>
           </div>
         </div>
