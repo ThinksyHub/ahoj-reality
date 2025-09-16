@@ -16,7 +16,7 @@ const properties = [
   },
   {
     id: 2,
-    title: "Penthouse s výhľadom na dunaj",
+    title: "Penthouse s výhľadom",
     location: "Bratislava, SK",
     price: "€1,220,000",
     image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2053&q=80",
@@ -138,7 +138,7 @@ const FeaturedProperties = () => {
 
                 {/* Price Overlay */}
                 <div className="absolute bottom-4 left-4">
-                  <span className="text-2xl font-bold text-white bg-black/50 px-3 py-1 rounded-lg backdrop-blur-sm">
+                  <span className="text-2xl font-bold text-white">
                     {property.price}
                   </span>
                 </div>
@@ -172,13 +172,15 @@ const FeaturedProperties = () => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex gap-3">
-                  <Button className="btn-golden text-sm font-light flex-1">
+                <div className="flex flex-col gap-3">
+                  <Button className="btn-golden text-sm font-light">
                     Zobraziť detaily
                   </Button>
-                  <Button variant="outline" className="text-sm font-light flex-1 bg-black text-white border-black hover:bg-black/90">
-                    Naplánovať prehliadku
-                  </Button>
+                  <div className="text-center">
+                    <button className="text-sm text-black hover:text-golden transition-colors">
+                      Naplánovať<br />prehliadku
+                    </button>
+                  </div>
                 </div>
               </div>
             </Card>

@@ -30,19 +30,25 @@ const advantages = [
 
 const Advantages = () => {
   return (
-    <section className="py-20 bg-gradient-luxury relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwMDAwMDAiIGZpbGwtb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSI3IiBjeT0iNyIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] repeat"></div>
-      </div>
+    <section className="py-20 relative overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2073&q=80')`
+        }}
+      />
+      
+      {/* White Overlay */}
+      <div className="absolute inset-0 bg-white/80" />
       
       <div className="container mx-auto px-6 relative">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-white mb-6">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-black mb-6">
             Naše hlavné <span className="text-gradient-golden">výhody</span>
           </h2>
-          <p className="text-xl text-white/80 max-w-2xl mx-auto font-light">
+          <p className="text-xl text-black/80 max-w-2xl mx-auto font-light">
             Prečo si vybrať práve nás? Pozrite si kľúčové výhody, ktoré nás odlišujú od konkurencie
           </p>
         </div>
@@ -62,10 +68,10 @@ const Advantages = () => {
                 </div>
 
                 {/* Content */}
-                <h3 className="font-heading text-xl font-light text-white mb-4 group-hover:text-golden transition-colors">
+                <h3 className="font-heading text-xl font-light text-black mb-4 group-hover:text-golden transition-colors">
                   {advantage.title}
                 </h3>
-                <p className="text-white/70 font-light text-sm leading-relaxed">
+                <p className="text-black/70 font-light text-sm leading-relaxed">
                   {advantage.description}
                 </p>
               </div>

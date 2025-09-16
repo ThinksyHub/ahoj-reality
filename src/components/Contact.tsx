@@ -128,7 +128,7 @@ const Contact = () => {
                 />
               </div>
 
-              <Button className="btn-golden w-full text-lg py-3 font-light">
+              <Button className="bg-black text-white hover:bg-black/90 w-full text-lg py-3 font-light">
                 <Send className="mr-2 w-5 h-5" />
                 Odoslať správu
               </Button>
