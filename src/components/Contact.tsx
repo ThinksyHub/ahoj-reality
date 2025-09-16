@@ -13,7 +13,7 @@ const Contact = () => {
           <div className="inline-flex items-center space-x-2 bg-golden/10 border border-golden/20 rounded-full px-6 py-2 mb-6">
             <span className="text-golden-luxury font-light">Kontaktujte nás</span>
           </div>
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-light text-primary mb-6">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-primary mb-6">
             Kontakt <span className="text-gradient-golden">na nás</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">

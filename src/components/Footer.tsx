@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
@@ -8,15 +9,12 @@ const Footer = () => {
         <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-12 h-12 bg-gradient-golden rounded-lg flex items-center justify-center">
-                <span className="text-golden-foreground font-bold text-2xl">AR</span>
-              </div>
-              <div>
-                <h3 className="font-heading text-2xl font-bold">
-                  AHOJ <span className="text-gradient-golden">Reality</span>
-                </h3>
-              </div>
+            <div className="flex items-center space-x-3 mb-6">
+              <img 
+                src={logo} 
+                alt="AHOJ Reality" 
+                className="h-12 w-auto"
+              />
             </div>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">

@@ -22,7 +22,7 @@ const Hero = () => {
         <div className="max-w-6xl mx-auto">
           {/* Property Search Filter */}
           <div className="bg-white/20 backdrop-blur-md rounded-2xl p-8 max-w-4xl mx-auto border border-white/10">
-            <h2 className="text-2xl font-light text-white mb-6">Nájdite svoju vysnívanú nehnuteľnosť</h2>
+            <h2 className="font-serif text-2xl font-normal text-white mb-6">Nájdite svoju vysnívanú nehnuteľnosť</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
               <div className="space-y-2">
