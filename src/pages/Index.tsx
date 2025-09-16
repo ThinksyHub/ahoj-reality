@@ -1,8 +1,11 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import FeaturedProperties from "@/components/FeaturedProperties";
-import Services from "@/components/Services";
-import Testimonials from "@/components/Testimonials";
+import References from "@/components/References";
+import Partners from "@/components/Partners";
+import QuoteBanner from "@/components/QuoteBanner";
+import Licenses from "@/components/Licenses";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -11,8 +14,12 @@ const Index = () => {
       <Header />
       <Hero />
       <FeaturedProperties />
-      <Services />
-      <Testimonials />
+      <References />
+      <Partners />
+      <QuoteBanner />
+      <Partners />
+      <Licenses />
+      <Contact />
       <Footer />
     </div>
   );

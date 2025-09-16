@@ -1,83 +1,109 @@
-import { ArrowRight, MapPin, Star } from "lucide-react";
+import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import mainBanner from "@/assets/main_banner.png";
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2075&q=80')`
+          backgroundImage: `url('${mainBanner}')`
         }}
       />
       
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-hero" />
+      <div className="absolute inset-0 bg-primary/40" />
       
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
-        <div className="max-w-4xl mx-auto">
-          {/* Badge */}
-          <div className="inline-flex items-center space-x-2 bg-golden/10 backdrop-blur-sm border border-golden/20 rounded-full px-6 py-2 mb-8">
-            <Star className="w-4 h-4 text-golden fill-golden" />
-            <span className="text-golden font-medium">Premium Luxury Properties</span>
-          </div>
+        <div className="max-w-6xl mx-auto">
+          {/* Property Search Filter */}
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-primary mb-6">Find Your Dream Property</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-primary block text-left">City</label>
+                <Select>
+                  <SelectTrigger className="bg-white">
+                    <SelectValue placeholder="Select city" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="prague">Prague</SelectItem>
+                    <SelectItem value="brno">Brno</SelectItem>
+                    <SelectItem value="ostrava">Ostrava</SelectItem>
+                    <SelectItem value="plzen">Plzen</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
 
-          {/* Main Heading */}
-          <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold text-primary-foreground mb-6 leading-tight">
-            Discover Your
-            <br />
-            <span className="text-gradient-golden">Dream Estate</span>
-          </h1>
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-primary block text-left">Type</label>
+                <Select>
+                  <SelectTrigger className="bg-white">
+                    <SelectValue placeholder="Property type" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="apartment">Apartment</SelectItem>
+                    <SelectItem value="house">House</SelectItem>
+                    <SelectItem value="villa">Villa</SelectItem>
+                    <SelectItem value="commercial">Commercial</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
 
-          {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-muted-dark-foreground/90 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Experience unparalleled luxury with our exclusive collection of premium properties
-            in the world's most prestigious locations.
-          </p>
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-primary block text-left">Contract</label>
+                <Select>
+                  <SelectTrigger className="bg-white">
+                    <SelectValue placeholder="Contract type" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="sale">Sale</SelectItem>
+                    <SelectItem value="rent">Rent</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button className="btn-golden text-lg px-8 py-4 min-w-[200px]">
-              Explore Properties
-              <ArrowRight className="ml-2 w-5 h-5" />
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-primary block text-left">Min Price</label>
+                <Select>
+                  <SelectTrigger className="bg-white">
+                    <SelectValue placeholder="Min price" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="0">No minimum</SelectItem>
+                    <SelectItem value="1000000">1,000,000 CZK</SelectItem>
+                    <SelectItem value="3000000">3,000,000 CZK</SelectItem>
+                    <SelectItem value="5000000">5,000,000 CZK</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-primary block text-left">Max Price</label>
+                <Select>
+                  <SelectTrigger className="bg-white">
+                    <SelectValue placeholder="Max price" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="5000000">5,000,000 CZK</SelectItem>
+                    <SelectItem value="10000000">10,000,000 CZK</SelectItem>
+                    <SelectItem value="20000000">20,000,000 CZK</SelectItem>
+                    <SelectItem value="unlimited">No maximum</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+
+            <Button className="btn-golden text-lg px-12 py-4 w-full md:w-auto">
+              <Search className="mr-2 w-5 h-5" />
+              Search Properties
             </Button>
-            <Button className="btn-outline-golden text-lg px-8 py-4 min-w-[200px]">
-              Schedule Consultation
-            </Button>
           </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-golden mb-2">500+</div>
-              <div className="text-muted-dark-foreground/80">Luxury Properties</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-golden mb-2">15+</div>
-              <div className="text-muted-dark-foreground/80">Years Experience</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-golden mb-2">98%</div>
-              <div className="text-muted-dark-foreground/80">Client Satisfaction</div>
-            </div>
-          </div>
-        </div>
-
-        {/* Location Badge */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <div className="flex items-center space-x-2 bg-card-dark/80 backdrop-blur-sm border border-golden/20 rounded-full px-6 py-3">
-            <MapPin className="w-4 h-4 text-golden" />
-            <span className="text-primary-foreground font-medium">Beverly Hills, California</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 right-8 animate-bounce">
-        <div className="w-6 h-10 border-2 border-golden/50 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-golden rounded-full mt-2 animate-pulse" />
         </div>
       </div>
     </section>

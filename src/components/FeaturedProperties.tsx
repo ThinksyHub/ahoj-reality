@@ -88,9 +88,9 @@ const FeaturedProperties = () => {
           </p>
         </div>
 
-        {/* Properties Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {properties.map((property) => (
+        {/* Properties Grid - 4x2 layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {properties.slice(0, 8).map((property) => (
             <Card key={property.id} className="group overflow-hidden hover-lift bg-card border-border/20 shadow-elegant">
               {/* Image Container */}
               <div className="relative overflow-hidden">
