@@ -15,7 +15,9 @@ export default {
     extend: {
       colors: {
         border: "hsl(var(--border))",
+        "border-dark": "hsl(var(--border-dark))",
         input: "hsl(var(--input))",
+        "input-dark": "hsl(var(--input-dark))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
@@ -34,6 +36,8 @@ export default {
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
+          dark: "hsl(var(--muted-dark))",
+          "dark-foreground": "hsl(var(--muted-dark-foreground))",
         },
         accent: {
           DEFAULT: "hsl(var(--accent))",
@@ -46,6 +50,14 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+          dark: "hsl(var(--card-dark))",
+          "dark-foreground": "hsl(var(--card-dark-foreground))",
+        },
+        golden: {
+          DEFAULT: "hsl(var(--golden))",
+          dark: "hsl(var(--golden-dark))",
+          light: "hsl(var(--golden-light))",
+          foreground: "hsl(var(--golden-foreground))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -57,6 +69,21 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+      },
+      fontFamily: {
+        heading: ["Playfair Display", "serif"],
+        body: ["Inter", "sans-serif"],
+      },
+      backgroundImage: {
+        "gradient-luxury": "var(--gradient-luxury)",
+        "gradient-hero": "var(--gradient-hero)",
+        "gradient-golden": "var(--gradient-golden)",
+        "gradient-primary": "var(--gradient-primary)",
+      },
+      boxShadow: {
+        luxury: "var(--shadow-luxury)",
+        golden: "var(--shadow-golden)",
+        elegant: "var(--shadow-elegant)",
       },
       borderRadius: {
         lg: "var(--radius)",
