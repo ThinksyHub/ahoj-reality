@@ -43,7 +43,7 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="font-heading text-lg font-light mb-6 text-golden">Služby</h4>
+            <h4 className="font-heading text-lg font-light mb-6 text-golden-luxury">Služby</h4>
             <ul className="space-y-3">
               <li><a href="#" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Cenník</a></li>
               <li><a href="#contact" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Kontakt</a></li>
@@ -54,7 +54,7 @@ const Footer = () => {
 
           {/* Legal */}
           <div>
-            <h4 className="font-heading text-lg font-light mb-6 text-golden">Právne informácie</h4>
+            <h4 className="font-heading text-lg font-light mb-6 text-golden-luxury">Právne informácie</h4>
             <ul className="space-y-3">
               <li><a href="#" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Všeobecné podmienky</a></li>
               <li><a href="#" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Podnikajte s nami</a></li>
@@ -64,7 +64,7 @@ const Footer = () => {
 
           {/* Social Media */}
           <div>
-            <h4 className="font-heading text-lg font-light mb-6 text-golden">Sledujte nás</h4>
+            <h4 className="font-heading text-lg font-light mb-6 text-golden-luxury">Sledujte nás</h4>
             <div className="flex space-x-4">
               <a href="#" className="w-10 h-10 bg-golden/10 hover:bg-golden rounded-lg flex items-center justify-center transition-colors group">
                 <Facebook className="w-5 h-5 text-golden group-hover:text-golden-foreground" />

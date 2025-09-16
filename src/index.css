@@ -30,11 +30,11 @@ All colors MUST be HSL.
     --secondary: 0 0% 10%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Golden Accents - luxury style from uploaded image */
-    --golden: 45 85% 65%;
-    --golden-dark: 43 80% 55%; 
-    --golden-light: 48 90% 75%;
-    --golden-foreground: 0 0% 0%;
+    /* Golden Accents - luxury style matching uploaded gradient */
+    --golden: 45 65% 58%;
+    --golden-dark: 40 55% 45%; 
+    --golden-light: 50 75% 68%;
+    --golden-foreground: 0 0% 15%;
 
     /* Muted */
     --muted: 0 0% 96%;
@@ -57,11 +57,17 @@ All colors MUST be HSL.
     --input-dark: 0 0% 15%;
     --ring: 45 100% 51%;
 
-    /* Gradients - luxury style */
+    /* Gradients - luxury style matching uploaded texture */
     --gradient-primary: linear-gradient(135deg, hsl(0 0% 0%) 0%, hsl(0 0% 10%) 100%);
-    --gradient-golden: linear-gradient(135deg, hsl(45 85% 65%) 0%, hsl(48 90% 75%) 100%);
+    --gradient-golden: linear-gradient(135deg, 
+      hsl(42 58% 48%) 0%, 
+      hsl(45 65% 58%) 25%, 
+      hsl(48 70% 65%) 50%, 
+      hsl(50 75% 68%) 75%, 
+      hsl(45 65% 58%) 100%
+    );
     --gradient-hero: linear-gradient(135deg, hsl(0 0% 0% / 0.95) 0%, hsl(0 0% 10% / 0.9) 100%);
-    --gradient-luxury: linear-gradient(45deg, hsl(0 0% 0%) 0%, hsl(45 85% 65% / 0.1) 50%, hsl(0 0% 0%) 100%);
+    --gradient-luxury: linear-gradient(45deg, hsl(0 0% 0%) 0%, hsl(45 65% 58% / 0.1) 50%, hsl(0 0% 0%) 100%);
 
     /* Shadows */
     --shadow-luxury: 0 25px 50px -12px hsl(0 0% 0% / 0.25);
@@ -163,13 +169,39 @@ All colors MUST be HSL.
 }
 
 @layer components {
-  /* Minimal Buttons - professional style */
+  /* Luxury Buttons - matching uploaded golden gradient */
   .btn-golden {
-    @apply bg-gradient-golden text-golden-foreground hover:opacity-90 transition-all duration-300 font-light shadow-none border-none px-8 py-3 rounded-lg;
+    @apply relative overflow-hidden font-light shadow-none border-none px-8 py-3 rounded-lg transition-all duration-300;
+    background: linear-gradient(135deg, 
+      hsl(42 58% 48%) 0%, 
+      hsl(45 65% 58%) 25%, 
+      hsl(48 70% 65%) 50%, 
+      hsl(50 75% 68%) 75%, 
+      hsl(45 65% 58%) 100%
+    );
+    color: hsl(0 0% 15%);
+  }
+  
+  .btn-golden::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/src/assets/golden_gradient_luxury.png');
+    background-size: cover;
+    opacity: 0.8;
+    border-radius: inherit;
+  }
+  
+  .btn-golden span,
+  .btn-golden svg {
+    position: relative;
+    z-index: 1;
   }
 
   .btn-outline-golden {
-    @apply bg-transparent text-golden hover:bg-golden/10 transition-all duration-300 font-light shadow-none border-none px-8 py-3 rounded-lg;
+    @apply bg-transparent hover:bg-golden/10 transition-all duration-300 font-light shadow-none border-none px-8 py-3 rounded-lg;
+    color: hsl(45 65% 58%);
+    border: 1px solid hsl(45 65% 58% / 0.3);
   }
 
   .btn-luxury {
@@ -220,12 +252,34 @@ All colors MUST be HSL.
     @apply transition-all duration-300 hover:shadow-golden;
   }
 
-  /* Text Gradients */
+  /* Text Gradients - matching uploaded golden texture */
   .text-gradient-golden {
-    @apply bg-gradient-to-r from-golden-dark to-golden-light bg-clip-text text-transparent;
+    background: linear-gradient(135deg, 
+      hsl(42 58% 48%) 0%, 
+      hsl(45 65% 58%) 25%, 
+      hsl(48 70% 65%) 50%, 
+      hsl(50 75% 68%) 75%, 
+      hsl(45 65% 58%) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  
+  @keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
   }
 
   .text-luxury {
     @apply text-muted-dark-foreground/90;
+  }
+  
+  /* Golden text for badges and accents */
+  .text-golden-luxury {
+    color: hsl(45 65% 58%);
+    text-shadow: 0 0 10px hsl(45 65% 58% / 0.3);
   }
 }

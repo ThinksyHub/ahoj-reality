@@ -38,7 +38,7 @@ const Partners = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 bg-golden/10 border border-golden/20 rounded-full px-6 py-2 mb-6">
-            <span className="text-golden font-light">Dôveryhodní partneri</span>
+            <span className="text-golden-luxury font-light">Dôveryhodní partneri</span>
           </div>
           <h2 className="font-heading text-4xl md:text-5xl font-light text-primary mb-6">
             Naši <span className="text-gradient-golden">partneri</span>

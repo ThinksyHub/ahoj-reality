@@ -35,7 +35,7 @@ const Licenses = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 bg-golden/10 border border-golden/20 rounded-full px-6 py-2 mb-6">
-            <span className="text-golden font-light">Certifikované a licencované</span>
+            <span className="text-golden-luxury font-light">Certifikované a licencované</span>
           </div>
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-light text-primary mb-6">
             Naše <span className="text-gradient-golden">licencie</span>
@@ -71,7 +71,7 @@ const Licenses = () => {
                     {license.title}
                   </h3>
                   
-                  <div className="text-sm text-golden font-light mb-4">
+                  <div className="text-sm text-golden-luxury font-light mb-4">
                     Licencia #{license.number}
                   </div>
 
