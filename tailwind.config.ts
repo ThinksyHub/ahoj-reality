@@ -74,6 +74,7 @@ export default {
         heading: ["Montserrat", "sans-serif"],
         body: ["Montserrat", "sans-serif"],
         sans: ["Montserrat", "sans-serif"],
+        serif: ["Prata", "serif"],
       },
       backgroundImage: {
         "gradient-luxury": "var(--gradient-luxury)",
