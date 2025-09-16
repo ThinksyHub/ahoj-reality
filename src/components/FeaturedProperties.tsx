@@ -173,16 +173,12 @@ const FeaturedProperties = () => {
 
                 {/* Action Buttons */}
                 <div className="flex gap-3">
-                  <div className="flex-1 text-center">
-                    <Button className="btn-golden text-sm font-light w-full">
-                      Zobraziť detaily
-                    </Button>
-                  </div>
-                  <div className="flex-1 text-center">
-                    <button className="text-golden-luxury hover:text-golden transition-colors font-light text-sm w-full py-3">
-                      Naplánovať prehliadku
-                    </button>
-                  </div>
+                  <Button className="btn-golden text-sm font-light flex-1">
+                    Zobraziť detaily
+                  </Button>
+                  <Button variant="outline" className="text-sm font-light flex-1 bg-black text-white border-black hover:bg-black/90">
+                    Naplánovať prehliadku
+                  </Button>
                 </div>
               </div>
             </Card>
@@ -191,7 +187,7 @@ const FeaturedProperties = () => {
 
         {/* View All Button */}
         <div className="text-center mt-12">
-          <Button className="btn-golden text-lg px-8 py-4 font-light">
+          <Button className="bg-black text-white hover:bg-black/90 text-lg px-8 py-4 font-light">
             Zobraziť všetky nehnuteľnosti
           </Button>
         </div>

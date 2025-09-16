@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import FeaturedProperties from "@/components/FeaturedProperties";
+import Advantages from "@/components/Advantages";
 import References from "@/components/References";
 import Partners from "@/components/Partners";
 import QuoteBanner from "@/components/QuoteBanner";
@@ -14,6 +15,7 @@ const Index = () => {
       <Header />
       <Hero />
       <FeaturedProperties />
+      <Advantages />
       <References />
       <Partners />
       <QuoteBanner />
