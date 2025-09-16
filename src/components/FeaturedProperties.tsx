@@ -103,7 +103,7 @@ const FeaturedProperties = () => {
                 {/* Featured Badge */}
                 {property.featured && (
                   <div className="absolute top-4 left-4">
-                    <span className="bg-golden text-golden-foreground px-3 py-1 rounded-full text-sm font-light">
+                    <span className="bg-golden text-black px-3 py-1 rounded-full text-sm font-light">
                       Odporúčané
                     </span>
                   </div>
@@ -116,9 +116,9 @@ const FeaturedProperties = () => {
 
                 {/* Price Overlay */}
                 <div className="absolute bottom-4 left-4">
-                  <div className="bg-primary/90 backdrop-blur-sm text-primary-foreground px-4 py-2 rounded-lg">
-                    <span className="text-2xl font-bold">{property.price}</span>
-                  </div>
+                <div className="bg-golden text-black px-4 py-2 rounded-lg font-light">
+                  <span className="text-2xl font-bold">{property.price}</span>
+                </div>
                 </div>
               </div>
 

@@ -179,7 +179,11 @@ All colors MUST be HSL.
       hsl(50 75% 68%) 75%, 
       hsl(45 65% 58%) 100%
     );
-    color: hsl(0 0% 15%);
+    color: hsl(0 0% 0%) !important; /* Black text for visibility */
+  }
+  
+  .btn-golden * {
+    color: hsl(0 0% 0%) !important; /* Black for all child elements including icons */
   }
   
   .btn-golden::before {
@@ -196,6 +200,7 @@ All colors MUST be HSL.
   .btn-golden svg {
     position: relative;
     z-index: 1;
+    color: hsl(0 0% 0%) !important; /* Ensure black color */
   }
 
   .btn-outline-golden {
@@ -281,5 +286,16 @@ All colors MUST be HSL.
   .text-golden-luxury {
     color: hsl(45 65% 58%);
     text-shadow: 0 0 10px hsl(45 65% 58% / 0.3);
+  }
+  
+  /* Backgrounds with golden gradient need black text */
+  .bg-golden,
+  .bg-gradient-golden {
+    color: hsl(0 0% 0%) !important;
+  }
+  
+  .bg-golden *,
+  .bg-gradient-golden * {
+    color: hsl(0 0% 0%) !important;
   }
 }
