@@ -57,7 +57,7 @@ const Header = () => {
             <Button 
               variant="ghost" 
               size="sm" 
-              className="text-primary hover:text-golden hover:bg-golden/10 font-light relative group overflow-hidden px-4 py-2 rounded-xl border border-transparent hover:border-golden/20 transition-all duration-300"
+              className="bg-white text-black hover:text-golden hover:bg-white/90 font-light relative group overflow-hidden px-4 py-2 rounded-xl border border-golden/20 hover:border-golden/40 transition-all duration-300 shadow-sm"
             >
               <Search className="w-5 h-5 transition-transform group-hover:scale-110" />
               <span className="ml-2 hidden md:inline font-medium">Hľadať</span>
