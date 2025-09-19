@@ -74,7 +74,7 @@ const Partners = () => {
             Naši <span className="text-gradient-golden">partneri</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
-            Spolupracujeme s popredným spoločnosťami a vývojármi na Slovensku
+            Spolupracujeme s poprednými spoločnosťami a expertami na kompletný hypotekárny servis na Slovensku
           </p>
         </div>
 
