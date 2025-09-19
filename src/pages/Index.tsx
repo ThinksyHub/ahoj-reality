@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import FeaturedProperties from "@/components/FeaturedProperties";
 import Advantages from "@/components/Advantages";
-import References from "@/components/References";
+import Testimonials from "@/components/Testimonials";
 import Partners from "@/components/Partners";
 import QuoteBanner from "@/components/QuoteBanner";
 import Licenses from "@/components/Licenses";
@@ -16,7 +16,7 @@ const Index = () => {
       <Hero />
       <FeaturedProperties />
       <Advantages />
-      <References />
+      <Testimonials />
       <QuoteBanner />
       <Licenses />
       <Partners />
