@@ -3,27 +3,27 @@ import { Card } from "@/components/ui/card";
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
-    role: "CEO, Tech Innovations",
-    location: "Purchased in Beverly Hills",
+    name: "Lýdia Taščicová",
+    role: "Spokojná klientka",
+    location: "Kúpa nehnuteľnosti",
     rating: 5,
-    text: "The level of service and attention to detail was extraordinary. They found us the perfect home that exceeded all our expectations. Truly a luxury experience from start to finish.",
+    text: "Ďakujeme za super odvedenú prácu. Určite odporúčame každému, kto potrebuje pomoc s bývaním či už kúpiť alebo predať. Nám sa náš sen s bývaním splnil vďaka AhojReality. 🤩🏠👏 Poďakovanie patrí Kristinke Karaffovej, ktorá sa aj s Luckou Petrikovou o nás starali a všetko potrebné nám vysvetlili a samozrejme aj zrealizovali.",
     image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
   },
   {
-    name: "Michael Chen",
-    role: "Investment Banker",
-    location: "Purchased in Malibu",
+    name: "Tomáš Běčák",
+    role: "Spokojný klient",
+    location: "Kúpa nehnuteľnosti",
     rating: 5,
-    text: "Their market expertise and professional network made the impossible possible. We secured an off-market property that was exactly what we were looking for. Outstanding service.",
+    text: "Chcel by som sa veľmi pekne poďakovať pani maklérke Kristíne Karaffovej z realitnej kancelárie Ahoj Reality za jej skvelý prístup a neuveriteľnú ochotu. Od prvého stretnutia bola profesionálna, milá a vždy pripravená pomôcť s každým detailom. Počas celého procesu kúpy som sa cítil v dobrých rukách – všetko bolo jasné, rýchle a bez stresu. Pani Karaffová si získala moju dôveru nielen svojimi odbornými znalosťami, ale aj ľudským a srdečným prístupom. Ak budem v budúcnosti opäť riešiť nehnuteľnosti, určite sa na ňu obrátim. Ďakujem ešte raz a úprimne odporúčam každému, kto hľadá niekoho spoľahlivého a férového.",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
   },
   {
-    name: "Isabella Rodriguez",
-    role: "Fashion Designer",
-    location: "Purchased in West Hollywood",
+    name: "Mária Baranová",
+    role: "Spokojná klientka",
+    location: "Sladkovičovo",
     rating: 5,
-    text: "From the initial consultation to the final closing, every detail was handled with precision and care. The concierge service made the entire process seamless and stress-free.",
+    text: "Pani Kristinka aj touto cestou Vám chcem poďakovať za úžasnú spoluprácu, ktorá prebehla tak rýchlo a hladko, že ešte dlho na Vás budem u nás v Sladkovičove spomínať. Ešte raz ĎAKUJEM ❤",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
   }
 ];
@@ -35,13 +35,13 @@ const Testimonials = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 bg-golden/10 border border-golden/20 rounded-full px-6 py-2 mb-6">
-            <span className="text-golden font-medium">Client Stories</span>
+            <span className="text-golden font-medium">Referencie klientov</span>
           </div>
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6">
-            What Our <span className="text-gradient-golden">Clients Say</span>
+            Čo hovoria naši <span className="text-gradient-golden">klienti</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Discover why discerning clients choose us for their luxury real estate needs
+            Prečítajte si, prečo si naši klienti vybrali práve nás pre svoje realitné potreby
           </p>
         </div>
 
@@ -87,24 +87,24 @@ const Testimonials = () => {
         <div className="mt-20 bg-gradient-primary rounded-2xl p-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl md:text-5xl font-bold text-golden mb-2">500+</div>
-              <div className="text-primary-foreground font-medium">Properties Sold</div>
-              <div className="text-muted-dark-foreground/70 text-sm">Luxury homes delivered</div>
+              <div className="text-4xl md:text-5xl font-bold text-golden mb-2">200+</div>
+              <div className="text-primary-foreground font-medium">Predaných nehnuteľností</div>
+              <div className="text-muted-dark-foreground/70 text-sm">Úspešne zrealizované</div>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-bold text-golden mb-2">$2.5B+</div>
-              <div className="text-primary-foreground font-medium">Total Sales Volume</div>
-              <div className="text-muted-dark-foreground/70 text-sm">In luxury transactions</div>
+              <div className="text-4xl md:text-5xl font-bold text-golden mb-2">50M+</div>
+              <div className="text-primary-foreground font-medium">Celkový objem predaja</div>
+              <div className="text-muted-dark-foreground/70 text-sm">V eurách</div>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-bold text-golden mb-2">98%</div>
-              <div className="text-primary-foreground font-medium">Client Satisfaction</div>
-              <div className="text-muted-dark-foreground/70 text-sm">5-star reviews</div>
+              <div className="text-4xl md:text-5xl font-bold text-golden mb-2">100%</div>
+              <div className="text-primary-foreground font-medium">Spokojnosť klientov</div>
+              <div className="text-muted-dark-foreground/70 text-sm">5-hviezdičkové hodnotenia</div>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-bold text-golden mb-2">15+</div>
-              <div className="text-primary-foreground font-medium">Years Experience</div>
-              <div className="text-muted-dark-foreground/70 text-sm">Market expertise</div>
+              <div className="text-4xl md:text-5xl font-bold text-golden mb-2">10+</div>
+              <div className="text-primary-foreground font-medium">Rokov skúseností</div>
+              <div className="text-muted-dark-foreground/70 text-sm">Na trhu nehnuteľností</div>
             </div>
           </div>
         </div>
