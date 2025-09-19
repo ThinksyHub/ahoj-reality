@@ -58,36 +58,36 @@ const Licenses = () => {
         </div>
 
         {/* Licenses Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {licenses.map((license) => {
             const IconComponent = license.icon;
             return (
               <Card key={license.id} className="overflow-hidden hover-lift bg-card border-border/20 shadow-elegant">
                 {/* License Image */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative overflow-hidden">
                   <img
                     src={license.image}
                     alt={license.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-auto object-contain"
                   />
-                  <div className="absolute top-4 right-4">
-                    <div className="w-12 h-12 bg-golden/90 rounded-full flex items-center justify-center">
-                      <IconComponent className="w-6 h-6 text-golden-foreground" />
+                  <div className="absolute top-2 right-2">
+                    <div className="w-8 h-8 bg-golden/90 rounded-full flex items-center justify-center">
+                      <IconComponent className="w-4 h-4 text-golden-foreground" />
                     </div>
                   </div>
                 </div>
 
                 {/* License Details */}
-                <div className="p-6">
-                  <h3 className="font-heading text-xl font-semibold text-primary mb-2">
+                <div className="p-4">
+                  <h3 className="font-heading text-sm font-semibold text-primary mb-1">
                     {license.title}
                   </h3>
                   
-                  <div className="text-sm text-golden-luxury font-light mb-4">
-                    Licencia #{license.number}
+                  <div className="text-xs text-golden-luxury font-light mb-2">
+                    {license.number}
                   </div>
 
-                  <p className="text-muted-foreground leading-relaxed font-light">
+                  <p className="text-muted-foreground leading-relaxed font-light text-xs">
                     {license.description}
                   </p>
                 </div>
