@@ -1,33 +1,58 @@
+import slovenskaSporitelnaLogo from "@/assets/partners/slovenska-sporitelna.png";
+import primaBankaLogo from "@/assets/partners/prima-banka.png";
+import itkapLogo from "@/assets/partners/itkap.png";
+import otpBankLogo from "@/assets/partners/otp-bank.png";
+import mbankLogo from "@/assets/partners/mbank.png";
+import vubBankaLogo from "@/assets/partners/vub-banka.png";
+import unicreditLogo from "@/assets/partners/unicredit.png";
+import tatraBankaLogo from "@/assets/partners/tatra-banka.png";
+import csobLogo from "@/assets/partners/csob.png";
+
 const partners = [
   {
     id: 1,
-    name: "Apple",
-    logo: "https://logos-world.net/wp-content/uploads/2020/04/Apple-Logo.png"
+    name: "Slovenská sporiteľňa",
+    logo: slovenskaSporitelnaLogo
   },
   {
     id: 2,
-    name: "Microsoft",
-    logo: "https://logos-world.net/wp-content/uploads/2020/04/Microsoft-Logo.png"
+    name: "Prima Banka",
+    logo: primaBankaLogo
   },
   {
     id: 3,
-    name: "Google",
-    logo: "https://logos-world.net/wp-content/uploads/2020/04/Google-Logo.png"
+    name: "ITKAP",
+    logo: itkapLogo
   },
   {
     id: 4,
-    name: "Amazon",
-    logo: "https://logos-world.net/wp-content/uploads/2020/04/Amazon-Logo.png"
+    name: "OTP Bank",
+    logo: otpBankLogo
   },
   {
     id: 5,
-    name: "Meta",
-    logo: "https://logos-world.net/wp-content/uploads/2020/10/Meta-Logo.png"
+    name: "mBank",
+    logo: mbankLogo
   },
   {
     id: 6,
-    name: "Tesla",
-    logo: "https://logos-world.net/wp-content/uploads/2020/04/Tesla-Logo.png"
+    name: "VÚB Banka",
+    logo: vubBankaLogo
+  },
+  {
+    id: 7,
+    name: "UniCredit",
+    logo: unicreditLogo
+  },
+  {
+    id: 8,
+    name: "Tatra Banka",
+    logo: tatraBankaLogo
+  },
+  {
+    id: 9,
+    name: "ČSOB",
+    logo: csobLogo
   }
 ];
 
