@@ -1,30 +1,42 @@
-import { Award, Shield, CheckCircle } from "lucide-react";
+import { Award, Shield, CheckCircle, GraduationCap } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import diplomImage from "@/assets/licenses/diplom.jpg";
+import licencia1Image from "@/assets/licenses/licencia-1.jpg";
+import licencia2Image from "@/assets/licenses/licencia-2.jpg";
+import licencia3Image from "@/assets/licenses/licencia-3.jpg";
 
 const licenses = [
   {
     id: 1,
-    title: "Realitná licencia",
-    number: "RE-2024-001",
+    title: "Realitná licencia LRK",
+    number: "RK 21-06-02",
     description: "Certifikovaná realitná maklerská licencia platná na celom Slovensku",
-    image: "https://via.placeholder.com/300x200/DAA520/FFFFFF?text=Realitna+Licencia",
+    image: licencia1Image,
     icon: Award
   },
   {
     id: 2,
-    title: "Certifikát správy nehnuteľností",
-    number: "PM-2024-002",
-    description: "Profesionálny certifikát správy nehnuteľností pre komerčné a rezidenčné objekty",
-    image: "https://via.placeholder.com/300x200/DAA520/FFFFFF?text=Sprava+Nehnutelnosti",
+    title: "CEPI Attestation",
+    number: "POA: 2506/2017/56/1",
+    description: "Európska certifikácia realitných profesionálov pre najvyššie štandardy",
+    image: licencia2Image,
     icon: Shield
   },
   {
     id: 3,
-    title: "Licencia investičného poradenstva",
-    number: "IA-2024-003",
-    description: "Licencia na poskytovanie realitných investičných poradenských služieb",
-    image: "https://via.placeholder.com/300x200/DAA520/FFFFFF?text=Investicne+Poradenstvo",
+    title: "Realitný makler LRM",
+    number: "RM 21-06-12",
+    description: "Licencia realitného maklera pre poskytovanie komplexných služieb",
+    image: licencia3Image,
     icon: CheckCircle
+  },
+  {
+    id: 4,
+    title: "Vysokoškolský diplom",
+    number: "Mgr. Kristína Karaffová, RSc.",
+    description: "Slovenská realitná akadémia - špecializácia realitná činnosť",
+    image: diplomImage,
+    icon: GraduationCap
   }
 ];
 
@@ -46,7 +58,7 @@ const Licenses = () => {
         </div>
 
         {/* Licenses Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {licenses.map((license) => {
             const IconComponent = license.icon;
             return (
