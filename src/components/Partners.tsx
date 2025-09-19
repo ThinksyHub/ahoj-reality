@@ -63,7 +63,7 @@ const partners = [
 
 const Partners = () => {
   return (
-    <section className="py-20 bg-golden/5">
+    <section className="py-20 bg-muted/30">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
