@@ -36,7 +36,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-light text-primary mb-1">Adresa</h4>
-                    <p className="text-muted-foreground font-light">Václavské námestie 1<br />110 00 Bratislava 1, Slovensko</p>
+                    <p className="text-muted-foreground font-light">AHOJ reality<br />Partizánska 6 (Bocianie hniezdo)<br />085 01 Bardejov</p>
                   </div>
                 </div>
 
@@ -46,7 +46,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-light text-primary mb-1">Telefón</h4>
-                    <p className="text-muted-foreground font-light">+421 123 456 789</p>
+                    <p className="text-muted-foreground font-light">+421 917 927 536</p>
                   </div>
                 </div>
 
