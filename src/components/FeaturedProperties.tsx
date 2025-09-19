@@ -12,7 +12,8 @@ const properties = [
     beds: 5,
     baths: 6,
     sqft: "650",
-    featured: true
+    category: "Domy",
+    transactionType: "Predaj"
   },
   {
     id: 2,
@@ -23,7 +24,8 @@ const properties = [
     beds: 4,
     baths: 5,
     sqft: "480",
-    featured: true
+    category: "Apartmán",
+    transactionType: "Predaj"
   },
   {
     id: 3,
@@ -34,18 +36,20 @@ const properties = [
     beds: 6,
     baths: 7,
     sqft: "820",
-    featured: false
+    category: "Domy",
+    transactionType: "Kúpa"
   },
   {
     id: 4,
     title: "Luxusný byt v centre",
     location: "Bratislava, SK",
-    price: "€390,000",
+    price: "€1,800/mes.",
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     beds: 3,
     baths: 4,
     sqft: "320",
-    featured: false
+    category: "Apartmán",
+    transactionType: "Na prenájom"
   },
   {
     id: 5,
@@ -56,7 +60,8 @@ const properties = [
     beds: 8,
     baths: 10,
     sqft: "1200",
-    featured: true
+    category: "Domy",
+    transactionType: "Predaj"
   },
   {
     id: 6,
@@ -67,7 +72,8 @@ const properties = [
     beds: 4,
     baths: 5,
     sqft: "450",
-    featured: false
+    category: "Domy",
+    transactionType: "Kúpa"
   },
   {
     id: 7,
@@ -78,18 +84,20 @@ const properties = [
     beds: 7,
     baths: 6,
     sqft: "890",
-    featured: false
+    category: "Domy",
+    transactionType: "Predaj"
   },
   {
     id: 8,
     title: "Minimalistický penthouse",
     location: "Nitra, SK",
-    price: "€750,000",
+    price: "€2,200/mes.",
     image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     beds: 3,
     baths: 3,
     sqft: "380",
-    featured: false
+    category: "Apartmán",
+    transactionType: "Na prenájom"
   }
 ];
 
@@ -103,7 +111,7 @@ const FeaturedProperties = () => {
             <span className="text-golden-luxury font-light">⭐⭐⭐⭐⭐ Exkluzívna kolekcia</span>
           </div>
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-primary mb-6">
-            Vybrané <span className="text-gradient-golden">nehnuteľnosti</span>
+            Najnovšie <span className="text-gradient-golden">nehnuteľnosti</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
             Objavte náš starostlivo vybraný výber luxusných nehnuteľností na najprestížnejších lokalitách
@@ -122,14 +130,15 @@ const FeaturedProperties = () => {
                   className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 
-                {/* Featured Badge */}
-                {property.featured && (
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-golden text-black px-3 py-1 rounded-full text-sm font-light">
-                      Odporúčané
-                    </span>
-                  </div>
-                )}
+                {/* Category and Transaction Type Badges */}
+                <div className="absolute top-4 left-4 flex flex-col gap-2">
+                  <span className="bg-golden text-black px-3 py-1 rounded-full text-sm font-light">
+                    {property.category}
+                  </span>
+                  <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-light">
+                    {property.transactionType}
+                  </span>
+                </div>
 
                 {/* Heart Icon */}
                 <button className="absolute top-4 right-4 w-10 h-10 bg-primary-foreground/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-golden hover:text-golden-foreground transition-all duration-300">
