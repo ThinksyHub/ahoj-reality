@@ -147,7 +147,7 @@ const FeaturedProperties = () => {
 
                 {/* Price Overlay */}
                 <div className="absolute bottom-4 left-4">
-                  <span className="text-2xl font-bold text-white">
+                  <span className="text-2xl font-bold text-white drop-shadow-lg">
                     {property.price}
                   </span>
                 </div>
