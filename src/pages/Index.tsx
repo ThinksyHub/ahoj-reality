@@ -19,7 +19,6 @@ const Index = () => {
       <References />
       <Partners />
       <QuoteBanner />
-      <Partners />
       <Licenses />
       <Contact />
       <Footer />
