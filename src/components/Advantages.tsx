@@ -65,12 +65,12 @@ const Advantages = () => {
                 key={index}
                 className="group text-center hover-lift"
               >
-                {/* Icon Container */}
-                <div className="w-20 h-20 mx-auto mb-6 bg-golden/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-golden group-hover:shadow-golden transition-all duration-300">
+                {/* Icon */}
+                <div className="mx-auto mb-6">
                   <img 
                     src={advantage.icon} 
                     alt={advantage.title}
-                    className="w-10 h-10 object-contain filter group-hover:brightness-0 transition-all duration-300" 
+                    className="w-12 h-12 object-contain mx-auto transition-all duration-300" 
                   />
                 </div>
 
