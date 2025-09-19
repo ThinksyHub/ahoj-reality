@@ -17,9 +17,9 @@ const Index = () => {
       <FeaturedProperties />
       <Advantages />
       <References />
-      <Partners />
       <QuoteBanner />
       <Licenses />
+      <Partners />
       <Contact />
       <Footer />
     </div>

@@ -70,12 +70,12 @@ const Advantages = () => {
                   <img 
                     src={advantage.icon} 
                     alt={advantage.title}
-                    className="w-12 h-12 object-contain mx-auto transition-all duration-300" 
+                    className="w-16 h-16 object-contain mx-auto transition-all duration-300" 
                   />
                 </div>
 
                 {/* Content */}
-                <h3 className="font-heading text-xl font-light text-white mb-4 group-hover:text-gradient-golden transition-colors">
+                <h3 className="font-heading text-xl font-light text-golden mb-4 transition-colors">
                   {advantage.title}
                 </h3>
                 <p className="text-white/80 font-light text-sm leading-relaxed">
