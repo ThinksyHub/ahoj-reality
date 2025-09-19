@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
+import { FaPinterest } from "react-icons/fa";
 import logo from "@/assets/logo.png";
 
 const Footer = () => {
@@ -13,21 +14,22 @@ const Footer = () => {
               <img 
                 src={logo} 
                 alt="AHOJ Reality" 
-                className="h-12 w-auto"
+                className="h-16 w-auto"
               />
             </div>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-golden mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-muted-dark-foreground/90 font-light">Václavské námestie 1</p>
-                  <p className="text-muted-dark-foreground/90 font-light">110 00 Bratislava 1</p>
+                  <p className="text-muted-dark-foreground/90 font-light">AHOJ reality</p>
+                  <p className="text-muted-dark-foreground/90 font-light">Partizánska 6 (Bocianie hniezdo)</p>
+                  <p className="text-muted-dark-foreground/90 font-light">085 01 Bardejov</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-golden flex-shrink-0" />
-                <a href="tel:+421123456789" className="text-muted-dark-foreground/90 hover:text-golden transition-colors font-light">
-                  +421 123 456 789
+                <a href="tel:+421917927536" className="text-muted-dark-foreground/90 hover:text-golden transition-colors font-light">
+                  +421 917 927 536
                 </a>
               </div>
               <div className="flex items-center space-x-3">
@@ -43,10 +45,11 @@ const Footer = () => {
           <div>
             <h4 className="font-heading text-lg font-light mb-6 text-golden-luxury">Služby</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Cenník</a></li>
-              <li><a href="#contact" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Kontakt</a></li>
-              <li><a href="#" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">GDPR</a></li>
-              <li><a href="#" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Často kladené otázky</a></li>
+              <li><a href="/homestaging" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Homestaging</a></li>
+              <li><a href="/nehnutelnosti" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Nehnuteľnosti</a></li>
+              <li><a href="/kariera" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Kariéra u nás</a></li>
+              <li><a href="/eticky-kodex" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Etický kódex</a></li>
+              <li><a href="/contact" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Kontakt</a></li>
             </ul>
           </div>
 
@@ -54,9 +57,10 @@ const Footer = () => {
           <div>
             <h4 className="font-heading text-lg font-light mb-6 text-golden-luxury">Právne informácie</h4>
             <ul className="space-y-3">
+              <li><a href="/cookies" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Cookies</a></li>
+              <li><a href="/obchodne-podmienky" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Obchodné podmienky</a></li>
               <li><a href="#" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Všeobecné podmienky</a></li>
-              <li><a href="#" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Podnikajte s nami</a></li>
-              <li><a href="#" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Kariéra u nás</a></li>
+              <li><a href="#" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">GDPR</a></li>
             </ul>
           </div>
 
@@ -69,6 +73,9 @@ const Footer = () => {
               </a>
               <a href="#" className="w-10 h-10 bg-golden/10 hover:bg-golden rounded-lg flex items-center justify-center transition-colors group">
                 <Instagram className="w-5 h-5 text-golden group-hover:text-golden-foreground" />
+              </a>
+              <a href="#" className="w-10 h-10 bg-golden/10 hover:bg-golden rounded-lg flex items-center justify-center transition-colors group">
+                <FaPinterest className="w-5 h-5 text-golden group-hover:text-golden-foreground" />
               </a>
             </div>
           </div>
