@@ -53,6 +53,11 @@ const partners = [
     id: 9,
     name: "ČSOB",
     logo: csobLogo
+  },
+  {
+    id: 10,
+    name: "Slovenská sporiteľňa",
+    logo: slovenskaSporitelnaLogo
   }
 ];
 
@@ -74,13 +79,13 @@ const Partners = () => {
         </div>
 
         {/* Partners Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
           {partners.map((partner) => (
             <div key={partner.id} className="flex items-center justify-center p-4 bg-white rounded-lg hover:shadow-md transition-all duration-300">
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="max-w-full h-12 object-contain filter grayscale opacity-40 hover:opacity-60 transition-all duration-300"
+                className="max-w-full h-14 object-contain filter grayscale hover:filter-none transition-all duration-300"
               />
             </div>
           ))}
