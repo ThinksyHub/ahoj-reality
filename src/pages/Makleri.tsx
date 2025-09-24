@@ -1,8 +1,13 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, Linkedin } from "lucide-react";
+import HeroSection from "@/components/makleri/HeroSection";
+import CompanyStory from "@/components/makleri/CompanyStory";
+import MaklerCard from "@/components/makleri/MaklerCard";
+import ValueCard from "@/components/makleri/ValueCard";
+import SectionHeader from "@/components/makleri/SectionHeader";
+
+// Icons and assets
 import kvalifikaciaIcon from "@/assets/icons/kvalifikacia.png";
 import kvalitaIcon from "@/assets/icons/kvalita.png";
 import loajalitaIcon from "@/assets/icons/loajalita.png";
@@ -97,85 +102,20 @@ const Makleri = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary via-primary-dark to-accent py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              Spoznajte náš tím
-            </h1>
-            <p className="text-xl md:text-2xl leading-relaxed opacity-90">
-              Za každým úspešným obchodom stojí profesionál s ľudským prístupom. Naši makléri vám poradia, podporia vás a prevedú celým procesom kúpy či predaja nehnuteľnosti.
-            </p>
-          </div>
-        </div>
-      </section>
+      <HeroSection 
+        title="Spoznajte náš tím"
+        subtitle="Za každým úspešným obchodom stojí profesionál s ľudským prístupom. Naši makléri vám poradia, podporia vás a prevedú celým procesom kúpy či predaja nehnuteľnosti."
+      />
 
-      {/* Company Story */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-                Ako vzniklo Ahoj Reality
-              </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-golden to-accent mx-auto mb-8"></div>
-            </div>
-            
-            <div className="bg-card rounded-2xl p-8 md:p-12 shadow-lg">
-              <p className="text-lg md:text-xl leading-relaxed text-muted-foreground mb-6">
-                Na realitnom trhu pôsobíme už niekoľko rokov. Ahoj Reality sme založili s cieľom priniesť férový a priateľský prístup do sveta nehnuteľností.
-              </p>
-              <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
-                Veríme, že kúpa či predaj bytu alebo domu nie je len o číslach – je to o dôvere, otvorenosti a korektnom prístupe.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CompanyStory />
 
       {/* Our Agents */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-              Naši makléri
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-golden to-accent mx-auto"></div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <SectionHeader title="Naši makléri" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {maklers.map((makler) => (
-              <Card key={makler.id} className="overflow-hidden hover:shadow-xl transition-all duration-300 group">
-                <div className="aspect-square overflow-hidden">
-                  <img 
-                    src={makler.image} 
-                    alt={makler.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-primary mb-2">{makler.name}</h3>
-                  <p className="text-golden font-semibold mb-4">{makler.position}</p>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">{makler.description}</p>
-                  
-                  <div className="space-y-2">
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      <Phone className="h-4 w-4 mr-2 text-golden" />
-                      <a href={`tel:${makler.phone}`} className="hover:text-primary transition-colors">
-                        {makler.phone}
-                      </a>
-                    </div>
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      <Mail className="h-4 w-4 mr-2 text-golden" />
-                      <a href={`mailto:${makler.email}`} className="hover:text-primary transition-colors">
-                        {makler.email}
-                      </a>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              <MaklerCard key={makler.id} {...makler} />
             ))}
           </div>
         </div>
@@ -184,26 +124,10 @@ const Makleri = () => {
       {/* Values */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-              Naše hodnoty
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-golden to-accent mx-auto"></div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <SectionHeader title="Naše hodnoty" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {values.map((value, index) => (
-              <div key={index} className="text-center group">
-                <div className="w-20 h-20 mx-auto mb-6 p-4 bg-gradient-to-br from-golden/10 to-accent/10 rounded-2xl group-hover:scale-110 transition-transform duration-300">
-                  <img 
-                    src={value.icon} 
-                    alt={value.title}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-primary mb-3">{value.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{value.description}</p>
-              </div>
+              <ValueCard key={index} {...value} />
             ))}
           </div>
         </div>
@@ -212,45 +136,42 @@ const Makleri = () => {
       {/* Certificates and Partnerships */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-              Naše skúsenosti a odbornosť
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-golden to-accent mx-auto mb-8"></div>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Pravidelne sa vzdelávame a zúčastňujeme odborných školení, aby sme vám vedeli poskytnúť služby na najvyššej úrovni.
-            </p>
-          </div>
+          <SectionHeader 
+            title="Naše skúsenosti a odbornosť"
+            subtitle="Pravidelne sa vzdelávame a zúčastňujeme odborných školení, aby sme vám vedeli poskytnúť služby na najvyššej úrovni."
+          />
 
-          {/* Certificates */}
-          <div className="mb-16">
-            <h3 className="text-2xl font-bold text-primary text-center mb-8">Certifikáty a licencie</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {certificates.map((cert, index) => (
-                <div key={index} className="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300">
-                  <img 
-                    src={cert.image} 
-                    alt={cert.alt}
-                    className="w-full h-32 object-contain"
-                  />
-                </div>
-              ))}
+          <div className="max-w-6xl mx-auto space-y-16">
+            {/* Certificates */}
+            <div>
+              <h3 className="text-2xl font-bold text-primary text-center mb-8">Certifikáty a licencie</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {certificates.map((cert, index) => (
+                  <div key={index} className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 border">
+                    <img 
+                      src={cert.image} 
+                      alt={cert.alt}
+                      className="w-full h-24 object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Partners */}
-          <div>
-            <h3 className="text-2xl font-bold text-primary text-center mb-8">Naši partneri</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
-              {partners.map((partner, index) => (
-                <div key={index} className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center group">
-                  <img 
-                    src={partner.image} 
-                    alt={partner.alt}
-                    className="max-w-full h-12 object-contain group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-              ))}
+            {/* Partners */}
+            <div>
+              <h3 className="text-2xl font-bold text-primary text-center mb-8">Naši partneri</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {partners.map((partner, index) => (
+                  <div key={index} className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-center group border">
+                    <img 
+                      src={partner.image} 
+                      alt={partner.alt}
+                      className="max-w-full h-8 object-contain group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -268,7 +189,7 @@ const Makleri = () => {
             </p>
             <Button 
               size="lg" 
-              className="bg-white text-primary hover:bg-white/90 font-semibold px-8 py-4 text-lg"
+              className="bg-white text-primary hover:bg-white/90 font-semibold px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
               asChild
             >
               <a href="/contact">Kontaktovať makléra</a>
