@@ -12,18 +12,23 @@ const Contact = () => {
       <Header />
       
       <main>
-        <section className="py-20 bg-muted/30">
-          <div className="container mx-auto px-6">
-            {/* Section Header */}
-            <div className="text-center mb-16">
-              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-primary mb-6">
-                Kontakt <span className="text-gradient-golden">na nás</span>
+        {/* Hero Section */}
+        <section className="pt-32 pb-16 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 leading-tight">
+                Kontakt
               </h1>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
                 Pripravení nájsť vašu dokonalú nehnuteľnosť? Spojte sa s naším expertným tímom už dnes
               </p>
             </div>
+          </div>
+        </section>
 
+        <section className="py-20 bg-muted/30">
+          <div className="container mx-auto px-6">
+            {/* Section Header */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Contact Information */}
               <div className="space-y-8">
