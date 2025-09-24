@@ -132,10 +132,19 @@ const Makleri = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <HeroSection 
-        title="Spoznajte náš tím"
-        subtitle="Za každým úspešným obchodom stojí profesionál s ľudským prístupom. Naši makléri vám poradia, podporia vás a prevedú celým procesom kúpy či predaja nehnuteľnosti."
-      />
+      {/* Hero Section */}
+      <section className="pt-32 pb-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 leading-tight">
+              Spoznajte náš tím
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+              Za každým úspešným obchodom stojí profesionál s ľudským prístupom. Naši makléri vám poradia, podporia vás a prevedú celým procesom kúpy či predaja nehnuteľnosti.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <CompanyStory />
 
