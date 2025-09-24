@@ -19,6 +19,7 @@ import diplomImage from "@/assets/licenses/diplom.jpg";
 import licencia1Image from "@/assets/licenses/licencia-1.jpg";
 import licencia2Image from "@/assets/licenses/licencia-2.jpg";
 import licencia3Image from "@/assets/licenses/licencia-3.jpg";
+import janaSvobodovaPhoto from "@/assets/team/jana-svobodova.jpg";
 import csob from "@/assets/partners/csob.png";
 import mbank from "@/assets/partners/mbank.png";
 import otpBank from "@/assets/partners/otp-bank.png";
@@ -46,7 +47,7 @@ const Makleri = () => {
       description: "Zaoberám sa predovšetkým predajom rodinných domov a pozemkov. Mám 8 rokov skúseností v realitnom sektore a vždy kladiem dôraz na individuálny prístup k každému klientovi a jeho potrebám.",
       phone: "+421 901 345 678",
       email: "jana.svobodova@ahojreality.sk",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=400&h=400&fit=crop&crop=face"
+      image: janaSvobodovaPhoto
     },
     {
       id: 3,
