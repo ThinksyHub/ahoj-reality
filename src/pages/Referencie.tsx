@@ -103,7 +103,7 @@ const Referencie = () => {
       <Header />
       
       {/* Testimonials Section */}
-      <section className="pt-20 pb-20 bg-background">
+      <section className="pt-32 pb-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-primary mb-6">
