@@ -42,7 +42,7 @@ const Header = () => {
               <span className="font-medium">Blog</span>
               <div className="absolute bottom-0 left-0 w-full h-0.5 bg-golden scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></div>
             </a>
-            <a href="#contact" className="text-primary hover:text-golden transition-all duration-300 font-light py-3 px-2 relative group">
+            <a href="/contact" className="text-primary hover:text-golden transition-all duration-300 font-light py-3 px-2 relative group">
               <span className="font-medium">Kontakt</span>
               <div className="absolute bottom-0 left-0 w-full h-0.5 bg-golden scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></div>
             </a>
@@ -86,7 +86,7 @@ const Header = () => {
               <a href="#blog" className="text-primary hover:text-golden transition-colors font-light py-2">
                 Blog
               </a>
-              <a href="#contact" className="text-primary hover:text-golden transition-colors font-light py-2">
+              <a href="/contact" className="text-primary hover:text-golden transition-colors font-light py-2">
                 Kontakt
               </a>
             </nav>
