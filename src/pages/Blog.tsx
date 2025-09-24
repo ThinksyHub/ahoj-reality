@@ -100,28 +100,11 @@ const Blog = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 leading-tight">
-              Blog a inšpirácie
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-              Užitočné články, tipy a aktuálne informácie zo sveta nehnuteľností
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Blog Content */}
-      <section className="py-20 bg-background">
+      <section className="pt-20 pb-20 bg-background">
         <div className="container mx-auto px-4">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-golden/10 border border-golden/20 rounded-full px-6 py-2 mb-6">
-              <span className="text-golden-luxury font-light">Aktuálne články</span>
-            </div>
             <h2 className="font-serif text-4xl md:text-5xl font-normal text-primary mb-6">
               Najnovšie <span className="text-gradient-golden">články</span>
             </h2>
