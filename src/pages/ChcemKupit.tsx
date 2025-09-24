@@ -114,7 +114,7 @@ const ChcemKupit = () => {
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl md:text-5xl font-normal text-primary mb-6">
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-primary mb-6">
               Jednoduchý proces <span className="text-gradient-golden">kúpy</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">

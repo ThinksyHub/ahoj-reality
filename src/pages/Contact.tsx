@@ -16,7 +16,7 @@ const Contact = () => {
         <section className="pt-32 pb-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 leading-tight">
+              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-primary mb-6">
                 Kontakt
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">

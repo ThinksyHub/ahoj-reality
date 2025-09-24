@@ -105,7 +105,7 @@ const Blog = () => {
         <div className="container mx-auto px-4">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl md:text-5xl font-normal text-primary mb-6">
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-primary mb-6">
               Najnovšie <span className="text-gradient-golden">články</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
