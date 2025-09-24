@@ -101,7 +101,7 @@ const Blog = () => {
       <Header />
       
       {/* Blog Content */}
-      <section className="pt-20 pb-20 bg-background">
+      <section className="pt-32 pb-20 bg-background">
         <div className="container mx-auto px-4">
           {/* Section Header */}
           <div className="text-center mb-16">

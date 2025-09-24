@@ -103,12 +103,9 @@ const Referencie = () => {
       <Header />
       
       {/* Testimonials Section */}
-      <section className="py-20 bg-background">
+      <section className="pt-20 pb-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-golden/10 border border-golden/20 rounded-full px-6 py-2 mb-6">
-              <span className="text-golden-luxury font-light">Spokojní klienti</span>
-            </div>
             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-primary mb-6">
               Recenzie od <span className="text-gradient-golden">klientov</span>
             </h2>

@@ -132,7 +132,10 @@ const Makleri = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <CompanyStory />
+      {/* Company Story with top padding */}
+      <div className="pt-20">
+        <CompanyStory />
+      </div>
 
       {/* Our Agents */}
       <section className="py-20 bg-muted/30">
