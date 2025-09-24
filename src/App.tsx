@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import Properties from "./pages/Properties";
 import Makleri from "./pages/Makleri";
 import Referencie from "./pages/Referencie";
+import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/ponuka-nehnutelnosti" element={<Properties />} />
           <Route path="/makleri" element={<Makleri />} />
           <Route path="/referencie" element={<Referencie />} />
+          <Route path="/blog" element={<Blog />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
