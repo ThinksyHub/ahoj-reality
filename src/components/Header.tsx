@@ -14,14 +14,14 @@ const Header = () => {
         <div className="flex justify-between items-center py-5">
           {/* Logo - Left */}
           <div className="flex items-center space-x-3">
-            <div className="relative group">
+            <a href="/" className="relative group">
               <img 
                 src={logo} 
                 alt="AHOJ Reality" 
                 className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
               />
               <div className="absolute -inset-2 bg-golden/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
-            </div>
+            </a>
           </div>
 
           {/* Desktop Navigation - Center */}
