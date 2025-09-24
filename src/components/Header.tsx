@@ -27,15 +27,15 @@ const Header = () => {
           {/* Desktop Navigation - Center */}
           <nav className="hidden lg:flex items-center space-x-10">
             <div className="relative group">
-              <button className="flex items-center space-x-1 text-primary hover:text-golden transition-all duration-300 font-light py-3 px-2 relative">
+              <a href="/ponuka-nehnutelnosti" className="flex items-center space-x-1 text-primary hover:text-golden transition-all duration-300 font-light py-3 px-2 relative">
                 <span className="font-medium">Ponuka nehnuteľností</span>
                 <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
                 <div className="absolute bottom-0 left-0 w-full h-0.5 bg-golden scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></div>
-              </button>
+              </a>
               <div className="absolute top-full left-0 w-56 bg-white/98 backdrop-blur-xl shadow-luxury rounded-xl py-3 mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-golden/10">
-                <a href="#top" className="block px-6 py-3 text-primary hover:text-golden hover:bg-golden/5 font-light transition-all duration-200">Top ponuky</a>
-                <a href="#sale" className="block px-6 py-3 text-primary hover:text-golden hover:bg-golden/5 font-light transition-all duration-200">Predaj</a>
-                <a href="#rent" className="block px-6 py-3 text-primary hover:text-golden hover:bg-golden/5 font-light transition-all duration-200">Prenájom</a>
+                <a href="/ponuka-nehnutelnosti#top" className="block px-6 py-3 text-primary hover:text-golden hover:bg-golden/5 font-light transition-all duration-200">Top ponuky</a>
+                <a href="/ponuka-nehnutelnosti#sale" className="block px-6 py-3 text-primary hover:text-golden hover:bg-golden/5 font-light transition-all duration-200">Predaj</a>
+                <a href="/ponuka-nehnutelnosti#rent" className="block px-6 py-3 text-primary hover:text-golden hover:bg-golden/5 font-light transition-all duration-200">Prenájom</a>
               </div>
             </div>
             <a href="#agents" className="text-primary hover:text-golden transition-all duration-300 font-light py-3 px-2 relative group">
@@ -79,14 +79,14 @@ const Header = () => {
           <div className="lg:hidden py-4 border-t border-gray-200/20">
             <nav className="flex flex-col space-y-4">
               <div>
-                <button className="flex items-center justify-between w-full text-primary hover:text-golden transition-colors font-light py-2">
+                <a href="/ponuka-nehnutelnosti" className="flex items-center justify-between w-full text-primary hover:text-golden transition-colors font-light py-2">
                   <span>Ponuka nehnuteľností</span>
                   <ChevronDown className="w-4 h-4" />
-                </button>
+                </a>
                 <div className="ml-4 mt-2 space-y-2">
-                  <a href="#top" className="block text-primary hover:text-golden py-1 font-light">Top ponuky</a>
-                  <a href="#sale" className="block text-primary hover:text-golden py-1 font-light">Predaj</a>
-                  <a href="#rent" className="block text-primary hover:text-golden py-1 font-light">Prenájom</a>
+                  <a href="/ponuka-nehnutelnosti#top" className="block text-primary hover:text-golden py-1 font-light">Top ponuky</a>
+                  <a href="/ponuka-nehnutelnosti#sale" className="block text-primary hover:text-golden py-1 font-light">Predaj</a>
+                  <a href="/ponuka-nehnutelnosti#rent" className="block text-primary hover:text-golden py-1 font-light">Prenájom</a>
                 </div>
               </div>
               <a href="#agents" className="text-primary hover:text-golden transition-colors font-light py-2">
