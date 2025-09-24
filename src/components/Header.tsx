@@ -48,8 +48,24 @@ const Header = () => {
             </a>
           </nav>
 
-          {/* Search Button - Right */}
-          <div className="flex items-center">
+          {/* CTA Buttons - Right */}
+          <div className="hidden lg:flex items-center space-x-4">
+            <a 
+              href="/chcem-predat"
+              className="px-6 py-3 bg-white border-2 border-golden text-golden font-semibold rounded-lg hover:bg-golden/5 transition-all duration-300"
+            >
+              CHCEM PREDAŤ
+            </a>
+            <a 
+              href="/chcem-kupit"
+              className="px-6 py-3 bg-gradient-to-r from-golden to-accent text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105"
+            >
+              CHCEM KÚPIŤ
+            </a>
+          </div>
+
+          {/* Search Button - Mobile Only */}
+          <div className="lg:hidden flex items-center">
             <Button 
               variant="ghost" 
               size="sm" 
@@ -89,6 +105,22 @@ const Header = () => {
               <a href="/contact" className="text-primary hover:text-golden transition-colors font-light py-2">
                 Kontakt
               </a>
+              
+              {/* Mobile CTA Buttons */}
+              <div className="pt-4 space-y-3">
+                <a 
+                  href="/chcem-predat"
+                  className="block w-full text-center px-6 py-3 bg-white border-2 border-golden text-golden font-semibold rounded-lg hover:bg-golden/5 transition-all duration-300"
+                >
+                  CHCEM PREDAŤ
+                </a>
+                <a 
+                  href="/chcem-kupit"
+                  className="block w-full text-center px-6 py-3 bg-gradient-to-r from-golden to-accent text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
+                >
+                  CHCEM KÚPIŤ
+                </a>
+              </div>
             </nav>
           </div>
         )}
