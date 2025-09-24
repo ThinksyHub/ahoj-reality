@@ -98,7 +98,7 @@ const Makleri = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary via-primary-dark to-accent py-20 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-primary via-primary-dark to-accent py-32 overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center text-white">
