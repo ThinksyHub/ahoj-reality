@@ -123,6 +123,17 @@ const PropertyDetail = () => {
             <div>
               {/* Property Header */}
               <div className="mb-6">
+                <div className="flex justify-end mb-2">
+                  <div className="flex items-center space-x-2">
+                    <span className="bg-golden text-black px-3 py-1 rounded-full text-xs font-medium">
+                      {property.category}
+                    </span>
+                    <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
+                      {property.transactionType}
+                    </span>
+                  </div>
+                </div>
+                
                 <h1 className="font-serif text-3xl font-normal text-primary mb-4">
                   {property.title}
                 </h1>
@@ -133,12 +144,6 @@ const PropertyDetail = () => {
                     <span className="text-lg">{property.location}</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <span className="bg-golden text-black px-3 py-1 rounded-full text-xs font-medium">
-                      {property.category}
-                    </span>
-                    <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
-                      {property.transactionType}
-                    </span>
                     <Button size="sm" variant="ghost" className="text-muted-foreground hover:text-golden">
                       <Heart className="w-5 h-5" />
                     </Button>
