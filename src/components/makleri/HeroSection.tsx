@@ -18,7 +18,7 @@ const HeroSection = () => {
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-white mb-6">
             Ako vzniklo <span className="text-gradient-golden">AHOJ reality</span>
           </h2>
-          <p className="text-xl text-white/90 max-w-2xl mx-auto font-light">
+          <p className="text-lg text-white/90 max-w-4xl mx-auto font-light">
             Realitná kancelária AHOJ reality poskytuje kompletný servis v oblastí realít, to znamená profesionálne služby v oblasti predaja, kúpy, financovania a právneho poradenstva. Za všetkým stojí zakladateľka a majiteľka firmy Mgr. Kristína Karaffová, ktorá v oblasti realít pôsobí od roku 2010. Od roku 2010 až do roku 2016 pôsobila v spoločnosti Profit finance, s.r.o, ako konateľka spoločnosti, taktiež aj ako maklérka, kde v realitnom trhu nadobudla bohaté skúsenosti a prax.
           </p>
         </div>
