@@ -277,13 +277,13 @@ const PropertyDetail = () => {
                 </Card>
                 
                 {/* Agent Section */}
-                <Card className="p-4 bg-card border-border/20 shadow-elegant mt-4">
+                <Card className="p-4 bg-card mt-4">
                   <h3 className="font-serif text-lg font-normal text-primary text-center mb-4">Tvoj maklér</h3>
                   <div className="flex items-center space-x-3">
                     <img 
                       src="/src/assets/team/jana-svobodova.jpg" 
                       alt="Jana Svobodová" 
-                      className="w-12 h-12 object-cover"
+                      className="w-12 h-12 rounded-full object-cover"
                     />
                     <div>
                       <div className="font-medium text-primary">Jana Svobodová</div>
