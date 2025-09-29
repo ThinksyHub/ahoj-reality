@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { ArrowLeft, Bed, Bath, Square, MapPin, Heart, Share2, Phone, Mail, Calendar, Eye, Home, Star, Car, Trees, Shield, Snowflake, Flame, Wifi, Waves, Mountain, Archive, WashingMachine, ChefHat, Sofa } from "lucide-react";
+import { ArrowLeft, Bed, Bath, Square, MapPin, Heart, Share2, Phone, Mail, Calendar, Eye, Home, Star, Car, Trees, Shield, Snowflake, Flame, Wifi, Waves, Mountain, Archive, WashingMachine, ChefHat, Sofa, ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -55,6 +56,7 @@ const properties = [
 const PropertyDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
   
   const property = properties.find(p => p.id === parseInt(id || "1"));
   
@@ -79,15 +81,41 @@ const PropertyDetail = () => {
         {/* Property Details - Main Layout */}
         <div className="container mx-auto px-6 pb-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            {/* Left Side - Main Image */}
+            {/* Left Side - Main Image and Gallery */}
             <div>
-              <AspectRatio ratio={4/3} className="overflow-hidden rounded-lg">
-                <img
-                  src={property.image}
-                  alt={property.title}
-                  className="w-full h-full object-cover"
-                />
-              </AspectRatio>
+              {/* Main Image */}
+              <div className="mb-6">
+                <AspectRatio ratio={4/3} className="overflow-hidden rounded-lg">
+                  <img
+                    src={property.image}
+                    alt={property.title}
+                    className="w-full h-full object-cover"
+                  />
+                </AspectRatio>
+              </div>
+
+              {/* Gallery Section */}
+              <div>
+                <h3 className="font-serif text-xl font-normal text-primary mb-4">Galéria fotografií</h3>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                  {property.images.slice(1, 9).map((image, index) => (
+                    <AspectRatio key={index} ratio={4/3} className="overflow-hidden rounded-lg">
+                      <img
+                        src={image}
+                        alt={`${property.title} ${index + 2}`}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer"
+                      />
+                    </AspectRatio>
+                  ))}
+                </div>
+                {property.images.length > 9 && (
+                  <div className="text-center pt-4">
+                    <span className="text-sm text-muted-foreground">
+                      +{property.images.length - 9} ďalších fotografií
+                    </span>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Right Side - Property Details */}
@@ -183,37 +211,30 @@ const PropertyDetail = () => {
                 </div>
               </div>
 
-              {/* Description */}
+              {/* Description with Expander */}
               <div className="mb-8">
                 <h2 className="font-serif text-xl font-normal text-primary mb-4">Popis nehnuteľnosti</h2>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {property.description.substring(0, 200)}...
-                </p>
+                <div className="text-muted-foreground text-sm leading-relaxed">
+                  <p className={`transition-all duration-300 ${!isDescriptionExpanded ? 'line-clamp-3' : ''}`}>
+                    {property.description}
+                  </p>
+                  <button
+                    onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}
+                    className="flex items-center mt-2 text-golden hover:text-golden/80 transition-colors text-sm font-medium"
+                  >
+                    {isDescriptionExpanded ? (
+                      <>
+                        Zobraziť menej <ChevronUp className="w-4 h-4 ml-1" />
+                      </>
+                    ) : (
+                      <>
+                        Zobraziť viac <ChevronDown className="w-4 h-4 ml-1" />
+                      </>
+                    )}
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-
-          {/* Gallery Section */}
-          <div className="mb-12">
-            <h3 className="font-serif text-xl font-normal text-primary mb-6">Galéria fotografií</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {property.images.slice(1, 9).map((image, index) => (
-                <AspectRatio key={index} ratio={4/3} className="overflow-hidden rounded-lg">
-                  <img
-                    src={image}
-                    alt={`${property.title} ${index + 2}`}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer"
-                  />
-                </AspectRatio>
-              ))}
-            </div>
-            {property.images.length > 9 && (
-              <div className="text-center pt-4">
-                <span className="text-sm text-muted-foreground">
-                  +{property.images.length - 9} ďalších fotografií
-                </span>
-              </div>
-            )}
           </div>
 
           {/* Contact Section */}

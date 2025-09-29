@@ -299,3 +299,11 @@ All colors MUST be HSL.
     color: hsl(0 0% 0%) !important;
   }
 }
+
+/* Text utilities */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
