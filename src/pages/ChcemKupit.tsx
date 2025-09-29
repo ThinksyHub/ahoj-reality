@@ -85,14 +85,12 @@ const ChcemKupit = () => {
         <div className="container mx-auto px-6 relative">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <div className="bg-white/70 backdrop-blur-xl rounded-3xl p-10 max-w-5xl mx-auto border border-white/30 shadow-luxury">
-              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-primary mb-6">
-                Pomôžeme vám nájsť váš <span className="text-gradient-golden">vysnívaný domov</span>
-              </h1>
-              <p className="text-lg text-primary/80 max-w-4xl mx-auto font-light">
-                Či už hľadáte prvý byt, rodinný dom alebo investičnú nehnuteľnosť, v Ahoj Reality vás prevedieme celým procesom – od výberu až po podpis zmluvy.
-              </p>
-            </div>
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-primary mb-6">
+              Pomôžeme vám nájsť váš <span className="text-gradient-golden">vysnívaný domov</span>
+            </h1>
+            <p className="text-lg text-primary/80 max-w-4xl mx-auto font-light">
+              Či už hľadáte prvý byt, rodinný dom alebo investičnú nehnuteľnosť, v Ahoj Reality vás prevedieme celým procesom – od výberu až po podpis zmluvy.
+            </p>
           </div>
         </div>
       </section>
