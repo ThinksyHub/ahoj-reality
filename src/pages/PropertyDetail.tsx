@@ -57,6 +57,7 @@ const PropertyDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
+  const [isFeaturesExpanded, setIsFeaturesExpanded] = useState(false);
   
   const property = properties.find(p => p.id === parseInt(id || "1"));
   
@@ -122,15 +123,6 @@ const PropertyDetail = () => {
             <div>
               {/* Property Header */}
               <div className="mb-6">
-                <div className="flex items-center space-x-3 mb-4">
-                  <span className="bg-golden text-black px-4 py-2 rounded-full text-sm font-medium">
-                    {property.category}
-                  </span>
-                  <span className="bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-medium">
-                    {property.transactionType}
-                  </span>
-                </div>
-                
                 <h1 className="font-serif text-3xl font-normal text-primary mb-4">
                   {property.title}
                 </h1>
@@ -141,6 +133,12 @@ const PropertyDetail = () => {
                     <span className="text-lg">{property.location}</span>
                   </div>
                   <div className="flex items-center space-x-2">
+                    <span className="bg-golden text-black px-3 py-1 rounded-full text-xs font-medium">
+                      {property.category}
+                    </span>
+                    <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
+                      {property.transactionType}
+                    </span>
                     <Button size="sm" variant="ghost" className="text-muted-foreground hover:text-golden">
                       <Heart className="w-5 h-5" />
                     </Button>
@@ -154,7 +152,7 @@ const PropertyDetail = () => {
               </div>
 
               {/* Property Stats */}
-              <div className="grid grid-cols-6 gap-1 mb-8 p-2 bg-card rounded-lg border border-border/20">
+              <div className="grid grid-cols-6 gap-0.5 mb-8 p-1 bg-card rounded-lg border border-border/20">
                 <div className="text-center">
                   <div className="w-6 h-6 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-1">
                     <Bed className="w-3 h-3 text-golden" />
@@ -202,13 +200,29 @@ const PropertyDetail = () => {
               <div className="mb-8">
                 <h2 className="font-serif text-xl font-normal text-primary mb-4">Vybavenie a vlastnosti</h2>
                 <div className="grid grid-cols-1 gap-2">
-                  {property.features.slice(0, 3).map((feature, index) => (
+                  {property.features.slice(0, isFeaturesExpanded ? property.features.length : 3).map((feature, index) => (
                     <div key={index} className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-golden rounded-full"></div>
                       <span className="text-muted-foreground text-sm">{feature}</span>
                     </div>
                   ))}
                 </div>
+                {property.features.length > 3 && (
+                  <button
+                    onClick={() => setIsFeaturesExpanded(!isFeaturesExpanded)}
+                    className="flex items-center mt-2 text-golden hover:text-golden/80 transition-colors text-sm font-medium"
+                  >
+                    {isFeaturesExpanded ? (
+                      <>
+                        Zobraziť menej <ChevronUp className="w-4 h-4 ml-1" />
+                      </>
+                    ) : (
+                      <>
+                        Zobraziť viac <ChevronDown className="w-4 h-4 ml-1" />
+                      </>
+                    )}
+                  </button>
+                )}
               </div>
 
               {/* Description with Expander */}
