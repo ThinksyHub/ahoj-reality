@@ -76,50 +76,24 @@ const PropertyDetail = () => {
       <Header />
       
       <main className="pt-32">
-        {/* Property Details - Two Column Layout */}
+        {/* Property Details - Main Layout */}
         <div className="container mx-auto px-6 pb-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Left Side - Images */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            {/* Left Side - Main Image */}
             <div>
-              {/* Main Image */}
-              <div className="mb-6">
-                <AspectRatio ratio={4/3} className="overflow-hidden">
-                  <img
-                    src={property.image}
-                    alt={property.title}
-                    className="w-full h-full object-cover"
-                  />
-                </AspectRatio>
-              </div>
-
-              {/* Image Gallery - Two Row Grid */}
-              <div className="space-y-4">
-                <h3 className="font-serif text-xl font-normal text-primary">Galéria fotografií</h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                  {property.images.slice(1, 9).map((image, index) => (
-                    <AspectRatio key={index} ratio={4/3} className="overflow-hidden">
-                      <img
-                        src={image}
-                        alt={`${property.title} ${index + 2}`}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer"
-                      />
-                    </AspectRatio>
-                  ))}
-                </div>
-                {property.images.length > 9 && (
-                  <div className="text-center pt-2">
-                    <span className="text-sm text-muted-foreground">
-                      +{property.images.length - 9} ďalších fotografií
-                    </span>
-                  </div>
-                )}
-              </div>
+              <AspectRatio ratio={4/3} className="overflow-hidden rounded-lg">
+                <img
+                  src={property.image}
+                  alt={property.title}
+                  className="w-full h-full object-cover"
+                />
+              </AspectRatio>
             </div>
 
             {/* Right Side - Property Details */}
             <div>
               {/* Property Header */}
-              <div className="mb-8">
+              <div className="mb-6">
                 <div className="flex items-center space-x-3 mb-4">
                   <span className="bg-golden text-black px-4 py-2 rounded-full text-sm font-medium">
                     {property.category}
@@ -129,7 +103,7 @@ const PropertyDetail = () => {
                   </span>
                 </div>
                 
-                <h1 className="font-serif text-4xl font-normal text-primary mb-4">
+                <h1 className="font-serif text-3xl font-normal text-primary mb-4">
                   {property.title}
                 </h1>
                 
@@ -148,171 +122,121 @@ const PropertyDetail = () => {
                   </div>
                 </div>
 
-                <div className="text-4xl font-bold text-primary mb-8">{property.price}</div>
+                <div className="text-3xl font-bold text-primary mb-6">{property.price}</div>
               </div>
 
-              {/* Property Stats with Icons */}
-              <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8 p-6 bg-card rounded-lg border border-border/20">
+              {/* Property Stats */}
+              <div className="grid grid-cols-6 gap-4 mb-8 p-4 bg-card rounded-lg border border-border/20">
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <Bed className="w-5 h-5 text-golden" />
+                  <div className="w-10 h-10 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Bed className="w-4 h-4 text-golden" />
                   </div>
                   <div className="text-lg font-bold text-primary">{property.beds}</div>
-                  <div className="text-xs text-muted-foreground">Spálne</div>
                 </div>
                 
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <Bath className="w-5 h-5 text-golden" />
+                  <div className="w-10 h-10 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Bath className="w-4 h-4 text-golden" />
                   </div>
                   <div className="text-lg font-bold text-primary">{property.baths}</div>
-                  <div className="text-xs text-muted-foreground">Kúpeľne</div>
                 </div>
                 
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <Square className="w-5 h-5 text-golden" />
+                  <div className="w-10 h-10 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Square className="w-4 h-4 text-golden" />
                   </div>
                   <div className="text-lg font-bold text-primary">{property.sqft}</div>
-                  <div className="text-xs text-muted-foreground">m²</div>
                 </div>
 
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <Car className="w-5 h-5 text-golden" />
+                  <div className="w-10 h-10 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Car className="w-4 h-4 text-golden" />
                   </div>
-                  <div className="text-lg font-bold text-primary">2</div>
-                  <div className="text-xs text-muted-foreground">Garáž</div>
+                  <div className="text-lg font-bold text-primary">3</div>
                 </div>
 
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <Trees className="w-5 h-5 text-golden" />
+                  <div className="w-10 h-10 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Trees className="w-4 h-4 text-golden" />
                   </div>
                   <div className="text-lg font-bold text-primary">✓</div>
-                  <div className="text-xs text-muted-foreground">Záhrada</div>
                 </div>
 
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <Waves className="w-5 h-5 text-golden" />
+                  <div className="w-10 h-10 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Flame className="w-4 h-4 text-golden" />
                   </div>
                   <div className="text-lg font-bold text-primary">✓</div>
-                  <div className="text-xs text-muted-foreground">Bazén</div>
-                </div>
-
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <Shield className="w-5 h-5 text-golden" />
-                  </div>
-                  <div className="text-lg font-bold text-primary">✓</div>
-                  <div className="text-xs text-muted-foreground">Bezpečnosť</div>
-                </div>
-
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <Snowflake className="w-5 h-5 text-golden" />
-                  </div>
-                  <div className="text-lg font-bold text-primary">✓</div>
-                  <div className="text-xs text-muted-foreground">Klimatizácia</div>
-                </div>
-
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <Flame className="w-5 h-5 text-golden" />
-                  </div>
-                  <div className="text-lg font-bold text-primary">✓</div>
-                  <div className="text-xs text-muted-foreground">Krb</div>
-                </div>
-
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <Wifi className="w-5 h-5 text-golden" />
-                  </div>
-                  <div className="text-lg font-bold text-primary">✓</div>
-                  <div className="text-xs text-muted-foreground">Smart home</div>
-                </div>
-
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <Archive className="w-5 h-5 text-golden" />
-                  </div>
-                  <div className="text-lg font-bold text-primary">✓</div>
-                  <div className="text-xs text-muted-foreground">Skladovanie</div>
-                </div>
-
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <ChefHat className="w-5 h-5 text-golden" />
-                  </div>
-                  <div className="text-lg font-bold text-primary">✓</div>
-                  <div className="text-xs text-muted-foreground">Vínovka</div>
                 </div>
               </div>
 
               {/* Features */}
               <div className="mb-8">
-                <h2 className="font-serif text-2xl font-normal text-primary mb-4">Vybavenie a vlastnosti</h2>
-                <div className="grid grid-cols-1 gap-3">
-                  {property.features.map((feature, index) => (
+                <h2 className="font-serif text-xl font-normal text-primary mb-4">Vybavenie a vlastnosti</h2>
+                <div className="grid grid-cols-1 gap-2">
+                  {property.features.slice(0, 3).map((feature, index) => (
                     <div key={index} className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-golden rounded-full"></div>
-                      <span className="text-muted-foreground">{feature}</span>
+                      <span className="text-muted-foreground text-sm">{feature}</span>
                     </div>
                   ))}
                 </div>
               </div>
+
+              {/* Description */}
+              <div className="mb-8">
+                <h2 className="font-serif text-xl font-normal text-primary mb-4">Popis nehnuteľnosti</h2>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {property.description.substring(0, 200)}...
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Property Description - Full Width */}
-        <div className="container mx-auto px-6 pb-12">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="font-serif text-3xl font-normal text-primary mb-6">Popis nehnuteľnosti</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              {property.description}
-            </p>
+          {/* Gallery Section */}
+          <div className="mb-12">
+            <h3 className="font-serif text-xl font-normal text-primary mb-6">Galéria fotografií</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {property.images.slice(1, 9).map((image, index) => (
+                <AspectRatio key={index} ratio={4/3} className="overflow-hidden rounded-lg">
+                  <img
+                    src={image}
+                    alt={`${property.title} ${index + 2}`}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer"
+                  />
+                </AspectRatio>
+              ))}
+            </div>
+            {property.images.length > 9 && (
+              <div className="text-center pt-4">
+                <span className="text-sm text-muted-foreground">
+                  +{property.images.length - 9} ďalších fotografií
+                </span>
+              </div>
+            )}
           </div>
-        </div>
 
-        {/* Contact Section - Full Width */}
-        <div className="container mx-auto px-6 pb-12">
-          <div className="max-w-2xl mx-auto">
-            <Card className="p-8 bg-card border-border/20 shadow-elegant">
-              <h3 className="font-serif text-2xl font-normal text-primary text-center mb-8">Kontaktujte nás</h3>
+          {/* Contact Section */}
+          <div className="max-w-md mx-auto">
+            <Card className="p-6 bg-card border-border/20 shadow-elegant">
+              <h3 className="font-serif text-xl font-normal text-primary text-center mb-6">Kontaktujte nás</h3>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                <Button className="btn-golden">
+              <div className="grid grid-cols-2 gap-3 mb-4">
+                <Button className="btn-golden text-sm">
                   <Phone className="w-4 h-4 mr-2" />
                   Zavolať teraz
                 </Button>
                 
-                <Button variant="outline">
+                <Button className="btn-golden text-sm">
                   <Mail className="w-4 h-4 mr-2" />
                   Poslať email
                 </Button>
-                
-                <Button variant="outline">
-                  <Calendar className="w-4 h-4 mr-2" />
-                  Naplánovať prehliadku
-                </Button>
               </div>
 
-              <div className="border-t border-border/20 pt-6">
-                <h4 className="font-medium text-primary text-center mb-4">Váš makléri</h4>
-                <div className="flex items-center justify-center space-x-4">
-                  <img
-                    src="/src/assets/team/jana-svobodova.jpg"
-                    alt="Jana Svobodová"
-                    className="w-16 h-16 rounded-full object-cover"
-                  />
-                  <div className="text-center">
-                    <div className="font-medium text-primary">Jana Svobodová</div>
-                    <div className="text-sm text-muted-foreground">Senior makléri</div>
-                  </div>
-                </div>
-              </div>
+              <Button variant="outline" className="w-full">
+                <Calendar className="w-4 h-4 mr-2" />
+                Naplánovať prehliadku
+              </Button>
             </Card>
           </div>
         </div>
