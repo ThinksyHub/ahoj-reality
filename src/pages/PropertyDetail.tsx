@@ -287,6 +287,17 @@ const PropertyDetail = () => {
                 </div>
               </div>
 
+              {/* Price Section */}
+              <div className="mb-8 flex justify-end">
+                <div className="text-right">
+                  <div className="text-3xl font-bold text-primary flex items-center">
+                    <Star className="w-6 h-6 text-golden mr-2" />
+                    299,900 €
+                    <Star className="w-6 h-6 text-golden ml-2" />
+                  </div>
+                </div>
+              </div>
+
               {/* Contact Section */}
               <div>
                 <Card className="p-6 bg-card border border-border/10 shadow-sm">
