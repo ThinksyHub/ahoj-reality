@@ -131,7 +131,7 @@ const Makleri = () => {
       {/* Company Story removed since content is now in hero */}
 
       {/* Our Agents */}
-      <section className="py-20 bg-muted/30 -mt-20 relative z-10">
+      <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <SectionHeader title="Naši makléri" />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">

@@ -1,6 +1,6 @@
 const HeroSection = () => {
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-20 pt-32 relative overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
