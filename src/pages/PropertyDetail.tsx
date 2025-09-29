@@ -123,7 +123,10 @@ const PropertyDetail = () => {
             <div>
               {/* Property Header */}
               <div className="mb-6">
-                <div className="flex justify-end mb-2">
+                <div className="flex items-start justify-between mb-4">
+                  <h1 className="font-serif text-3xl font-normal text-primary">
+                    {property.title}
+                  </h1>
                   <div className="flex items-center space-x-2">
                     <span className="bg-golden text-black px-3 py-1 rounded-full text-xs font-medium">
                       {property.category}
@@ -133,10 +136,6 @@ const PropertyDetail = () => {
                     </span>
                   </div>
                 </div>
-                
-                <h1 className="font-serif text-3xl font-normal text-primary mb-4">
-                  {property.title}
-                </h1>
                 
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center space-x-2 text-muted-foreground">
