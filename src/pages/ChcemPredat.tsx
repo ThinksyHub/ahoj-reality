@@ -95,31 +95,12 @@ const ChcemPredat = () => {
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {benefits.map((benefit, index) => (
-              <Card key={index} className="text-center p-6 hover-lift bg-card border-border/20 shadow-elegant group">
-                <CardContent className="p-6">
-                  <div className="w-16 h-16 mx-auto mb-6 p-4 bg-gradient-to-br from-golden/10 to-accent/10 rounded-2xl group-hover:scale-110 transition-transform duration-300 border border-golden/20">
-                    <benefit.icon className="w-full h-full text-golden" />
-                  </div>
-                  <h3 className="text-xl font-bold text-primary mb-3">{benefit.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">{benefit.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Process Section */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-primary mb-6">
-              Ako to <span className="text-gradient-golden">prebieha</span>
+              Ako prebieha <span className="text-gradient-golden">predaj</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
               Jednoduchý a transparentný proces predaja v 5 krokoch
@@ -149,6 +130,25 @@ const ChcemPredat = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {benefits.map((benefit, index) => (
+              <Card key={index} className="text-center p-6 hover-lift bg-card border-border/20 shadow-elegant group">
+                <CardContent className="p-6">
+                  <div className="w-16 h-16 mx-auto mb-6 p-4 bg-gradient-to-br from-golden/10 to-accent/10 rounded-2xl group-hover:scale-110 transition-transform duration-300 border border-golden/20">
+                    <benefit.icon className="w-full h-full text-golden" />
+                  </div>
+                  <h3 className="text-xl font-bold text-primary mb-3">{benefit.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed text-sm">{benefit.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
