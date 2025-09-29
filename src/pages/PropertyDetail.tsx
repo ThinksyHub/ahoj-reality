@@ -35,7 +35,15 @@ const properties = [
       "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
       "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2053&q=80",
       "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80",
+      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "https://images.unsplash.com/photo-1571624436279-b272aff752b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80",
+      "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "https://images.unsplash.com/photo-1615529328331-f8917597711f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
     ]
   }
 ];
@@ -71,7 +79,7 @@ const PropertyDetail = () => {
             <div>
               {/* Main Image */}
               <div className="mb-6">
-                <AspectRatio ratio={4/3} className="overflow-hidden rounded-lg">
+                <AspectRatio ratio={4/3} className="overflow-hidden">
                   <img
                     src={property.image}
                     alt={property.title}
@@ -86,8 +94,8 @@ const PropertyDetail = () => {
                 <Carousel className="w-full">
                   <CarouselContent>
                     {property.images.map((image, index) => (
-                      <CarouselItem key={index} className="md:basis-1/2">
-                        <AspectRatio ratio={4/3} className="overflow-hidden rounded-lg">
+                      <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/4">
+                        <AspectRatio ratio={4/3} className="overflow-hidden">
                           <img
                             src={image}
                             alt={`${property.title} ${index + 1}`}
