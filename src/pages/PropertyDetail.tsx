@@ -234,34 +234,35 @@ const PropertyDetail = () => {
                   </button>
                 </div>
               </div>
-            </div>
-          </div>
 
-          {/* Contact Section */}
-          <div className="max-w-md mx-auto">
-            <Card className="p-6 bg-card border-border/20 shadow-elegant">
-              <h3 className="font-serif text-xl font-normal text-primary text-center mb-6">Kontaktujte nás</h3>
-              
-              <div className="grid grid-cols-2 gap-3 mb-4">
-                <Button className="btn-golden text-sm">
-                  <Phone className="w-4 h-4 mr-2" />
-                  Zavolať teraz
-                </Button>
-                
-                <Button className="btn-golden text-sm">
-                  <Mail className="w-4 h-4 mr-2" />
-                  Poslať email
-                </Button>
+              {/* Contact Section */}
+              <div>
+                <Card className="p-6 bg-card border-border/20 shadow-elegant">
+                  <h3 className="font-serif text-xl font-normal text-primary text-center mb-6">Kontaktujte nás</h3>
+                  
+                  <div className="grid grid-cols-2 gap-3 mb-4">
+                    <Button className="btn-golden text-sm">
+                      <Phone className="w-4 h-4 mr-2" />
+                      Zavolať teraz
+                    </Button>
+                    
+                    <Button className="btn-golden text-sm">
+                      <Mail className="w-4 h-4 mr-2" />
+                      Poslať email
+                    </Button>
+                  </div>
+
+                  <Button variant="outline" className="w-full">
+                    <Calendar className="w-4 h-4 mr-2" />
+                    Naplánovať prehliadku
+                  </Button>
+                </Card>
               </div>
-
-              <Button variant="outline" className="w-full">
-                <Calendar className="w-4 h-4 mr-2" />
-                Naplánovať prehliadku
-              </Button>
-            </Card>
+            </div>
           </div>
         </div>
       </main>
+
 
       {/* Why Choose Us Section - Full Width Background */}
       <div className="w-full bg-gradient-to-br from-primary/5 to-golden/5 py-16">
