@@ -85,7 +85,7 @@ const PropertyDetail = () => {
             <div>
               {/* Main Image */}
               <div className="mb-6">
-                <AspectRatio ratio={4/3} className="overflow-hidden rounded-lg">
+                <AspectRatio ratio={4/3} className="overflow-hidden">
                   <img
                     src={property.image}
                     alt={property.title}
@@ -99,7 +99,7 @@ const PropertyDetail = () => {
                 <h3 className="font-serif text-xl font-normal text-primary mb-4">Galéria fotografií</h3>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                   {property.images.slice(1, 9).map((image, index) => (
-                    <AspectRatio key={index} ratio={4/3} className="overflow-hidden rounded-lg">
+                    <AspectRatio key={index} ratio={4/3} className="overflow-hidden">
                       <img
                         src={image}
                         alt={`${property.title} ${index + 2}`}
