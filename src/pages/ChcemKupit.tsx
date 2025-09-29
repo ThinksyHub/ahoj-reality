@@ -79,16 +79,16 @@ const ChcemKupit = () => {
           }}
         />
         
-        {/* Light Overlay */}
-        <div className="absolute inset-0 bg-white/20" />
+        {/* Light Overlay for better text visibility */}
+        <div className="absolute inset-0 bg-white/60" />
         
         <div className="container mx-auto px-6 relative">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-white mb-6">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-primary mb-6">
               Pomôžeme vám nájsť váš <span className="text-gradient-golden">vysnívaný domov</span>
             </h1>
-            <p className="text-lg text-white/90 max-w-4xl mx-auto font-light">
+            <p className="text-lg text-primary/80 max-w-4xl mx-auto font-light">
               Či už hľadáte prvý byt, rodinný dom alebo investičnú nehnuteľnosť, v Ahoj Reality vás prevedieme celým procesom – od výberu až po podpis zmluvy.
             </p>
           </div>
