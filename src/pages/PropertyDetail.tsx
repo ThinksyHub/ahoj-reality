@@ -64,17 +64,6 @@ const PropertyDetail = () => {
       <Header />
       
       <main className="pt-20">
-        {/* Back Button */}
-        <div className="container mx-auto px-6 py-6">
-          <Button 
-            variant="ghost" 
-            onClick={() => navigate(-1)}
-            className="flex items-center space-x-2 text-muted-foreground hover:text-primary"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Späť</span>
-          </Button>
-        </div>
 
         {/* Property Details - Two Column Layout */}
         <div className="container mx-auto px-6 pb-12">
