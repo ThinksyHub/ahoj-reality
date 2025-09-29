@@ -154,7 +154,7 @@ const PropertyDetail = () => {
               </div>
 
               {/* Property Stats */}
-              <div className="grid grid-cols-6 gap-2 mb-8 p-3 bg-card rounded-lg border border-border/20">
+              <div className="grid grid-cols-6 gap-1 mb-8 p-2 bg-card rounded-lg border border-border/20">
                 <div className="text-center">
                   <div className="w-6 h-6 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-1">
                     <Bed className="w-3 h-3 text-golden" />
