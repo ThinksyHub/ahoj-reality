@@ -125,13 +125,13 @@ const Makleri = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Company Story with top padding */}
-      <div className="pt-20">
-        <CompanyStory />
-      </div>
+      {/* Hero Section */}
+      <HeroSection />
+      
+      {/* Company Story removed since content is now in hero */}
 
       {/* Our Agents */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-muted/30 -mt-20 relative z-10">
         <div className="container mx-auto px-4">
           <SectionHeader title="Naši makléri" />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
