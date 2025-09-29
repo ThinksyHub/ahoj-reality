@@ -19,7 +19,8 @@ import diplomImage from "@/assets/licenses/diplom.jpg";
 import licencia1Image from "@/assets/licenses/licencia-1.jpg";
 import licencia2Image from "@/assets/licenses/licencia-2.jpg";
 import licencia3Image from "@/assets/licenses/licencia-3.jpg";
-import janaSvobodovaPhoto from "@/assets/team/jana-svobodova.jpg";
+import gabrielaVarholikovaPhoto from "@/assets/team/gabriela-varholikova.jpg";
+import kristinaKaraffovaPhoto from "@/assets/team/kristina-karaffova.jpg";
 import csob from "@/assets/partners/csob.png";
 import mbank from "@/assets/partners/mbank.png";
 import otpBank from "@/assets/partners/otp-bank.png";
@@ -33,30 +34,21 @@ const Makleri = () => {
   const maklers = [
     {
       id: 1,
-      name: "Ing. Peter Novák",
-      position: "Senior realitný maklér",
-      description: "Špecializujem sa na byty v Bratislave a pomohol som už viac než 50 rodinám nájsť nový domov. Rád sa s klientmi rozprávam o ich predstavách, pretože verím, že dobrý obchod začína dôkladným počúvaním.",
-      phone: "+421 901 234 567",
-      email: "peter.novak@ahojreality.sk",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+      name: "Gabriela Varholíková",
+      position: "Realitná maklérka",
+      description: "Prečo reality? Mám rada ľudí. Milujem obchod, 20 rokov vo finančnom sprostredkovaní ma veľa naučilo. Posledné roky ma začali baviť reality a s tým spojené poradenstvo, ako ľuďom pomôcť kúpiť vysnívanú nehnuteľnosť. A je to tu! Profesijný rast.",
+      phone: "0918 973 241",
+      email: "gabriela.varholikova@ahojreality.sk",
+      image: gabrielaVarholikovaPhoto
     },
     {
       id: 2,
-      name: "Mgr. Jana Svobodová",
-      position: "Realitný maklér",
-      description: "Zaoberám sa predovšetkým predajom rodinných domov a pozemkov. Mám 8 rokov skúseností v realitnom sektore a vždy kladiem dôraz na individuálny prístup k každému klientovi a jeho potrebám.",
-      phone: "+421 901 345 678",
-      email: "jana.svobodova@ahojreality.sk",
-      image: janaSvobodovaPhoto
-    },
-    {
-      id: 3,
-      name: "Bc. Michal Horák",
-      position: "Realitný maklér",
-      description: "Špecializujem sa na komerčné nehnuteľnosti a investičné príležitosti. Pomáham klientom nájsť tie najvhodnejšie riešenia pre ich podnikanie alebo investície s dôrazom na dlhodobú rentabilitu.",
-      phone: "+421 901 456 789",
-      email: "michal.horak@ahojreality.sk",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face"
+      name: "Mgr. Karaffová Kristína",
+      position: "Zakladateľka a majiteľka AHOJ reality",
+      description: "Zakladateľka a majiteľka AHOJ reality, ktorá v oblasti realít pôsobí od roku 2010. Od roku 2010 až do roku 2016 pôsobila v spoločnosti Profit finance, s.r.o, ako konateľka spoločnosti, taktiež aj ako maklérka, kde v realitnom trhu nadobudla bohaté skúsenosti a prax.",
+      phone: "+421 917 927 536",
+      email: "kristina.karaffova@ahojreality.sk",
+      image: kristinaKaraffovaPhoto
     }
   ];
 
