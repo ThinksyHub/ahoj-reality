@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Camera, Target, FileText, Users, Shield, Phone, Mail, MapPin, User, ArrowRight, CheckCircle } from "lucide-react";
 import TestimonialsSlider from "@/components/testimonials/TestimonialsSlider";
+import heroImage from "@/assets/hero-chcem-predat.jpg";
 
 const ChcemPredat = () => {
   const benefits = [
@@ -69,13 +70,25 @@ const ChcemPredat = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-primary mb-6">
-              Predajte svoju nehnuteľnosť výhodne a bez starostí
+      <section className="py-20 pt-48 relative overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('${heroImage}')`
+          }}
+        />
+        
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/75" />
+        
+        <div className="container mx-auto px-6 relative">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-white mb-6">
+              Predajte svoju nehnuteľnosť <span className="text-gradient-golden">výhodne a bez starostí</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+            <p className="text-lg text-white/90 max-w-4xl mx-auto font-light">
               Naším cieľom je, aby ste získali čo najlepšiu cenu a celý proces bol pre vás jednoduchý, rýchly a bezpečný.
             </p>
           </div>
