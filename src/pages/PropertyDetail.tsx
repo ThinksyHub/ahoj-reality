@@ -156,47 +156,49 @@ const PropertyDetail = () => {
               </div>
 
               {/* Property Stats */}
-              <div className="grid grid-cols-6 gap-0.5 mb-8 p-1 bg-card rounded-lg border border-border/20">
-                <div className="text-center">
-                  <div className="w-6 h-6 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-1">
-                    <Bed className="w-3 h-3 text-golden" />
+              <div className="mb-8 bg-card rounded-lg border border-border/20 overflow-hidden">
+                <div className="grid grid-cols-6 gap-0">
+                  <div className="text-center p-3 border-b border-border/10">
+                    <div className="w-6 h-6 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-1">
+                      <Bed className="w-3 h-3 text-golden" />
+                    </div>
+                    <div className="text-sm font-bold text-primary">{property.beds}</div>
                   </div>
-                  <div className="text-sm font-bold text-primary">{property.beds}</div>
-                </div>
-                
-                <div className="text-center">
-                  <div className="w-6 h-6 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-1">
-                    <Bath className="w-3 h-3 text-golden" />
+                  
+                  <div className="text-center p-3 border-b border-l border-border/10">
+                    <div className="w-6 h-6 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-1">
+                      <Bath className="w-3 h-3 text-golden" />
+                    </div>
+                    <div className="text-sm font-bold text-primary">{property.baths}</div>
                   </div>
-                  <div className="text-sm font-bold text-primary">{property.baths}</div>
-                </div>
-                
-                <div className="text-center">
-                  <div className="w-6 h-6 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-1">
-                    <Square className="w-3 h-3 text-golden" />
+                  
+                  <div className="text-center p-3 border-b border-l border-border/10">
+                    <div className="w-6 h-6 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-1">
+                      <Square className="w-3 h-3 text-golden" />
+                    </div>
+                    <div className="text-sm font-bold text-primary">{property.sqft}</div>
                   </div>
-                  <div className="text-sm font-bold text-primary">{property.sqft}</div>
-                </div>
 
-                <div className="text-center">
-                  <div className="w-6 h-6 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-1">
-                    <Car className="w-3 h-3 text-golden" />
+                  <div className="text-center p-3 border-b border-l border-border/10">
+                    <div className="w-6 h-6 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-1">
+                      <Car className="w-3 h-3 text-golden" />
+                    </div>
+                    <div className="text-sm font-bold text-primary">3</div>
                   </div>
-                  <div className="text-sm font-bold text-primary">3</div>
-                </div>
 
-                <div className="text-center">
-                  <div className="w-6 h-6 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-1">
-                    <Trees className="w-3 h-3 text-golden" />
+                  <div className="text-center p-3 border-b border-l border-border/10">
+                    <div className="w-6 h-6 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-1">
+                      <Trees className="w-3 h-3 text-golden" />
+                    </div>
+                    <div className="text-sm font-bold text-primary">✓</div>
                   </div>
-                  <div className="text-sm font-bold text-primary">✓</div>
-                </div>
 
-                <div className="text-center">
-                  <div className="w-6 h-6 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-1">
-                    <Flame className="w-3 h-3 text-golden" />
+                  <div className="text-center p-3 border-b border-l border-border/10">
+                    <div className="w-6 h-6 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-1">
+                      <Flame className="w-3 h-3 text-golden" />
+                    </div>
+                    <div className="text-sm font-bold text-primary">✓</div>
                   </div>
-                  <div className="text-sm font-bold text-primary">✓</div>
                 </div>
               </div>
 
