@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Home, Shield, Heart, Clock, FileText, Phone, Mail, MapPin, ArrowRight, Search } from "lucide-react";
 import TestimonialsSlider from "@/components/testimonials/TestimonialsSlider";
+import heroImage from "@/assets/hero-chcem-kupit.jpg";
 
 const ChcemKupit = () => {
   const benefits = [
@@ -69,13 +70,25 @@ const ChcemKupit = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-primary mb-6">
-              Pomôžeme vám nájsť váš vysnívaný domov
+      <section className="py-20 pt-48 relative overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('${heroImage}')`
+          }}
+        />
+        
+        {/* Light Overlay */}
+        <div className="absolute inset-0 bg-white/20" />
+        
+        <div className="container mx-auto px-6 relative">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-white mb-6">
+              Pomôžeme vám nájsť váš <span className="text-gradient-golden">vysnívaný domov</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+            <p className="text-lg text-white/90 max-w-4xl mx-auto font-light">
               Či už hľadáte prvý byt, rodinný dom alebo investičnú nehnuteľnosť, v Ahoj Reality vás prevedieme celým procesom – od výberu až po podpis zmluvy.
             </p>
           </div>
