@@ -63,7 +63,7 @@ const PropertyDetail = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="pt-20">
+      <main className="pt-32">
 
         {/* Property Details - Two Column Layout */}
         <div className="container mx-auto px-6 pb-12">
