@@ -162,7 +162,48 @@ const PropertyDetail = () => {
                   </div>
                   <div className="text-2xl font-bold text-primary">{property.sqft}</div>
                   <div className="text-sm text-muted-foreground">m²</div>
+        </div>
+
+        {/* Contact Section - Full Width */}
+        <div className="container mx-auto px-6 pb-12">
+          <div className="max-w-2xl mx-auto">
+            <Card className="p-8 bg-card border-border/20 shadow-elegant">
+              <h3 className="font-serif text-2xl font-normal text-primary text-center mb-8">Kontaktujte nás</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                <Button className="btn-golden">
+                  <Phone className="w-4 h-4 mr-2" />
+                  Zavolať teraz
+                </Button>
+                
+                <Button variant="outline">
+                  <Mail className="w-4 h-4 mr-2" />
+                  Poslať email
+                </Button>
+                
+                <Button variant="outline">
+                  <Calendar className="w-4 h-4 mr-2" />
+                  Naplánovať prehliadku
+                </Button>
+              </div>
+
+              <div className="border-t border-border/20 pt-6">
+                <h4 className="font-medium text-primary text-center mb-4">Váš makléri</h4>
+                <div className="flex items-center justify-center space-x-4">
+                  <img
+                    src="/src/assets/team/jana-svobodova.jpg"
+                    alt="Jana Svobodová"
+                    className="w-16 h-16 rounded-full object-cover"
+                  />
+                  <div className="text-center">
+                    <div className="font-medium text-primary">Jana Svobodová</div>
+                    <div className="text-sm text-muted-foreground">Senior makléri</div>
+                  </div>
                 </div>
+              </div>
+            </Card>
+          </div>
+        </div>
               </div>
 
               {/* Features */}
@@ -178,42 +219,6 @@ const PropertyDetail = () => {
                 </div>
               </div>
 
-              {/* Contact Card */}
-              <Card className="p-6 bg-card border-border/20 shadow-elegant">
-                <h3 className="font-serif text-xl font-normal text-primary mb-6">Kontaktujte nás</h3>
-                
-                <div className="space-y-3 mb-6">
-                  <Button className="btn-golden w-full">
-                    <Phone className="w-4 h-4 mr-2" />
-                    Zavolať teraz
-                  </Button>
-                  
-                  <Button variant="outline" className="w-full">
-                    <Mail className="w-4 h-4 mr-2" />
-                    Poslať email
-                  </Button>
-                  
-                  <Button variant="outline" className="w-full">
-                    <Calendar className="w-4 h-4 mr-2" />
-                    Naplánovať prehliadku
-                  </Button>
-                </div>
-
-                <div className="border-t border-border/20 pt-6">
-                  <h4 className="font-medium text-primary mb-4">Váš makléri</h4>
-                  <div className="flex items-center space-x-3">
-                    <img
-                      src="/src/assets/team/jana-svobodova.jpg"
-                      alt="Jana Svobodová"
-                      className="w-12 h-12 rounded-full object-cover"
-                    />
-                    <div>
-                      <div className="font-medium text-primary">Jana Svobodová</div>
-                      <div className="text-sm text-muted-foreground">Senior makléri</div>
-                    </div>
-                  </div>
-                </div>
-              </Card>
             </div>
           </div>
         </div>
