@@ -163,8 +163,37 @@ const PropertyDetail = () => {
                   </div>
                   <div className="text-2xl font-bold text-primary">{property.sqft}</div>
                   <div className="text-sm text-muted-foreground">m²</div>
-                </div>
+          </div>
+        </div>
+
+        {/* Why Choose Us Section - Centered */}
+        <div className="container mx-auto px-6 pb-12">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-serif text-3xl font-normal text-primary text-center mb-8">Prečo si vybrať nás</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="flex flex-col items-center text-center p-6 bg-card rounded-lg border border-border/20">
+                <img src="/src/assets/icons/kvalita.png" alt="Kvalita" className="w-12 h-12 mb-4" />
+                <div className="font-medium text-primary mb-2">Kvalita</div>
+                <div className="text-sm text-muted-foreground">Najvyššie štandardy</div>
               </div>
+              <div className="flex flex-col items-center text-center p-6 bg-card rounded-lg border border-border/20">
+                <img src="/src/assets/icons/rychlost.png" alt="Rýchlosť" className="w-12 h-12 mb-4" />
+                <div className="font-medium text-primary mb-2">Rýchlosť</div>
+                <div className="text-sm text-muted-foreground">Efektívne riešenia</div>
+              </div>
+              <div className="flex flex-col items-center text-center p-6 bg-card rounded-lg border border-border/20">
+                <img src="/src/assets/icons/ludskost.png" alt="Ľudskosť" className="w-12 h-12 mb-4" />
+                <div className="font-medium text-primary mb-2">Ľudskosť</div>
+                <div className="text-sm text-muted-foreground">Osobný prístup</div>
+              </div>
+              <div className="flex flex-col items-center text-center p-6 bg-card rounded-lg border border-border/20">
+                <img src="/src/assets/icons/loajalita.png" alt="Loajalita" className="w-12 h-12 mb-4" />
+                <div className="font-medium text-primary mb-2">Loajalita</div>
+                <div className="text-sm text-muted-foreground">Dlhodobé partnerstvo</div>
+              </div>
+            </div>
+          </div>
+        </div>
 
               {/* Description */}
               <div className="mb-8">
@@ -187,40 +216,6 @@ const PropertyDetail = () => {
                 </div>
               </div>
 
-              {/* Our Values with Icons */}
-              <div className="mb-8">
-                <h2 className="font-serif text-2xl font-normal text-primary mb-4">Prečo si vybrať nás</h2>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="flex items-center space-x-3 p-4 bg-card rounded-lg border border-border/20">
-                    <img src="/src/assets/icons/kvalita.png" alt="Kvalita" className="w-8 h-8" />
-                    <div>
-                      <div className="font-medium text-primary">Kvalita</div>
-                      <div className="text-sm text-muted-foreground">Najvyššie štandardy</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-3 p-4 bg-card rounded-lg border border-border/20">
-                    <img src="/src/assets/icons/rychlost.png" alt="Rýchlosť" className="w-8 h-8" />
-                    <div>
-                      <div className="font-medium text-primary">Rýchlosť</div>
-                      <div className="text-sm text-muted-foreground">Efektívne riešenia</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-3 p-4 bg-card rounded-lg border border-border/20">
-                    <img src="/src/assets/icons/ludskost.png" alt="Ľudskosť" className="w-8 h-8" />
-                    <div>
-                      <div className="font-medium text-primary">Ľudskosť</div>
-                      <div className="text-sm text-muted-foreground">Osobný prístup</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-3 p-4 bg-card rounded-lg border border-border/20">
-                    <img src="/src/assets/icons/loajalita.png" alt="Loajalita" className="w-8 h-8" />
-                    <div>
-                      <div className="font-medium text-primary">Loajalita</div>
-                      <div className="text-sm text-muted-foreground">Dlhodobé partnerstvo</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
               {/* Contact Card */}
               <Card className="p-6 bg-card border-border/20 shadow-elegant">
