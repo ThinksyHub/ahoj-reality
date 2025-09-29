@@ -183,8 +183,6 @@ const PropertyDetail = () => {
                     </Button>
                   </div>
                 </div>
-
-                <div className="text-3xl font-bold text-primary mb-6">{property.price}</div>
               </div>
 
               {/* Property Stats */}
