@@ -1,10 +1,11 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { ArrowLeft, Bed, Bath, Square, MapPin, Heart, Share2, Phone, Mail, Calendar, Eye, Home, Star, Car, Trees, Shield, Snowflake, Flame, Wifi, Waves, Mountain, Archive, WashingMachine, ChefHat, Sofa, ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowLeft, Bed, Bath, Square, MapPin, Heart, Share2, Phone, Mail, Calendar, Eye, Home, Star, Car, Trees, Shield, Snowflake, Flame, Wifi, Waves, Mountain, Archive, WashingMachine, ChefHat, Sofa, ChevronDown, ChevronUp, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -58,6 +59,7 @@ const PropertyDetail = () => {
   const navigate = useNavigate();
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
   const [isFeaturesExpanded, setIsFeaturesExpanded] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   
   const property = properties.find(p => p.id === parseInt(id || "1"));
   
@@ -86,13 +88,28 @@ const PropertyDetail = () => {
             <div>
               {/* Main Image */}
               <div className="mb-6">
-                <AspectRatio ratio={4/3} className="overflow-hidden">
-                  <img
-                    src={property.image}
-                    alt={property.title}
-                    className="w-full h-full object-cover"
-                  />
-                </AspectRatio>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <div className="cursor-pointer">
+                      <AspectRatio ratio={4/3} className="overflow-hidden">
+                        <img
+                          src={property.image}
+                          alt={property.title}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        />
+                      </AspectRatio>
+                    </div>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-4xl w-full p-0 border-0">
+                    <div className="relative">
+                      <img
+                        src={property.image}
+                        alt={property.title}
+                        className="w-full h-auto max-h-[80vh] object-contain"
+                      />
+                    </div>
+                  </DialogContent>
+                </Dialog>
               </div>
 
               {/* Gallery Section */}
@@ -100,13 +117,28 @@ const PropertyDetail = () => {
                 <h3 className="font-serif text-xl font-normal text-primary mb-4">Galéria fotografií</h3>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                   {property.images.slice(1, 9).map((image, index) => (
-                    <AspectRatio key={index} ratio={4/3} className="overflow-hidden">
-                      <img
-                        src={image}
-                        alt={`${property.title} ${index + 2}`}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer"
-                      />
-                    </AspectRatio>
+                    <Dialog key={index}>
+                      <DialogTrigger asChild>
+                        <div className="cursor-pointer">
+                          <AspectRatio ratio={4/3} className="overflow-hidden">
+                            <img
+                              src={image}
+                              alt={`${property.title} ${index + 2}`}
+                              className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                            />
+                          </AspectRatio>
+                        </div>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl w-full p-0 border-0">
+                        <div className="relative">
+                          <img
+                            src={image}
+                            alt={`${property.title} ${index + 2}`}
+                            className="w-full h-auto max-h-[80vh] object-contain"
+                          />
+                        </div>
+                      </DialogContent>
+                    </Dialog>
                   ))}
                 </div>
                 {property.images.length > 9 && (
