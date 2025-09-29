@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { ArrowLeft, Bed, Bath, Square, MapPin, Heart, Share2, Phone, Mail, Calendar, Eye, Home, Star } from "lucide-react";
+import { ArrowLeft, Bed, Bath, Square, MapPin, Heart, Share2, Phone, Mail, Calendar, Eye, Home, Star, Car, Trees, Shield, Snowflake, Flame, Wifi, Waves, Mountain, Archive, WashingMachine, ChefHat, Sofa } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -139,29 +139,101 @@ const PropertyDetail = () => {
               </div>
 
               {/* Property Stats with Icons */}
-              <div className="grid grid-cols-3 gap-6 mb-8 p-6 bg-card rounded-lg border border-border/20">
+              <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8 p-6 bg-card rounded-lg border border-border/20">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Bed className="w-8 h-8 text-golden" />
+                  <div className="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Bed className="w-5 h-5 text-golden" />
                   </div>
-                  <div className="text-2xl font-bold text-primary">{property.beds}</div>
-                  <div className="text-sm text-muted-foreground">Spálne</div>
+                  <div className="text-lg font-bold text-primary">{property.beds}</div>
+                  <div className="text-xs text-muted-foreground">Spálne</div>
                 </div>
                 
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Bath className="w-8 h-8 text-golden" />
+                  <div className="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Bath className="w-5 h-5 text-golden" />
                   </div>
-                  <div className="text-2xl font-bold text-primary">{property.baths}</div>
-                  <div className="text-sm text-muted-foreground">Kúpeľne</div>
+                  <div className="text-lg font-bold text-primary">{property.baths}</div>
+                  <div className="text-xs text-muted-foreground">Kúpeľne</div>
                 </div>
                 
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Square className="w-8 h-8 text-golden" />
+                  <div className="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Square className="w-5 h-5 text-golden" />
                   </div>
-                  <div className="text-2xl font-bold text-primary">{property.sqft}</div>
-                  <div className="text-sm text-muted-foreground">m²</div>
+                  <div className="text-lg font-bold text-primary">{property.sqft}</div>
+                  <div className="text-xs text-muted-foreground">m²</div>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Car className="w-5 h-5 text-golden" />
+                  </div>
+                  <div className="text-lg font-bold text-primary">2</div>
+                  <div className="text-xs text-muted-foreground">Garáž</div>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Trees className="w-5 h-5 text-golden" />
+                  </div>
+                  <div className="text-lg font-bold text-primary">✓</div>
+                  <div className="text-xs text-muted-foreground">Záhrada</div>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Waves className="w-5 h-5 text-golden" />
+                  </div>
+                  <div className="text-lg font-bold text-primary">✓</div>
+                  <div className="text-xs text-muted-foreground">Bazén</div>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Shield className="w-5 h-5 text-golden" />
+                  </div>
+                  <div className="text-lg font-bold text-primary">✓</div>
+                  <div className="text-xs text-muted-foreground">Bezpečnosť</div>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Snowflake className="w-5 h-5 text-golden" />
+                  </div>
+                  <div className="text-lg font-bold text-primary">✓</div>
+                  <div className="text-xs text-muted-foreground">Klimatizácia</div>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Flame className="w-5 h-5 text-golden" />
+                  </div>
+                  <div className="text-lg font-bold text-primary">✓</div>
+                  <div className="text-xs text-muted-foreground">Krb</div>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Wifi className="w-5 h-5 text-golden" />
+                  </div>
+                  <div className="text-lg font-bold text-primary">✓</div>
+                  <div className="text-xs text-muted-foreground">Smart home</div>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Archive className="w-5 h-5 text-golden" />
+                  </div>
+                  <div className="text-lg font-bold text-primary">✓</div>
+                  <div className="text-xs text-muted-foreground">Skladovanie</div>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <ChefHat className="w-5 h-5 text-golden" />
+                  </div>
+                  <div className="text-lg font-bold text-primary">✓</div>
+                  <div className="text-xs text-muted-foreground">Vínovka</div>
                 </div>
               </div>
 
