@@ -1,5 +1,3 @@
-import mainBanner from "@/assets/main_banner.png";
-
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
@@ -7,13 +5,12 @@ const HeroSection = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105 transition-transform duration-1000"
         style={{
-          backgroundImage: `url('${mainBanner}')`
+          backgroundImage: `url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
         }}
       />
       
-      {/* Luxury Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/50 via-primary/30 to-golden/20" />
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/75" />
       
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
