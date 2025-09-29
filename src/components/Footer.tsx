@@ -47,6 +47,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li><a href="/homestaging" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Homestaging</a></li>
               <li><a href="/nehnutelnosti" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Nehnuteľnosti</a></li>
+              <li><a href="/cennik" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Cenník</a></li>
               <li><a href="/kariera" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Kariéra u nás</a></li>
               <li><a href="/eticky-kodex" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Etický kódex</a></li>
               <li><a href="/contact" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Kontakt</a></li>
