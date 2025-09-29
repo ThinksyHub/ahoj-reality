@@ -275,6 +275,22 @@ const PropertyDetail = () => {
                     Naplánovať prehliadku
                   </Button>
                 </Card>
+                
+                {/* Agent Section */}
+                <Card className="p-4 bg-card border-border/20 shadow-elegant mt-4">
+                  <h3 className="font-serif text-lg font-normal text-primary text-center mb-4">Tvoj maklér</h3>
+                  <div className="flex items-center space-x-3">
+                    <img 
+                      src="/src/assets/team/jana-svobodova.jpg" 
+                      alt="Jana Svobodová" 
+                      className="w-12 h-12 object-cover"
+                    />
+                    <div>
+                      <div className="font-medium text-primary">Jana Svobodová</div>
+                      <div className="text-sm text-muted-foreground">Certifikovaný maklér</div>
+                    </div>
+                  </div>
+                </Card>
               </div>
             </div>
           </div>
