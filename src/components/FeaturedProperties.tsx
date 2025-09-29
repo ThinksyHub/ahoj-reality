@@ -1,6 +1,7 @@
 import { Bed, Bath, Square, MapPin, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 const properties = [
   {
@@ -182,9 +183,11 @@ const FeaturedProperties = () => {
 
                 {/* Action Buttons */}
                 <div className="flex flex-col gap-3">
-                  <Button className="btn-golden text-sm font-light">
-                    Zobraziť detaily
-                  </Button>
+                  <Link to={`/property/${property.id}`}>
+                    <Button className="btn-golden text-sm font-light w-full">
+                      Zobraziť detaily
+                    </Button>
+                  </Link>
                   <div className="text-center">
                     <button className="text-sm text-black hover:text-golden transition-colors">
                       Naplánovať<br />prehliadku
