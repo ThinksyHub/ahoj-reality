@@ -190,8 +190,8 @@ const PropertyDetail = () => {
             </p>
         </div>
 
-        {/* Why Choose Us Section - Single Row */}
-        <div className="bg-gradient-to-br from-primary/5 to-golden/5 py-16">
+        {/* Why Choose Us Section - Full Width Background */}
+        <div className="w-full bg-gradient-to-br from-primary/5 to-golden/5 py-16">
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
               <div className="flex flex-col items-center space-y-4">
