@@ -88,26 +88,27 @@ const PropertyDetail = () => {
                 </AspectRatio>
               </div>
 
-              {/* Image Gallery */}
+              {/* Image Gallery - Two Row Grid */}
               <div className="space-y-4">
                 <h3 className="font-serif text-xl font-normal text-primary">Galéria fotografií</h3>
-                <Carousel className="w-full">
-                  <CarouselContent>
-                    {property.images.map((image, index) => (
-                      <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/4">
-                        <AspectRatio ratio={4/3} className="overflow-hidden">
-                          <img
-                            src={image}
-                            alt={`${property.title} ${index + 1}`}
-                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer"
-                          />
-                        </AspectRatio>
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                  <CarouselPrevious />
-                  <CarouselNext />
-                </Carousel>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                  {property.images.slice(1, 9).map((image, index) => (
+                    <AspectRatio key={index} ratio={4/3} className="overflow-hidden">
+                      <img
+                        src={image}
+                        alt={`${property.title} ${index + 2}`}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer"
+                      />
+                    </AspectRatio>
+                  ))}
+                </div>
+                {property.images.length > 9 && (
+                  <div className="text-center pt-2">
+                    <span className="text-sm text-muted-foreground">
+                      +{property.images.length - 9} ďalších fotografií
+                    </span>
+                  </div>
+                )}
               </div>
             </div>
 
