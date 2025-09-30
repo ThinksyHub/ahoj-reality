@@ -2,8 +2,19 @@ import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import mainBanner from "@/assets/main_banner.png";
+import { useState } from "react";
 
-const Hero = () => {
+const Hero = ({ onSearch }) => {
+  const [city, setCity] = useState("");
+  const [type, setType] = useState("");
+  const [contract, setContract] = useState("");
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(Infinity);
+
+  const handleClick = () => {
+    onSearch({ city, type, contract, minPrice, maxPrice });
+  };
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Image */}
@@ -35,65 +46,65 @@ const Hero = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
                 <div className="space-y-3">
                   <label className="text-sm font-medium text-white/90 block text-left tracking-wide">Mesto</label>
-                  <Select>
+                  <Select onValueChange={setCity}>
                     <SelectTrigger className="bg-white/25 backdrop-blur-xl border-white/30 text-white h-12 rounded-xl hover:bg-white/30 transition-all duration-300 shadow-lg">
                       <SelectValue placeholder="Vyberte mesto" />
                     </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="bratislava">Bratislava</SelectItem>
-                    <SelectItem value="kosice">Košice</SelectItem>
-                    <SelectItem value="presov">Prešov</SelectItem>
-                    <SelectItem value="zilina">Žilina</SelectItem>
-                  </SelectContent>
+                    <SelectContent>
+                      <SelectItem value="bratislava">Bratislava</SelectItem>
+                      <SelectItem value="košice">Košice</SelectItem>
+                      <SelectItem value="prešov">Prešov</SelectItem>
+                      <SelectItem value="žilina">Žilina</SelectItem>
+                    </SelectContent>
                 </Select>
               </div>
 
                 <div className="space-y-3">
                   <label className="text-sm font-medium text-white/90 block text-left tracking-wide">Typ</label>
-                  <Select>
+                  <Select onValueChange={setType}>
                     <SelectTrigger className="bg-white/25 backdrop-blur-xl border-white/30 text-white h-12 rounded-xl hover:bg-white/30 transition-all duration-300 shadow-lg">
                       <SelectValue placeholder="Typ nehnuteľnosti" />
                     </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="apartment">Byt</SelectItem>
-                    <SelectItem value="house">Dom</SelectItem>
-                    <SelectItem value="villa">Vila</SelectItem>
-                    <SelectItem value="commercial">Komerčný priestor</SelectItem>
-                  </SelectContent>
+                    <SelectContent>
+                      <SelectItem value="apartmán">Apartmán</SelectItem>
+                      <SelectItem value="dom">Dom</SelectItem>
+                      <SelectItem value="vila">Vila</SelectItem>
+                      <SelectItem value="komerčný priestor">Komerčný priestor</SelectItem>
+                    </SelectContent>
                 </Select>
               </div>
 
                 <div className="space-y-3">
                   <label className="text-sm font-medium text-white/90 block text-left tracking-wide">Zmluva</label>
-                  <Select>
+                  <Select onValueChange={setContract}>
                     <SelectTrigger className="bg-white/25 backdrop-blur-xl border-white/30 text-white h-12 rounded-xl hover:bg-white/30 transition-all duration-300 shadow-lg">
                       <SelectValue placeholder="Typ zmluvy" />
                     </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="sale">Predaj</SelectItem>
-                    <SelectItem value="rent">Prenájom</SelectItem>
-                  </SelectContent>
+                    <SelectContent>
+                      <SelectItem value="predaj">Predaj</SelectItem>
+                      <SelectItem value="prenájom">Prenájom</SelectItem>
+                    </SelectContent>
                 </Select>
               </div>
 
                 <div className="space-y-3">
                   <label className="text-sm font-medium text-white/90 block text-left tracking-wide">Min. cena</label>
-                  <Select>
+                  <Select onValueChange={(val) => setMinPrice(Number(val))}>
                     <SelectTrigger className="bg-white/25 backdrop-blur-xl border-white/30 text-white h-12 rounded-xl hover:bg-white/30 transition-all duration-300 shadow-lg">
                       <SelectValue placeholder="Minimálna cena" />
                     </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="0">Bez minima</SelectItem>
-                    <SelectItem value="50000">50 000 €</SelectItem>
-                    <SelectItem value="100000">100 000 €</SelectItem>
-                    <SelectItem value="200000">200 000 €</SelectItem>
-                  </SelectContent>
+                    <SelectContent>
+                      <SelectItem value="0">Bez minima</SelectItem>
+                      <SelectItem value="50000">50 000 €</SelectItem>
+                      <SelectItem value="100000">100 000 €</SelectItem>
+                      <SelectItem value="200000">200 000 €</SelectItem>
+                    </SelectContent>
                 </Select>
               </div>
 
                 <div className="space-y-3">
                   <label className="text-sm font-medium text-white/90 block text-left tracking-wide">Max. cena</label>
-                  <Select>
+                  <Select onValueChange={(val) => setMaxPrice(Number(val))}>
                     <SelectTrigger className="bg-white/25 backdrop-blur-xl border-white/30 text-white h-12 rounded-xl hover:bg-white/30 transition-all duration-300 shadow-lg">
                       <SelectValue placeholder="Maximálna cena" />
                     </SelectTrigger>
@@ -107,7 +118,7 @@ const Hero = () => {
               </div>
             </div>
 
-              <Button className="btn-golden text-lg px-16 py-5 w-full md:w-auto font-light shadow-luxury hover:shadow-golden hover:scale-105 transition-all duration-300 relative overflow-hidden group">
+              <Button onClick={handleClick} className="btn-golden text-lg px-16 py-5 w-full md:w-auto font-light shadow-luxury hover:shadow-golden hover:scale-105 transition-all duration-300 relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-r from-golden/0 via-white/10 to-golden/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                 <Search className="mr-3 w-6 h-6 relative z-10" />
                 <span className="relative z-10 font-medium tracking-wide">Hľadať nehnuteľnosti</span>

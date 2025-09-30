@@ -1,6 +1,4 @@
 import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import FeaturedProperties from "@/components/FeaturedProperties";
 import Advantages from "@/components/Advantages";
 import Testimonials from "@/components/Testimonials";
 import Partners from "@/components/Partners";
@@ -8,13 +6,13 @@ import QuoteBanner from "@/components/QuoteBanner";
 import Licenses from "@/components/Licenses";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Search from "@/components/Search";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      <Hero />
-      <FeaturedProperties />
+      <Search />
       <Advantages />
       <Testimonials />
       <QuoteBanner />
