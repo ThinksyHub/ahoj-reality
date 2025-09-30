@@ -30,8 +30,8 @@ const Header = () => {
               <span className="font-medium">Ponuka nehnuteľností</span>
               <div className="absolute bottom-0 left-0 w-full h-0.5 bg-golden scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></div>
             </a>
-            <a href="/makleri" className="text-primary hover:text-golden transition-all duration-300 font-light py-3 px-2 relative group">
-              <span className="font-medium">Makléri</span>
+            <a href="/o-nas" className="text-primary hover:text-golden transition-all duration-300 font-light py-3 px-2 relative group">
+              <span className="font-medium">O nás</span>
               <div className="absolute bottom-0 left-0 w-full h-0.5 bg-golden scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></div>
             </a>
             <a href="/referencie" className="text-primary hover:text-golden transition-all duration-300 font-light py-3 px-2 relative group">
@@ -64,7 +64,7 @@ const Header = () => {
             </a>
           </div>
 
-          {/* Search Button - Mobile Only */}
+          {/* Search Button - Mobile Only
           <div className="lg:hidden flex items-center">
             <Button 
               variant="ghost" 
@@ -75,7 +75,7 @@ const Header = () => {
               <span className="ml-2 hidden md:inline font-medium">Hľadať</span>
               <div className="absolute inset-0 bg-gradient-to-r from-golden/0 via-golden/5 to-golden/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </Button>
-          </div>
+          </div> */}
 
           {/* Mobile Menu Button */}
           <button

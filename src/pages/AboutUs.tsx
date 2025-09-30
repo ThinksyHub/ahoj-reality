@@ -4,14 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Award, Shield, CheckCircle, GraduationCap } from "lucide-react";
 import HeroSection from "@/components/makleri/HeroSection";
-import CompanyStory from "@/components/makleri/CompanyStory";
 import MaklerCard from "@/components/makleri/MaklerCard";
 import ValueCard from "@/components/makleri/ValueCard";
 import SectionHeader from "@/components/makleri/SectionHeader";
 
 // Icons and assets
 import kvalifikaciaIcon from "@/assets/icons/kvalifikacia.png";
-import kvalitaIcon from "@/assets/icons/kvalita.png";
 import loajalitaIcon from "@/assets/icons/loajalita.png";
 import ludskostIcon from "@/assets/icons/ludskost.png";
 import rychlostIcon from "@/assets/icons/rychlost.png";
@@ -30,7 +28,7 @@ import tatraBanka from "@/assets/partners/tatra-banka.png";
 import unicredit from "@/assets/partners/unicredit.png";
 import vubBanka from "@/assets/partners/vub-banka.png";
 
-const Makleri = () => {
+const AboutUs = () => {
   const maklers = [
     {
       id: 1,
@@ -261,4 +259,4 @@ const Makleri = () => {
   );
 };
 
-export default Makleri;
+export default AboutUs;

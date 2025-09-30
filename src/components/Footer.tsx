@@ -69,14 +69,11 @@ const Footer = () => {
           <div>
             <h4 className="font-heading text-lg font-light mb-6 text-golden-luxury">Sledujte nás</h4>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-golden/10 hover:bg-golden rounded-lg flex items-center justify-center transition-colors group">
+              <a href="https://www.facebook.com/profile.php?id=61573379655552" className="w-10 h-10 bg-golden/10 hover:bg-golden rounded-lg flex items-center justify-center transition-colors group">
                 <Facebook className="w-5 h-5 text-golden group-hover:text-golden-foreground" />
               </a>
-              <a href="#" className="w-10 h-10 bg-golden/10 hover:bg-golden rounded-lg flex items-center justify-center transition-colors group">
+              <a href="https://www.instagram.com/ahoj_reality/" className="w-10 h-10 bg-golden/10 hover:bg-golden rounded-lg flex items-center justify-center transition-colors group">
                 <Instagram className="w-5 h-5 text-golden group-hover:text-golden-foreground" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-golden/10 hover:bg-golden rounded-lg flex items-center justify-center transition-colors group">
-                <FaPinterest className="w-5 h-5 text-golden group-hover:text-golden-foreground" />
               </a>
             </div>
           </div>
