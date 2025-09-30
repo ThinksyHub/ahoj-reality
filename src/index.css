@@ -190,7 +190,7 @@ All colors MUST be HSL.
     content: '';
     position: absolute;
     inset: 0;
-    background: url('/src/assets/golden_gradient_luxury.png');
+    /* background: url('/src/assets/golden_gradient_luxury.png'); */
     background-size: cover;
     opacity: 0.8;
     border-radius: inherit;
@@ -259,6 +259,7 @@ All colors MUST be HSL.
 
   /* Text Gradients - matching uploaded golden texture */
   .text-gradient-golden {
+    font-weight: 300;
     background: linear-gradient(135deg, 
       hsl(42 58% 48%) 0%, 
       hsl(45 65% 58%) 25%, 

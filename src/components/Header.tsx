@@ -19,6 +19,7 @@ const Header = () => {
                 src={logo} 
                 alt="AHOJ Reality" 
                 className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
+                style={{minWidth: "90px", minHeight: "90px"}}
               />
               <div className="absolute -inset-2 bg-golden/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
             </a>

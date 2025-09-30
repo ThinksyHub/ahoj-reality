@@ -1,4 +1,4 @@
-import { Quote } from "lucide-react";
+import { Quote, Weight } from "lucide-react";
 
 const QuoteBanner = () => {
   return (
@@ -23,7 +23,7 @@ const QuoteBanner = () => {
             <span className="text-gradient-golden">"Čistý proces, odovzdané kľúče, od A-Z do 1 mesiaca."</span>
           </blockquote>
           
-          <p className="text-xl text-muted-dark-foreground/90 font-thin italic">
+          <p className="text-xl text-muted-dark-foreground/90 font-thin italic" style={{fontWeight: "300"}}>
             — Mgr. Kristína Karaffová, RSc.
           </p>
         </div>
