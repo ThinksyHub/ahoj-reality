@@ -15,6 +15,7 @@ import PropertyDetail from "./pages/PropertyDetail";
 import Cennik from "./pages/Cennik";
 import NotFound from "./pages/NotFound";
 import AboutUs from "./pages/AboutUs";
+import Admin from "./pages/Admin";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/chcem-kupit" element={<ChcemKupit />} />
           <Route path="/property/:id" element={<PropertyDetail />} />
           <Route path="/cennik" element={<Cennik />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
