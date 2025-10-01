@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Search, MapPin, Home, FileText, Euro } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -8,7 +8,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Bed, Bath, Square, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
-import Contact from "./Contact";
 
 // Reuse the same properties data from FeaturedProperties
 const properties = [
@@ -16,6 +15,7 @@ const properties = [
     id: 1,
     title: "Moderná luxusná vila",
     location: "Bratislava",
+    city_id: "",
     price: "850000",
     image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     beds: 5,
@@ -23,92 +23,50 @@ const properties = [
     sqft: "650",
     category: "Dom",
     transactionType: "Predaj"
-  },
-  {
-    id: 2,
-    title: "Penthouse s výhľadom",
-    location: "Bratislava",
-    price: "1220000",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2053&q=80",
-    beds: 4,
-    baths: 5,
-    sqft: "480",
-    category: "Apartmán",
-    transactionType: "Predaj"
-  },
-  {
-    id: 3,
-    title: "Súčasné sídlo",
-    location: "Košice",
-    price: "675000",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80",
-    beds: 6,
-    baths: 7,
-    sqft: "820",
-    category: "Dom",
-    transactionType: "Predaj"
-  },
-  {
-    id: 4,
-    title: "Luxusný byt v centre",
-    location: "Bratislava",
-    price: "1800",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    beds: 3,
-    baths: 4,
-    sqft: "320",
-    category: "Apartmán",
-    transactionType: "prenájom"
-  },
-  {
-    id: 5,
-    title: "Stredomorský palác",
-    location: "Žilina",
-    price: "1580000",
-    image: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2053&q=80",
-    beds: 8,
-    baths: 10,
-    sqft: "1200",
-    category: "Dom",
-    transactionType: "Predaj"
-  },
-  {
-    id: 6,
-    title: "Moderný sklenený dom",
-    location: "Prešov",
-    price: "520000",
-    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    beds: 4,
-    baths: 5,
-    sqft: "450",
-    category: "Dom",
-    transactionType: "Predaj"
-  },
-  {
-    id: 7,
-    title: "Historická vila s parksom",
-    location: "Trenčín",
-    price: "980000",
-    image: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    beds: 7,
-    baths: 6,
-    sqft: "890",
-    category: "Dom",
-    transactionType: "Predaj"
-  },
-  {
-    id: 8,
-    title: "Minimalistický penthouse",
-    location: "Nitra",
-    price: "2200",
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    beds: 3,
-    baths: 3,
-    sqft: "380",
-    category: "Apartmán",
-    transactionType: "prenájom"
   }
 ];
+
+interface Property {
+  id: number;
+  property_name: string;
+  property_slug: string;
+  property_purpose: string; // e.g. "Sale" | "Rent"
+  property_type: string; // could be number/string depending on DB
+  description: string;
+  sale_price: string | null; 
+  rent_price: string | null;
+  address: string | null;
+  city_id: number | null;
+  area: number | null;
+  bedrooms: number | null;
+  bathrooms: number | null;
+  map_latitude: string | null;
+  map_longitude: string | null;
+  property_features: string | null;
+  featured_property: number; // probably 0/1
+  featured_image: string | null;
+  property_images1: string | null;
+  property_images2: string | null;
+  property_images3: string | null;
+  property_images4: string | null;
+  property_images5: string | null;
+  status: number;
+  user_id: number;
+  created_at: string;
+  updated_at: string;
+}
+
+interface City {
+  id: number;
+  city_name: string;
+  status: number;
+}
+
+interface PropertyType {
+  id: number;
+  types: string;
+  slug: string;
+}
 
 const Properties = () => {
   const [filters, setFilters] = useState({
@@ -120,8 +78,10 @@ const Properties = () => {
   });
 
   const [filteredProperties, setFilteredProperties] = useState(properties);
+  const [cities, setCities] = useState<City[]>([]);
+  const [propertyTypes, setPropertTypes] = useState<PropertyType[]>([]);
 
-  // ✅ Filtering logic
+  // Filtering logic
   const handleSearch = () => {
     const result = properties.filter((p) => {
       const matchesCity = filters.city
@@ -148,6 +108,27 @@ const Properties = () => {
 
     setFilteredProperties(result);
   };
+
+  useEffect(() => {
+    fetch("/api/properties")
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.error(err));
+  }, []);
+
+  useEffect(() => {
+    fetch("/api/cities")
+    .then((res) => res.json())
+    .then((data) => setCities(data))
+    .catch((err) => console.error(err));
+  }, []);
+
+  useEffect(() => {
+    fetch("api/property_types")
+    .then((res) => res.json())
+    .then((data) => setPropertTypes(data))
+    .then((err) => console.error(err));
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -182,12 +163,9 @@ const Properties = () => {
                         <SelectValue placeholder="Vyberte mesto" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="bratislava">Bratislava</SelectItem>
-                        <SelectItem value="košice">Košice</SelectItem>
-                        <SelectItem value="žilina">Žilina</SelectItem>
-                        <SelectItem value="prešov">Prešov</SelectItem>
-                        <SelectItem value="nitra">Nitra</SelectItem>
-                        <SelectItem value="trenčín">Trenčín</SelectItem>
+                        {cities.map((city) => (
+                          <SelectItem key={city.id} value ={city.city_name}>{city.city_name}</SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
                   </div>
@@ -203,9 +181,9 @@ const Properties = () => {
                         <SelectValue placeholder="Vyberte typ" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="dom">Dom</SelectItem>
-                        <SelectItem value="apartmán">Apartmán</SelectItem>
-                        <SelectItem value="pozemky">Pozemky</SelectItem>
+                        {propertyTypes.map((type) => (
+                          <SelectItem key={type.id} value={type.slug}>{type.types}</SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
                   </div>

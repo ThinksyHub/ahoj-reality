@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Search } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Header = () => {
@@ -11,7 +10,7 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-golden/10 shadow-elegant">
       <div className="container mx-auto px-6">
-        <div className="flex justify-between items-center py-5">
+        <div className="flex justify-between items-center py-5" style={{paddingBottom: 0}}>
           {/* Logo - Left */}
           <div className="flex items-center space-x-3">
             <a href="/" className="relative group">
