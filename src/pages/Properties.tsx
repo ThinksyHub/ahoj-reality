@@ -8,26 +8,27 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Bed, Bath, Square, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
+import Contact from "./Contact";
 
 // Reuse the same properties data from FeaturedProperties
 const properties = [
   {
     id: 1,
     title: "Moderná luxusná vila",
-    location: "Bratislava, SK",
-    price: "€850,000",
+    location: "Bratislava",
+    price: "850000",
     image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     beds: 5,
     baths: 6,
     sqft: "650",
-    category: "Domy",
+    category: "Dom",
     transactionType: "Predaj"
   },
   {
     id: 2,
     title: "Penthouse s výhľadom",
-    location: "Bratislava, SK", 
-    price: "€1,220,000",
+    location: "Bratislava",
+    price: "1220000",
     image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2053&q=80",
     beds: 4,
     baths: 5,
@@ -38,74 +39,74 @@ const properties = [
   {
     id: 3,
     title: "Súčasné sídlo",
-    location: "Košice, SK",
-    price: "€675,000",
+    location: "Košice",
+    price: "675000",
     image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80",
     beds: 6,
     baths: 7,
     sqft: "820",
-    category: "Domy",
-    transactionType: "Kúpa"
+    category: "Dom",
+    transactionType: "Predaj"
   },
   {
     id: 4,
     title: "Luxusný byt v centre",
-    location: "Bratislava, SK",
-    price: "€1,800/mes.",
+    location: "Bratislava",
+    price: "1800",
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     beds: 3,
     baths: 4,
     sqft: "320",
     category: "Apartmán",
-    transactionType: "Na prenájom"
+    transactionType: "prenájom"
   },
   {
     id: 5,
     title: "Stredomorský palác",
-    location: "Žilina, SK",
-    price: "€1,580,000",
+    location: "Žilina",
+    price: "1580000",
     image: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2053&q=80",
     beds: 8,
     baths: 10,
     sqft: "1200",
-    category: "Domy",
+    category: "Dom",
     transactionType: "Predaj"
   },
   {
     id: 6,
     title: "Moderný sklenený dom",
-    location: "Prešov, SK",
-    price: "€520,000",
+    location: "Prešov",
+    price: "520000",
     image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     beds: 4,
     baths: 5,
     sqft: "450",
-    category: "Domy",
-    transactionType: "Kúpa"
+    category: "Dom",
+    transactionType: "Predaj"
   },
   {
     id: 7,
     title: "Historická vila s parksom",
-    location: "Trenčín, SK",
-    price: "€980,000",
+    location: "Trenčín",
+    price: "980000",
     image: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     beds: 7,
     baths: 6,
     sqft: "890",
-    category: "Domy",
+    category: "Dom",
     transactionType: "Predaj"
   },
   {
     id: 8,
     title: "Minimalistický penthouse",
-    location: "Nitra, SK",
-    price: "€2,200/mes.",
+    location: "Nitra",
+    price: "2200",
     image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     beds: 3,
     baths: 3,
     sqft: "380",
     category: "Apartmán",
-    transactionType: "Na prenájom"
+    transactionType: "prenájom"
   }
 ];
 
@@ -117,6 +118,36 @@ const Properties = () => {
     priceFrom: "",
     priceTo: ""
   });
+
+  const [filteredProperties, setFilteredProperties] = useState(properties);
+
+  // ✅ Filtering logic
+  const handleSearch = () => {
+    const result = properties.filter((p) => {
+      const matchesCity = filters.city
+        ? p.location.toLowerCase().includes(filters.city.toLowerCase())
+        : true;
+
+      const matchesType = filters.propertyType
+        ? p.category.toLowerCase() === filters.propertyType.toLowerCase()
+        : true;
+
+      const matchesContract = filters.contractType
+        ? p.transactionType.toLowerCase() === filters.contractType.toLowerCase()
+        : true;
+
+      const price = Number(p.price);
+      const min = filters.priceFrom ? Number(filters.priceFrom) : 0;
+      const max = filters.priceTo ? Number(filters.priceTo) : Infinity;
+
+      const matchesMin = price >= min;
+      const matchesMax = price <= max;
+
+      return matchesCity && matchesType && matchesContract && matchesMin && matchesMax;
+    });
+
+    setFilteredProperties(result);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -152,11 +183,11 @@ const Properties = () => {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="bratislava">Bratislava</SelectItem>
-                        <SelectItem value="kosice">Košice</SelectItem>
-                        <SelectItem value="zilina">Žilina</SelectItem>
-                        <SelectItem value="presov">Prešov</SelectItem>
+                        <SelectItem value="košice">Košice</SelectItem>
+                        <SelectItem value="žilina">Žilina</SelectItem>
+                        <SelectItem value="prešov">Prešov</SelectItem>
                         <SelectItem value="nitra">Nitra</SelectItem>
-                        <SelectItem value="trencin">Trenčín</SelectItem>
+                        <SelectItem value="trenčín">Trenčín</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -172,8 +203,8 @@ const Properties = () => {
                         <SelectValue placeholder="Vyberte typ" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="domy">Domy</SelectItem>
-                        <SelectItem value="apartman">Apartmán</SelectItem>
+                        <SelectItem value="dom">Dom</SelectItem>
+                        <SelectItem value="apartmán">Apartmán</SelectItem>
                         <SelectItem value="pozemky">Pozemky</SelectItem>
                       </SelectContent>
                     </Select>
@@ -191,8 +222,8 @@ const Properties = () => {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="predaj">Predaj</SelectItem>
-                        <SelectItem value="prenajom">Na prenájom</SelectItem>
-                        <SelectItem value="kupa">Kúpa</SelectItem>
+                        <SelectItem value="prenájom">Prenájom</SelectItem>
+                        <SelectItem value="kúpa">Kúpa</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -222,7 +253,7 @@ const Properties = () => {
 
                 {/* Search Button */}
                 <div className="flex justify-center mt-8">
-                  <Button className="btn-golden px-8 py-3 text-base font-light">
+                  <Button onClick={handleSearch} className="btn-golden px-8 py-3 text-base font-light">
                     <Search className="w-5 h-5 mr-2" />
                     Vyhľadať nehnuteľnosti
                   </Button>
@@ -237,7 +268,7 @@ const Properties = () => {
           <div className="container mx-auto px-6">
             {/* Properties Grid - 4x2 layout */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {properties.map((property) => (
+              {filteredProperties.map((property) => (
                 <Card key={property.id} className="group overflow-hidden hover-lift bg-card border-border/20 shadow-elegant">
                   {/* Image Container */}
                   <div className="relative overflow-hidden">
@@ -321,9 +352,11 @@ const Properties = () => {
                 <p className="text-lg text-muted-foreground font-light leading-relaxed">
                   Nenašli ste, čo hľadáte? Dajte nám vedieť, akú nehnuteľnosť si predstavujete, a my vás budeme kontaktovať hneď, ako pribudne vhodná ponuka.
                 </p>
-                <Button className="btn-golden mt-6 px-8 py-3 text-base font-light">
-                  Kontaktujte nás
-                </Button>
+                <Link to={"/contact"}>
+                  <Button className="btn-golden mt-6 px-8 py-3 text-base font-light">
+                    Kontaktujte nás
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
