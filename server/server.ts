@@ -6,6 +6,7 @@ import { fileURLToPath } from "url";
 import propertyRoutes from "./routes/properties.ts";
 import citiesRoutes from "./routes/cities.ts"
 import propertyTypesRoutes from "./routes/property_types.ts"
+import partnersRoutes from "./routes/partners.ts"
 
 const app = express();
 app.use(cors());
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use("/api/properties", propertyRoutes);
 app.use("/api/cities", citiesRoutes);
 app.use("/api/property_types", propertyTypesRoutes)
+app.use("/api/partners", partnersRoutes)
 
 // Serve React build in production
 const __filename = fileURLToPath(import.meta.url);

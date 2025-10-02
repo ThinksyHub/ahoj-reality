@@ -1,27 +1,53 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Hero from "./Hero";
 import FeaturedProperties from "./FeaturedProperties";
-import { props as allProperties } from "../components/FeaturedProperties";
+import { Filters, Property } from "@/pages/Properties";
 
 const Search = () => {
-    const [filteredProperties, setFilteredProperties] = useState(allProperties);
+    const [properties, setProperties] = useState<Property[]>([]);
+    const [filteredProperties, setFilteredProperties] = useState(properties);
 
-    const handleSearch = ({ city, type, contract, minPrice, maxPrice }) => {
-        const result = allProperties.filter((p) => {
-            const matchesCity = city ? p.location.toLowerCase().includes(city.toLowerCase()) : true;
-            const matchesType = type ? p.category.toLowerCase() === type.toLowerCase() : true;
-            const matchesContract = contract ? p.transactionType.toLowerCase() === contract.toLowerCase() : true;
-            const matchesMin = p.price >= (minPrice || 0);
-            const matchesMax = p.price <= (maxPrice || Infinity);
-            return matchesCity && matchesContract && matchesType && matchesMin && matchesMax;
+    useEffect(() => {
+        fetch("/api/properties")
+            .then((res) => res.json())
+            .then((data) => {
+                setProperties(data);
+                setFilteredProperties(data);
+            })
+            .catch((err) => console.error(err));
+    }, []);
+
+    const handleSearch = (filters: Filters) => {
+        const result = properties.filter((p) => {
+            const matchesCity = filters.city_id
+                ? p.city_id === filters.city_id
+                : true;
+
+            const matchesType = filters.property_type
+                ? p.property_type.toLowerCase() === filters.property_type.toLowerCase()
+                : true;
+
+            const matchesContract = filters.property_purpose
+                ? p.property_purpose.toLowerCase() === filters.property_purpose.toLowerCase()
+                : true;
+
+            // const price = Number(p.price);
+            // const min = filters.priceFrom ? Number(filters.priceFrom) : 0;
+            // const max = filters.priceTo ? Number(filters.priceTo) : Infinity;
+
+            // const matchesMin = price >= min;
+            // const matchesMax = price <= max;
+
+            return matchesCity && matchesType && matchesContract // && matchesMin && matchesMax;
         });
+
         setFilteredProperties(result);
     };
 
     return (
         <>
             <Hero onSearch={handleSearch} />
-            <FeaturedProperties properties={filteredProperties} />
+            <FeaturedProperties filteredProperties={filteredProperties} />
         </>
     );
 };

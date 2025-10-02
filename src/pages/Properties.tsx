@@ -9,24 +9,7 @@ import Footer from "@/components/Footer";
 import { Bed, Bath, Square, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 
-// Reuse the same properties data from FeaturedProperties
-const properties = [
-  {
-    id: 1,
-    title: "Moderná luxusná vila",
-    location: "Bratislava",
-    city_id: "",
-    price: "850000",
-    image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    beds: 5,
-    baths: 6,
-    sqft: "650",
-    category: "Dom",
-    transactionType: "Predaj"
-  }
-];
-
-interface Property {
+export interface Property {
   id: number;
   property_name: string;
   property_slug: string;
@@ -56,27 +39,34 @@ interface Property {
   updated_at: string;
 }
 
-interface City {
+export interface City {
   id: number;
   city_name: string;
   status: number;
 }
 
-interface PropertyType {
+export interface PropertyType {
   id: number;
   types: string;
   slug: string;
 }
-
+export interface Filters {
+    city_id: number;
+    property_type: string;
+    property_purpose: string;
+    priceFrom: string;
+    priceTo: string;
+}
 const Properties = () => {
-  const [filters, setFilters] = useState({
-    city: "",
-    propertyType: "",
-    contractType: "",
+  const [filters, setFilters] = useState<Filters>({
+    city_id: 0,
+    property_type: "",
+    property_purpose: "",
     priceFrom: "",
     priceTo: ""
   });
 
+  const [properties, setProperties] = useState<Property[]>([]);
   const [filteredProperties, setFilteredProperties] = useState(properties);
   const [cities, setCities] = useState<City[]>([]);
   const [propertyTypes, setPropertTypes] = useState<PropertyType[]>([]);
@@ -84,26 +74,26 @@ const Properties = () => {
   // Filtering logic
   const handleSearch = () => {
     const result = properties.filter((p) => {
-      const matchesCity = filters.city
-        ? p.location.toLowerCase().includes(filters.city.toLowerCase())
+      const matchesCity = filters.city_id
+        ? p.city_id === filters.city_id
         : true;
 
-      const matchesType = filters.propertyType
-        ? p.category.toLowerCase() === filters.propertyType.toLowerCase()
+      const matchesType = filters.property_type
+        ? p.property_type.toLowerCase() === filters.property_type.toLowerCase()
         : true;
 
-      const matchesContract = filters.contractType
-        ? p.transactionType.toLowerCase() === filters.contractType.toLowerCase()
+      const matchesContract = filters.property_purpose
+        ? p.property_purpose.toLowerCase() === filters.property_purpose.toLowerCase()
         : true;
 
-      const price = Number(p.price);
-      const min = filters.priceFrom ? Number(filters.priceFrom) : 0;
-      const max = filters.priceTo ? Number(filters.priceTo) : Infinity;
+      // const price = Number(p.price);
+      // const min = filters.priceFrom ? Number(filters.priceFrom) : 0;
+      // const max = filters.priceTo ? Number(filters.priceTo) : Infinity;
 
-      const matchesMin = price >= min;
-      const matchesMax = price <= max;
+      // const matchesMin = price >= min;
+      // const matchesMax = price <= max;
 
-      return matchesCity && matchesType && matchesContract && matchesMin && matchesMax;
+      return matchesCity && matchesType && matchesContract // && matchesMin && matchesMax;
     });
 
     setFilteredProperties(result);
@@ -112,7 +102,10 @@ const Properties = () => {
   useEffect(() => {
     fetch("/api/properties")
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        setProperties(data);
+        setFilteredProperties(data);
+      })
       .catch((err) => console.error(err));
   }, []);
 
@@ -158,7 +151,7 @@ const Properties = () => {
                       <MapPin className="w-4 h-4 text-golden" />
                       <span className="text-sm font-medium">Mesto</span>
                     </div>
-                    <Select value={filters.city} onValueChange={(value) => setFilters(prev => ({...prev, city: value}))}>
+                    <Select value={filters.city_id ? filters.city_id.toString() : ""} onValueChange={(value) => setFilters(prev => ({...prev, city_id: Number(value)}))}>
                       <SelectTrigger className="w-full">
                         <SelectValue placeholder="Vyberte mesto" />
                       </SelectTrigger>
@@ -176,7 +169,7 @@ const Properties = () => {
                       <Home className="w-4 h-4 text-golden" />
                       <span className="text-sm font-medium">Typ nehnuteľnosti</span>
                     </div>
-                    <Select value={filters.propertyType} onValueChange={(value) => setFilters(prev => ({...prev, propertyType: value}))}>
+                    <Select value={filters.property_type} onValueChange={(value) => setFilters(prev => ({...prev, propertyType: value}))}>
                       <SelectTrigger className="w-full">
                         <SelectValue placeholder="Vyberte typ" />
                       </SelectTrigger>
@@ -194,14 +187,13 @@ const Properties = () => {
                       <FileText className="w-4 h-4 text-golden" />
                       <span className="text-sm font-medium">Typ zmluvy</span>
                     </div>
-                    <Select value={filters.contractType} onValueChange={(value) => setFilters(prev => ({...prev, contractType: value}))}>
+                    <Select value={filters.property_purpose} onValueChange={(value) => setFilters(prev => ({...prev, property_purpose: value}))}>
                       <SelectTrigger className="w-full">
                         <SelectValue placeholder="Vyberte typ zmluvy" />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="predaj">Predaj</SelectItem>
                         <SelectItem value="prenájom">Prenájom</SelectItem>
-                        <SelectItem value="kúpa">Kúpa</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -251,18 +243,18 @@ const Properties = () => {
                   {/* Image Container */}
                   <div className="relative overflow-hidden">
                     <img
-                      src={property.image}
-                      alt={property.title}
+                      src={`/properties/${property.featured_image}-b.jpg`}
+                      alt={property.property_name}
                       className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     
                     {/* Category and Transaction Type Badges */}
                     <div className="absolute top-4 left-4 flex flex-col gap-2">
                       <span className="bg-golden text-black px-3 py-1 rounded-full text-sm font-light">
-                        {property.category}
+                        {property.property_purpose}
                       </span>
                       <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-light">
-                        {property.transactionType}
+                        {propertyTypes.find((t) =>  t.id === Number(property.property_type))?.types ?? "Unknown"}
                       </span>
                     </div>
 
@@ -274,7 +266,7 @@ const Properties = () => {
                     {/* Price Overlay */}
                     <div className="absolute bottom-4 left-4">
                       <span className="text-2xl font-bold text-white drop-shadow-lg">
-                        {property.price}
+                        {property.sale_price}
                       </span>
                     </div>
                   </div>
@@ -283,26 +275,26 @@ const Properties = () => {
                   <div className="p-6">
                     <div className="flex items-center space-x-2 text-muted-foreground mb-2">
                       <MapPin className="w-4 h-4 text-golden" />
-                      <span className="text-sm">{property.location}</span>
+                      <span className="text-sm">{property.address}</span>
                     </div>
 
                     <h3 className="font-heading text-xl font-light text-primary mb-4 group-hover:text-golden transition-colors">
-                      {property.title}
+                      {property.property_name}
                     </h3>
 
                     {/* Property Stats */}
                     <div className="flex items-center justify-between text-sm text-muted-foreground mb-6">
                       <div className="flex items-center space-x-1">
                         <Bed className="w-4 h-4" />
-                        <span>{property.beds} izby</span>
+                        <span>{property.bedrooms} izby</span>
                       </div>
                       <div className="flex items-center space-x-1">
                         <Bath className="w-4 h-4" />
-                        <span>{property.baths} kúp.</span>
+                        <span>{property.bathrooms} kúp.</span>
                       </div>
                       <div className="flex items-center space-x-1">
                         <Square className="w-4 h-4" />
-                        <span>{property.sqft} m²</span>
+                        <span>{property.area} m²</span>
                       </div>
                     </div>
 
