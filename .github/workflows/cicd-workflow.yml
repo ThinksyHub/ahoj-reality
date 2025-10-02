@@ -1,0 +1,59 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    environment: ahojreality 
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Login to docker hub
+        run: docker login -u ${{ secrets.DOCKER_EMAIL }} -p ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build docker image
+        run: docker build -t thinksydockerhub/ahojreality .
+      - name: Publish image to docker hub
+        run: docker push thinksydockerhub/ahojreality:latest
+  
+  deploy:
+    needs: build
+    runs-on: [self-hosted]
+    steps:
+      - name: Install docker
+        run: |
+          if ! command -v docker >/dev/null 2>&1; then
+            sudo -E apt-get update -y
+            sudo -E apt-get install -y --no-install-recommends docker.io
+          fi
+
+      - name: Check & remove existing container
+        run: |
+          if sudo docker ps -a --format '{{.Names}}' | grep -Eq "^ahojreality-container$"; then
+            echo "Removing existing container..."
+            sudo docker rm -f ahojreality-container
+          else
+            echo "No existing container found."
+          fi
+
+      - name: Check & remove old image
+        run: |
+          if sudo docker images --format '{{.Repository}}:{{.Tag}}' | grep -Eq "^thinksydockerhub/ahojreality:latest$"; then
+            echo "Removing existing image..."
+            sudo docker rmi -f thinksydockerhub/ahojreality:latest
+          else
+            echo "No existing image found."
+          fi
+          
+      - name: Pull latest image
+        run: sudo docker pull thinksydockerhub/ahojreality:latest
+
+      - name: Run updated container
+        run: |
+          sudo docker run -d \
+            --restart always \
+            -p 80:3000 \
+            --name ahojreality-container \
+            thinksydockerhub/ahojreality:latest

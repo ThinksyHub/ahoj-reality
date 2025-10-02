@@ -10,8 +10,11 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "server:dev": "ts-node server/server.ts",
-    "server:build": "tsc -p server",
-    "server:start": "node server/dist/server.js"
+    "server:build": "tsc -p tsconfig.node.json",
+    "server:start": "node server/dist/server.js",
+
+    "dev:all": "concurrently \"npm run server:dev\" \"npm run dev\"",
+    "start:all": "concurrently \"npm run server:start\" \"npm run preview\""
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -79,6 +82,7 @@
     "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react-swc": "^3.11.0",
     "autoprefixer": "^10.4.21",
+    "concurrently": "^9.2.1",
     "eslint": "^9.32.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
