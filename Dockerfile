@@ -16,7 +16,7 @@ COPY . .
 # The serve package runs by default on 3000,
 # but you can change with: serve -l <port>
 ENV PORT=8080
-EXPOSE 8080
+EXPOSE 8080 5000
 
 # Run your start script ("serve src")
 CMD ["npm", "run", "dev:all"]
