@@ -12,7 +12,6 @@
     "server:dev": "ts-node server/server.ts",
     "server:build": "tsc -p tsconfig.node.json",
     "server:start": "node server/dist/server.js",
-
     "dev:all": "concurrently \"npm run server:dev\" \"npm run dev\"",
     "start:all": "concurrently \"npm run server:start\" \"npm run preview\""
   },
@@ -51,6 +50,7 @@
     "cmdk": "^1.1.1",
     "cors": "^2.8.5",
     "date-fns": "^3.6.0",
+    "dompurify": "^3.2.7",
     "embla-carousel-react": "^8.6.0",
     "express": "^5.1.0",
     "input-otp": "^1.4.2",

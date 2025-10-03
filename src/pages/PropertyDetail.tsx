@@ -1,57 +1,14 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { Bed, Bath, Square, MapPin, Heart, Share2, Phone, Mail, Calendar, Star, Car, Trees, Flame, ChevronDown, ChevronUp } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
-// Property data (same as in FeaturedProperties for now)
-const properties = [
-  {
-    id: 1,
-    title: "Nádherný rodinný dom",
-    location: "Beloveža",
-    price: "299,900 €",
-    image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    beds: 5,
-    baths: 2,
-    sqft: "163",
-    category: "Domy",
-    transactionType: "Predaj",
-    description: "AHOJ reality exkluzívne ponúka na predaj nádherný rodinný dom v obci Beloveža s ideálnym prostredím pre pohodlný život. Tento dom má nádhernú rovinatú záhradu s príjazdom po obecnej ceste a moderné vybavenie, ktoré je súčasťou ceny pri predaji.\n\nAk máte radi útulné bývanie, tak tento dom je určite pre Vás. V nehnuteľnosti zažijete pocit šťastia a pokojnej atmosféry, čo dodá Vašej duši neopísateľný pocit. Je zrejmé, že dom si Vás hneď na prvej obhliadke určite získa.\n\nJedná sa o samostatne stojaci rodinný dom s rozmerom zastavanej plochy 163 m2, postavený z tehly a kompletne zateplený so sedlovou strechou. Dom sa nachádza na rovinatom pozemku vo veľkosti 1 699 m2 s betónovým plotom, pričom záhrada bola navrhnutá záhradným architektom.\n\nVykurovanie zabezpečuje plynový kotol s podlahovým systémom a dom má vlastnú studňu pre zásobovanie vodou. K domu patrí elektrická brána, čistička odpadových vôd, kozub a moderné solárne panely. Pre pohodlie majiteľov je k dispozícii automatické zavlažovanie trávnika a altánok s kapacitou pre 3 autá.\n\nDom má znížené stropy a nachádza sa vo výbornej lokalite. Dispozícia domu je nasledovná: prízemie obsahuje vstupnú chodbu, obývačku spojenú s kuchyňou, 2 izby, samostatnú kúpeľňa, WC, verandu a technickú miestnosť. Na prvom poschodí sa nachádzajú 3 izby, 2 balkóny a kúpeľňa s WC.\n\nV cene je zahrnuté právne poradenstvo, hypotekárne poradenstvo a popredajný servis. Klientom odovzdáme aj veľmi hodnotný darček, ktorý využije celá rodina.",
-    features: [
-      "Rovinatý pozemok",
-      "Zavlažovanie trávnika", 
-      "Solárne panely",
-      "Elektrická brána",
-      "Plynový kotol s podlahovým kúrením",
-      "Vlastná studňa",
-      "Čistička",
-      "Kozub",
-      "Altánok na 3 autá",
-      "Záhrada navrhnutá záhradným architektom",
-      "Betónový plot",
-      "Zateplený dom"
-    ],
-    images: [
-      "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2053&q=80",
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80",
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      "https://images.unsplash.com/photo-1571624436279-b272aff752b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80",
-      "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      "https://images.unsplash.com/photo-1615529328331-f8917597711f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
-    ]
-  }
-];
+import { Property } from "./Properties";
+import DOMPurify from "dompurify";
 
 const PropertyDetail = () => {
   const { id } = useParams();
@@ -59,8 +16,14 @@ const PropertyDetail = () => {
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
   const [isFeaturesExpanded, setIsFeaturesExpanded] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  
-  const property = properties.find(p => p.id === parseInt(id || "1"));
+  const [property, setProperty] = useState<Property>();
+
+  useEffect(() => {
+    fetch(`/api/properties/${id}`)
+    .then((res) => res.json())
+    .then((data) => setProperty(data))
+    .catch((err) => console.error(err));
+  }, []);
   
   if (!property) {
     return (
@@ -92,8 +55,8 @@ const PropertyDetail = () => {
                     <div className="cursor-pointer">
                       <AspectRatio ratio={4/3} className="overflow-hidden">
                         <img
-                          src={property.image}
-                          alt={property.title}
+                          src={`/public/properties/${property.featured_image}-b.jpg`}
+                          alt={property.property_name}
                           className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                         />
                       </AspectRatio>
@@ -102,8 +65,8 @@ const PropertyDetail = () => {
                   <DialogContent className="max-w-4xl w-full p-0 border-0">
                     <div className="relative">
                       <img
-                        src={property.image}
-                        alt={property.title}
+                        src={`/public/properties/${property.featured_image}-b.jpg`}
+                        alt={property.property_name}
                         className="w-full h-auto max-h-[80vh] object-contain"
                       />
                     </div>
@@ -112,7 +75,7 @@ const PropertyDetail = () => {
               </div>
 
               {/* Gallery Section */}
-              <div>
+              {/* <div>
                 <h3 className="font-serif text-xl font-normal text-primary mb-4">Galéria fotografií</h3>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                   {property.images.slice(1, 9).map((image, index) => (
@@ -147,7 +110,7 @@ const PropertyDetail = () => {
                     </span>
                   </div>
                 )}
-              </div>
+              </div> */}
             </div>
 
             {/* Right Side - Property Details */}
@@ -156,14 +119,14 @@ const PropertyDetail = () => {
               <div className="mb-6">
                 <div className="flex items-start justify-between mb-4">
                   <h1 className="font-serif text-3xl font-normal text-primary">
-                    {property.title}
+                    {property.property_name}
                   </h1>
                   <div className="flex items-center space-x-2">
                     <span className="bg-golden text-black px-3 py-1 rounded-full text-xs font-medium">
-                      {property.category}
+                      {property.property_type}
                     </span>
                     <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
-                      {property.transactionType}
+                      {property.property_purpose}
                     </span>
                   </div>
                 </div>
@@ -171,7 +134,7 @@ const PropertyDetail = () => {
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center space-x-2 text-muted-foreground">
                     <MapPin className="w-5 h-5 text-golden" />
-                    <span className="text-lg">{property.location}</span>
+                    <span className="text-lg">{property.address}</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Button size="sm" variant="ghost" className="text-muted-foreground hover:text-golden">
@@ -186,26 +149,26 @@ const PropertyDetail = () => {
 
               {/* Property Stats */}
               <div className="mb-8 bg-card rounded-lg border border-border/20 overflow-hidden">
-                <div className="grid grid-cols-6 gap-0">
+                <div className="grid grid-cols-4 gap-0">
                   <div className="text-center p-3 border-b border-border/10">
                     <div className="w-6 h-6 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-1">
                       <Bed className="w-3 h-3 text-golden" />
                     </div>
-                    <div className="text-sm font-bold text-primary">{property.beds}</div>
+                    <div className="text-sm font-bold text-primary">{property.bedrooms}</div>
                   </div>
                   
                   <div className="text-center p-3 border-b border-l border-border/10">
                     <div className="w-6 h-6 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-1">
                       <Bath className="w-3 h-3 text-golden" />
                     </div>
-                    <div className="text-sm font-bold text-primary">{property.baths}</div>
+                    <div className="text-sm font-bold text-primary">{property.bathrooms}</div>
                   </div>
                   
                   <div className="text-center p-3 border-b border-l border-border/10">
                     <div className="w-6 h-6 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-1">
                       <Square className="w-3 h-3 text-golden" />
                     </div>
-                    <div className="text-sm font-bold text-primary">{property.sqft}</div>
+                    <div className="text-sm font-bold text-primary">{property.area}</div>
                   </div>
 
                   <div className="text-center p-3 border-b border-l border-border/10">
@@ -214,25 +177,11 @@ const PropertyDetail = () => {
                     </div>
                     <div className="text-sm font-bold text-primary">3</div>
                   </div>
-
-                  <div className="text-center p-3 border-b border-l border-border/10">
-                    <div className="w-6 h-6 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-1">
-                      <Trees className="w-3 h-3 text-golden" />
-                    </div>
-                    <div className="text-sm font-bold text-primary">✓</div>
-                  </div>
-
-                  <div className="text-center p-3 border-b border-l border-border/10">
-                    <div className="w-6 h-6 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-1">
-                      <Flame className="w-3 h-3 text-golden" />
-                    </div>
-                    <div className="text-sm font-bold text-primary">✓</div>
-                  </div>
                 </div>
               </div>
 
               {/* Features */}
-              <div className="mb-8">
+              {/* <div className="mb-8">
                 <h2 className="font-serif text-xl font-normal text-primary mb-4">Vybavenie a vlastnosti</h2>
                 <div className="grid grid-cols-1 gap-2">
                   {property.features.slice(0, isFeaturesExpanded ? property.features.length : 3).map((feature, index) => (
@@ -258,15 +207,17 @@ const PropertyDetail = () => {
                     )}
                   </button>
                 )}
-              </div>
+              </div> */}
 
               {/* Description with Expander */}
               <div className="mb-8">
                 <h2 className="font-serif text-xl font-normal text-primary mb-4">Popis nehnuteľnosti</h2>
                 <div className="text-muted-foreground text-sm leading-relaxed">
-                  <p className={`transition-all duration-300 ${!isDescriptionExpanded ? 'line-clamp-3' : ''}`}>
-                    {property.description}
-                  </p>
+                  <p className={`transition-all duration-300 ${!isDescriptionExpanded ? 'line-clamp-3' : ''}`}
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(property.description),
+                    }}
+                  />
                   <button
                     onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}
                     className="flex items-center mt-2 text-golden hover:text-golden/80 transition-colors text-sm font-medium"

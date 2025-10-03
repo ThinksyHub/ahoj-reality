@@ -112,8 +112,8 @@ const Hero = ({ onSearch }) => {
                       <SelectValue placeholder="Vyberte typ zmluvy" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="predaj">Predaj</SelectItem>
-                      <SelectItem value="prenájom">Prenájom</SelectItem>
+                      <SelectItem value="sale">Predaj</SelectItem>
+                      <SelectItem value="rent">Prenájom</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
