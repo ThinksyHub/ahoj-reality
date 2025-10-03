@@ -42,7 +42,9 @@ const Hero = ({ onSearch }) => {
   useEffect(() => {
     fetch("api/property_types")
       .then((res) => res.json())
-      .then((data) => setPropertTypes(data))
+      .then((data) => {
+        setPropertTypes(data);
+      })
       .then((err) => console.error(err));
   }, []);
 
@@ -83,7 +85,21 @@ const Hero = ({ onSearch }) => {
                     </SelectTrigger>
                     <SelectContent>
                       {cities.map((city) => (
-                        <SelectItem key={city.id} value={city.city_name}>{city.city_name}</SelectItem>
+                        <SelectItem key={city.id} value={city.id.toString()}>{city.city_name}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div className="space-y-3">
+                  <label className="text-sm font-medium text-white/90 block text-left tracking-wide">Nehnuteľnosti</label>
+                  <Select value={filters.property_type} onValueChange={(value) => setFilters(prev => ({ ...prev, property_type: value }))}>
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Vyberte typ" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {propertyTypes.map((type) => (
+                        <SelectItem key={type.id} value={type.id.toString()}>{type.types}</SelectItem>
                       ))}
                     </SelectContent>
                   </Select>
@@ -91,20 +107,6 @@ const Hero = ({ onSearch }) => {
 
                 <div className="space-y-3">
                   <label className="text-sm font-medium text-white/90 block text-left tracking-wide">Typ</label>
-                  <Select value={filters.property_type} onValueChange={(value) => setFilters(prev => ({ ...prev, propertyType: value }))}>
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Vyberte typ" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {propertyTypes.map((type) => (
-                        <SelectItem key={type.id} value={type.slug}>{type.types}</SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="space-y-3">
-                  <label className="text-sm font-medium text-white/90 block text-left tracking-wide">Zmluva</label>
                   <Select value={filters.property_purpose} onValueChange={(value) => setFilters(prev => ({ ...prev, property_purpose: value }))}>
                     <SelectTrigger className="w-full">
                       <SelectValue placeholder="Vyberte typ zmluvy" />

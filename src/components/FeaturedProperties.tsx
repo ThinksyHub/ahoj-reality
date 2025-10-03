@@ -1,24 +1,24 @@
-import { Bed, Bath, Square, MapPin, Heart } from "lucide-react";
+import { Bed, Bath, Square, MapPin, Heart, Euro } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import Properties, { Property, PropertyType } from "@/pages/Properties";
+import { Property, PropertyType } from "@/pages/Properties";
 import { useEffect, useState } from "react";
 
 interface FeaturedProperty {
   filteredProperties: Property[];
 }
 
-const FeaturedProperties = ({filteredProperties}: FeaturedProperty) => {
-const [propertyTypes, setPropertTypes] = useState<PropertyType[]>([]);
-  
+const FeaturedProperties = ({ filteredProperties }: FeaturedProperty) => {
+  const [propertyTypes, setPropertTypes] = useState<PropertyType[]>([]);
+
   useEffect(() => {
     fetch("api/property_types")
-    .then((res) => res.json())
-    .then((data) => setPropertTypes(data))
-    .then((err) => console.error(err));
+      .then((res) => res.json())
+      .then((data) => setPropertTypes(data))
+      .then((err) => console.error(err));
   }, []);
-  
+
   return (
     <section id="properties" className="py-20 bg-background">
       <div className="container mx-auto px-6">
@@ -46,14 +46,14 @@ const [propertyTypes, setPropertTypes] = useState<PropertyType[]>([]);
                   alt={property.property_name}
                   className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                
+
                 {/* Category and Transaction Type Badges */}
                 <div className="absolute top-4 left-4 flex flex-col gap-2">
                   <span className="bg-golden text-black px-3 py-1 rounded-full text-sm font-light">
                     {property.property_purpose}
                   </span>
                   <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-light">
-                    {propertyTypes.find((t) =>  t.id === Number(property.property_type))?.types ?? "Unknown"}
+                    {propertyTypes.find((t) => t.id === Number(property.property_type))?.types ?? "Unknown"}
                   </span>
                 </div>
 
@@ -66,6 +66,7 @@ const [propertyTypes, setPropertTypes] = useState<PropertyType[]>([]);
                 <div className="absolute bottom-4 left-4">
                   <span className="text-2xl font-bold text-white drop-shadow-lg">
                     {property.sale_price}
+                    {(property.sale_price != null) ? <Euro className="w-4 h-4 text-golden" /> : ''}
                   </span>
                 </div>
               </div>

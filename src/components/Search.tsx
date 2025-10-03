@@ -31,14 +31,14 @@ const Search = () => {
                 ? p.property_purpose.toLowerCase() === filters.property_purpose.toLowerCase()
                 : true;
 
-            // const price = Number(p.price);
-            // const min = filters.priceFrom ? Number(filters.priceFrom) : 0;
-            // const max = filters.priceTo ? Number(filters.priceTo) : Infinity;
+            const price = Number(p.sale_price || p.rent_price);
+            const min = filters.priceFrom ? Number(filters.priceFrom) : 0;
+            const max = filters.priceTo ? Number(filters.priceTo) : Infinity;
 
-            // const matchesMin = price >= min;
-            // const matchesMax = price <= max;
+            const matchesMin = price >= min;
+            const matchesMax = price <= max;
 
-            return matchesCity && matchesType && matchesContract // && matchesMin && matchesMax;
+            return matchesCity && matchesType && matchesContract && matchesMin && matchesMax;
         });
 
         setFilteredProperties(result);
