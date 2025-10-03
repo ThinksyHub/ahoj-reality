@@ -77,9 +77,10 @@ const [propertyTypes, setPropertTypes] = useState<PropertyType[]>([]);
                   <span className="text-sm">{property.address}</span>
                 </div>
 
-                <h3 className="font-heading text-xl font-light text-primary mb-4 group-hover:text-golden transition-colors">
+                <h3 className="font-heading text-xl font-light text-primary mb-4 group-hover:text-golden transition-colors truncate">
                   {property.property_name}
                 </h3>
+
 
                 {/* Property Stats */}
                 <div className="flex items-center justify-between text-sm text-muted-foreground mb-6">

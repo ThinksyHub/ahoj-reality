@@ -118,8 +118,8 @@ const Hero = ({ onSearch }) => {
 
                 {/* Price Range */}
                 <div className="space-y-3">
-                  <div className="flex items-center space-x-2 text-muted-foreground mb-2">
-                    <Euro className="w-4 h-4 text-golden" />
+                  <div className="flex items-center space-x-2 text-white mb-2">
+                    <Euro className="w-4 h-4 text-white" />
                     <span className="text-sm font-medium">Cena</span>
                   </div>
                   <div className="flex space-x-2">
