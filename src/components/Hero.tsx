@@ -45,7 +45,7 @@ const Hero = ({ onSearch }) => {
       .then((data) => {
         setPropertTypes(data);
       })
-      .then((err) => console.error(err));
+      .catch((err) => console.error(err));
   }, []);
 
   return (

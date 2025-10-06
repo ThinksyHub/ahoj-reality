@@ -12,52 +12,56 @@ const partners = [
   {
     id: 1,
     name: "Slovenská sporiteľňa",
-    logo: slovenskaSporitelnaLogo
+    logo: slovenskaSporitelnaLogo,
+    url: "https://www.slsp.sk/"
   },
   {
     id: 2,
     name: "Prima Banka",
-    logo: primaBankaLogo
+    logo: primaBankaLogo,
+    url: "https://www.primabanka.sk/"
   },
   {
     id: 3,
     name: "ITKAP",
-    logo: itkapLogo
+    logo: itkapLogo,
+    url: "https://itkap.sk/"
   },
   {
     id: 4,
     name: "OTP Bank",
-    logo: otpBankLogo
+    logo: otpBankLogo,
+    url: "https://www.otpbank.hu/"
   },
   {
     id: 5,
     name: "mBank",
-    logo: mbankLogo
+    logo: mbankLogo,
+    url: "https://www.mbank.sk/"
   },
   {
     id: 6,
     name: "VÚB Banka",
-    logo: vubBankaLogo
+    logo: vubBankaLogo,
+    url: "https://www.vub.sk/"
   },
   {
     id: 7,
     name: "UniCredit",
-    logo: unicreditLogo
+    logo: unicreditLogo,
+    url:"https://www.unicreditbank.sk/"
   },
   {
     id: 8,
     name: "Tatra Banka",
-    logo: tatraBankaLogo
+    logo: tatraBankaLogo,
+    url:"https://www.tatrabanka.sk/"
   },
   {
     id: 9,
     name: "ČSOB",
-    logo: csobLogo
-  },
-  {
-    id: 10,
-    name: "Slovenská sporiteľňa",
-    logo: slovenskaSporitelnaLogo
+    logo: csobLogo,
+    url:"https://www.csob.sk/"
   }
 ];
 
@@ -81,13 +85,15 @@ const Partners = () => {
         {/* Partners Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
           {partners.map((partner) => (
-            <div key={partner.id} className="flex items-center justify-center p-4 bg-white rounded-lg hover:shadow-md transition-all duration-300">
-              <img
-                src={partner.logo}
-                alt={partner.name}
-                className="max-w-full h-14 object-contain filter grayscale hover:filter-none transition-all duration-300"
-              />
-            </div>
+            <a href={partner.url} target="_blank" rel="noopener noreferrer">
+              <div key={partner.id} className="flex items-center justify-center p-4 bg-white rounded-lg hover:shadow-md transition-all duration-300">
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="max-w-full h-14 object-contain filter grayscale hover:filter-none transition-all duration-300"
+                />
+              </div>
+            </a>
           ))}
         </div>
       </div>
