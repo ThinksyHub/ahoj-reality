@@ -7,8 +7,9 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Property } from "./Properties";
+import { Property, PropertyType } from "./Properties";
 import DOMPurify from "dompurify";
+import { error } from "console";
 
 const PropertyDetail = () => {
   const { id } = useParams();
@@ -17,13 +18,31 @@ const PropertyDetail = () => {
   const [isFeaturesExpanded, setIsFeaturesExpanded] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [property, setProperty] = useState<Property>();
+  const [images, setImages] = useState<String[]>([]);
+  const [propertyTypes, setPropertyTypes] = useState<PropertyType[]>([]);
 
   useEffect(() => {
     fetch(`/api/properties/${id}`)
     .then((res) => res.json())
-    .then((data) => setProperty(data))
+    .then((data) => {
+      setProperty(data);
+      setImages([
+        data.property_images1,
+        data.property_images2,
+        data.property_images3,
+        data.property_images4,
+        data.property_images5,
+      ]);
+    })
     .catch((err) => console.error(err));
   }, []);
+
+  useEffect(() => {
+    fetch('/api/property_types')
+    .then((res) => res.json())
+    .then((data) => setPropertyTypes(data))
+    .catch((err) => console.error(err))
+  }, [])
   
   if (!property) {
     return (
@@ -55,7 +74,7 @@ const PropertyDetail = () => {
                     <div className="cursor-pointer">
                       <AspectRatio ratio={4/3} className="overflow-hidden">
                         <img
-                          src={`/public/properties/${property.featured_image}-b.jpg`}
+                          src={`/properties/${property.featured_image}-b.jpg`}
                           alt={property.property_name}
                           className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                         />
@@ -65,7 +84,7 @@ const PropertyDetail = () => {
                   <DialogContent className="max-w-4xl w-full p-0 border-0">
                     <div className="relative">
                       <img
-                        src={`/public/properties/${property.featured_image}-b.jpg`}
+                        src={`/properties/${property.featured_image}-b.jpg`}
                         alt={property.property_name}
                         className="w-full h-auto max-h-[80vh] object-contain"
                       />
@@ -75,17 +94,17 @@ const PropertyDetail = () => {
               </div>
 
               {/* Gallery Section */}
-              {/* <div>
+              <div>
                 <h3 className="font-serif text-xl font-normal text-primary mb-4">Galéria fotografií</h3>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                  {property.images.slice(1, 9).map((image, index) => (
+                  {images.slice(1, 6).map((image, index) => (
                     <Dialog key={index}>
                       <DialogTrigger asChild>
                         <div className="cursor-pointer">
                           <AspectRatio ratio={4/3} className="overflow-hidden">
                             <img
-                              src={image}
-                              alt={`${property.title} ${index + 2}`}
+                              src={`/properties/${image}-b.jpg`}
+                              alt={`${property.property_name} ${index + 2}`}
                               className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                             />
                           </AspectRatio>
@@ -94,8 +113,8 @@ const PropertyDetail = () => {
                       <DialogContent className="max-w-4xl w-full p-0 border-0">
                         <div className="relative">
                           <img
-                            src={image}
-                            alt={`${property.title} ${index + 2}`}
+                            src={`/properties/${image}-b.jpg`}
+                            alt={`${property.property_name} ${index + 2}`}
                             className="w-full h-auto max-h-[80vh] object-contain"
                           />
                         </div>
@@ -103,14 +122,14 @@ const PropertyDetail = () => {
                     </Dialog>
                   ))}
                 </div>
-                {property.images.length > 9 && (
+                {/* {images.length > 5 && (
                   <div className="text-center pt-4">
                     <span className="text-sm text-muted-foreground">
-                      +{property.images.length - 9} ďalších fotografií
+                      +{images.length - 5} ďalších fotografií
                     </span>
                   </div>
-                )}
-              </div> */}
+                )} */}
+              </div>
             </div>
 
             {/* Right Side - Property Details */}
@@ -123,7 +142,7 @@ const PropertyDetail = () => {
                   </h1>
                   <div className="flex items-center space-x-2">
                     <span className="bg-golden text-black px-3 py-1 rounded-full text-xs font-medium">
-                      {property.property_type}
+                      {propertyTypes.find((t) => t.id === Number(property.property_type))?.types ?? "Unknown" }
                     </span>
                     <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
                       {property.property_purpose}

@@ -1,7 +1,7 @@
 import { Euro, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import mainBanner from "@/assets/main_banner.png";
+import mainBanner from "@/assets/AHOJ_reality_HP_banner_1536x1024_3.png";
 import { useEffect, useState } from "react";
 import { City, Property, PropertyType } from "@/pages/Properties";
 import { Input } from "./ui/input";

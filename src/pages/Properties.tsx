@@ -75,25 +75,25 @@ const Properties = () => {
   const handleSearch = () => {
     const result = properties.filter((p) => {
       const matchesCity = filters.city_id
-        ? p.city_id === filters.city_id
-        : true;
-
+      ? p.city_id === filters.city_id
+      : true;
+      
       const matchesType = filters.property_type
-        ? p.property_type.toLowerCase() === filters.property_type.toLowerCase()
-        : true;
-
+      ? p.property_type.toLowerCase() === filters.property_type.toLowerCase()
+      : true;
+      
       const matchesContract = filters.property_purpose
         ? p.property_purpose.toLowerCase() === filters.property_purpose.toLowerCase()
         : true;
 
-      // const price = Number(p.price);
-      // const min = filters.priceFrom ? Number(filters.priceFrom) : 0;
-      // const max = filters.priceTo ? Number(filters.priceTo) : Infinity;
+      const price = Number(p.sale_price || p.rent_price);
+      const min = filters.priceFrom ? Number(filters.priceFrom) : 0;
+      const max = filters.priceTo ? Number(filters.priceTo) : Infinity;
 
-      // const matchesMin = price >= min;
-      // const matchesMax = price <= max;
+      const matchesMin = price >= min;
+      const matchesMax = price <= max;
 
-      return matchesCity && matchesType && matchesContract // && matchesMin && matchesMax;
+      return matchesCity && matchesType && matchesContract && matchesMin && matchesMax;
     });
 
     setFilteredProperties(result);
@@ -120,7 +120,7 @@ const Properties = () => {
     fetch("api/property_types")
     .then((res) => res.json())
     .then((data) => setPropertTypes(data))
-    .then((err) => console.error(err));
+    .catch((err) => console.error(err));
   }, []);
 
   return (
@@ -157,7 +157,7 @@ const Properties = () => {
                       </SelectTrigger>
                       <SelectContent>
                         {cities.map((city) => (
-                          <SelectItem key={city.id} value ={city.city_name}>{city.city_name}</SelectItem>
+                          <SelectItem key={city.id} value ={city.id.toString()}>{city.city_name}</SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
@@ -169,13 +169,13 @@ const Properties = () => {
                       <Home className="w-4 h-4 text-golden" />
                       <span className="text-sm font-medium">Typ nehnuteľnosti</span>
                     </div>
-                    <Select value={filters.property_type} onValueChange={(value) => setFilters(prev => ({...prev, propertyType: value}))}>
+                    <Select value={filters.property_type} onValueChange={(value) => setFilters(prev => ({...prev, property_type: value}))}>
                       <SelectTrigger className="w-full">
                         <SelectValue placeholder="Vyberte typ" />
                       </SelectTrigger>
                       <SelectContent>
                         {propertyTypes.map((type) => (
-                          <SelectItem key={type.id} value={type.slug}>{type.types}</SelectItem>
+                          <SelectItem key={type.id} value={type.id.toString()}>{type.types}</SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
@@ -192,8 +192,8 @@ const Properties = () => {
                         <SelectValue placeholder="Vyberte typ zmluvy" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="predaj">Predaj</SelectItem>
-                        <SelectItem value="prenájom">Prenájom</SelectItem>
+                        <SelectItem value="sale">Predaj</SelectItem>
+                        <SelectItem value="rent">Prenájom</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>

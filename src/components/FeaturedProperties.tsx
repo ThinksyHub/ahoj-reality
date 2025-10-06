@@ -16,7 +16,7 @@ const FeaturedProperties = ({ filteredProperties }: FeaturedProperty) => {
     fetch("api/property_types")
       .then((res) => res.json())
       .then((data) => setPropertTypes(data))
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err))
   }, []);
 
   return (
