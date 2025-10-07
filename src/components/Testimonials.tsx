@@ -1,5 +1,6 @@
 import { Star, Quote } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 const testimonials = [
   {
@@ -27,6 +28,10 @@ const testimonials = [
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
   }
 ];
+
+const getInitials = (name: string) => {
+    return name.split(' ').map(n => n[0]).join('').toUpperCase();
+};
 
 const Testimonials = () => {
   return (
@@ -68,11 +73,11 @@ const Testimonials = () => {
 
               {/* Client Info */}
               <div className="flex items-center space-x-4">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-12 h-12 rounded-full object-cover border-2 border-golden/20"
-                />
+                <Avatar className="w-10 h-10">
+                  <AvatarFallback className="bg-golden/10 text-golden font-medium text-sm">
+                    {getInitials(testimonial.name)}
+                  </AvatarFallback>
+                </Avatar>
                 <div>
                   <h4 className="font-semibold text-primary">{testimonial.name}</h4>
                   <p className="text-sm text-muted-foreground">{testimonial.role}</p>

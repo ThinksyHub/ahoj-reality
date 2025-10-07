@@ -66,7 +66,7 @@ const Hero = ({ onSearch }) => {
       <div className="relative z-10 container mx-auto px-6 text-center">
         <div className="max-w-5xl mx-auto">
           <div className="max-w-6xl mx-auto">
-          <img src="/src/assets/logo.png" style={{maxWidth: '22%'}}/>
+          <img src="/src/assets/logo_uprava2.png" style={{maxWidth: '22%'}}/>
           </div>
           {/* Luxury Property Search Filter */}
           <div className="bg-white/15 backdrop-blur-xl rounded-3xl p-10 max-w-5xl mx-auto border border-white/20 shadow-luxury relative overflow-hidden animate-fade-in">
