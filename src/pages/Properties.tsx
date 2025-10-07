@@ -232,6 +232,24 @@ const Properties = () => {
             </div>
           </div>
         </section>
+        <section className="flex justify-center gap-6">
+          <div style={{textAlign: 'center'}}>
+            <img src="/src/assets/icons/ponuka-nehnutelnosti_BYT.png"/>
+            <span>Byty</span>
+          </div>
+          <div style={{textAlign: 'center'}}>
+            <img src="/src/assets/icons/ponuka-nehnutelnosti_DOMY.png"/>
+            <span>Domy</span>
+          </div>
+          <div style={{textAlign: 'center'}}>
+            <img src="/src/assets/icons/ponuka-nehnutelnosti_POZEMKY.png"/>
+            <span>Pozemky</span>
+          </div>
+          <div style={{textAlign: 'center'}}>
+            <img src="/src/assets/icons/ponuka-nehnutelnosti_OBJEKTY.png"/>
+            <span>Objekty</span>
+          </div>
+        </section>
 
         {/* Properties Grid - Same as FeaturedProperties */}
         <section className="py-20 bg-background">
@@ -289,8 +307,8 @@ const Properties = () => {
                         <span>{property.bedrooms} izby</span>
                       </div>
                       <div className="flex items-center space-x-1">
-                        <Bath className="w-4 h-4" />
-                        <span>{property.bathrooms} kúp.</span>
+                        <img className="w-4 h-4" src="/src/assets/icons/balcony.png"/>
+                        <span>{property.bathrooms} balk.</span>
                       </div>
                       <div className="flex items-center space-x-1">
                         <Square className="w-4 h-4" />

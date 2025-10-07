@@ -178,7 +178,7 @@ const PropertyDetail = () => {
                   
                   <div className="text-center p-3 border-b border-l border-border/10">
                     <div className="w-6 h-6 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-1">
-                      <Bath className="w-3 h-3 text-golden" />
+                      <img className="w-3 h-3 text-golden" src="/src/assets/icons/balcony.png"/>
                     </div>
                     <div className="text-sm font-bold text-primary">{property.bathrooms}</div>
                   </div>
