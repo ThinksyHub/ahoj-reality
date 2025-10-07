@@ -17,6 +17,7 @@ import NotFound from "./pages/NotFound";
 import AboutUs from "./pages/AboutUs";
 import Admin from "./pages/Admin";
 import ScrollToTop from "./lib/ScrollToTop";
+import Homestaging from "./pages/Homestaging";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +40,7 @@ const App = () => (
           <Route path="/property/:id" element={<PropertyDetail />} />
           <Route path="/cennik" element={<Cennik />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/homestaging" element={<Homestaging />}/>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

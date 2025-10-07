@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { Bed, Bath, Square, MapPin, Heart, Share2, Phone, Mail, Calendar, Star, Car, Trees, Flame, ChevronDown, ChevronUp } from "lucide-react";
+import { Bed, Square, MapPin, Heart, Share2, Phone, Mail, Calendar, Star, Car, ChevronDown, ChevronUp } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -9,7 +9,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Property, PropertyType } from "./Properties";
 import DOMPurify from "dompurify";
-import { error } from "console";
 
 const PropertyDetail = () => {
   const { id } = useParams();
