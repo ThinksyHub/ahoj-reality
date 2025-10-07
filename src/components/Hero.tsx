@@ -64,7 +64,10 @@ const Hero = ({ onSearch }) => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-5xl mx-auto">
+          <div className="max-w-6xl mx-auto">
+          <img src="/src/assets/logo.png" style={{maxWidth: '22%'}}/>
+          </div>
           {/* Luxury Property Search Filter */}
           <div className="bg-white/15 backdrop-blur-xl rounded-3xl p-10 max-w-5xl mx-auto border border-white/20 shadow-luxury relative overflow-hidden animate-fade-in">
             {/* Elegant background pattern */}
@@ -147,6 +150,11 @@ const Hero = ({ onSearch }) => {
                 <span className="relative z-10 font-medium tracking-wide">Hľadať nehnuteľnosti</span>
               </Button>
             </div>
+          </div>
+
+          <div className="flex justify-end" style={{paddingTop: '20px'}}>
+            <img src="/src/assets/realitna-unia-logo.png" style={{maxHeight: '100px'}}/>
+            <img src="/src/assets/realitna-unia-logo_2.png" style={{maxHeight: '100px'}}/>
           </div>
         </div>
       </div>

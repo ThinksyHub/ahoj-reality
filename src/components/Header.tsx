@@ -49,20 +49,21 @@ const Header = () => {
           </nav>
 
           {/* CTA Buttons - Right */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex rounded-lg overflow-hidden border border-golden">
             <a 
               href="/chcem-predat"
-              className="px-6 py-3 bg-white border-2 border-golden text-golden font-semibold rounded-lg hover:bg-golden/5 transition-all duration-300"
+              className="px-8 py-3 bg-white text-golden font-semibold transition-all duration-300 hover:bg-golden/5"
             >
               CHCEM PREDAŤ
             </a>
             <a 
               href="/chcem-kupit"
-              className="px-6 py-3 bg-gradient-to-r from-golden to-accent text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105"
+              className="px-8 py-3 bg-gradient-to-r from-golden to-accent text-white font-semibold transition-all duration-300"
             >
               CHCEM KÚPIŤ
             </a>
           </div>
+
 
           {/* Search Button - Mobile Only
           <div className="lg:hidden flex items-center">
