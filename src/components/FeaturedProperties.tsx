@@ -90,8 +90,8 @@ const FeaturedProperties = ({ filteredProperties }: FeaturedProperty) => {
                     <span>{property.bedrooms} izby</span>
                   </div>
                   <div className="flex items-center space-x-1">
-                    <Bath className="w-4 h-4" />
-                    <span>{property.bathrooms} kúp.</span>
+                    <img className="w-4 h-4" src="/src/assets/icons/balcony.png"/>
+                    <span>{property.bathrooms} balk.</span>
                   </div>
                   <div className="flex items-center space-x-1">
                     <Square className="w-4 h-4" />
