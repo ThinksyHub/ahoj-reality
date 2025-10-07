@@ -44,7 +44,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <h3 className="font-light text-primary mb-1">Adresa</h3>
-                        <p className="text-muted-foreground font-light">AHOJ reality<br />Partizánska 6 (Bocianie hniezdo)<br />085 01 Bardejov</p>
+                        <p className="text-muted-foreground font-light">AHOJ reality<br />Partizánska 423/6 (Bocianie hniezdo)<br />085 01 Bardejov</p>
                       </div>
                     </div>
 

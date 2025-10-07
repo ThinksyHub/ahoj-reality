@@ -22,7 +22,7 @@ const Footer = () => {
                 <MapPin className="w-5 h-5 text-golden mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-muted-dark-foreground/90 font-light">AHOJ reality</p>
-                  <p className="text-muted-dark-foreground/90 font-light">Partizánska 6 (Bocianie hniezdo)</p>
+                  <p className="text-muted-dark-foreground/90 font-light">Partizánska 423/6 (Bocianie hniezdo)</p>
                   <p className="text-muted-dark-foreground/90 font-light">085 01 Bardejov</p>
                 </div>
               </div>
