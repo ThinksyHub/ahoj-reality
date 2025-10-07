@@ -104,7 +104,10 @@ const PropertyDetail = () => {
                           <AspectRatio ratio={4/3} className="overflow-hidden">
                             <img
                               src={`/properties/${image}-b.jpg`}
-                              alt={`${property.property_name} ${index + 2}`}
+                              alt={``}
+                              onError={(e) => {
+                                e.currentTarget.style.display = "none";
+                              }}
                               className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                             />
                           </AspectRatio>
@@ -178,7 +181,7 @@ const PropertyDetail = () => {
                   
                   <div className="text-center p-3 border-b border-l border-border/10">
                     <div className="w-6 h-6 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-1">
-                      <img className="w-3 h-3 text-golden" src="/src/assets/icons/balcony.png"/>
+                      <img className="w-3 h-3 text-golden" src="/src/assets/icons/balcony_yellow.png"/>
                     </div>
                     <div className="text-sm font-bold text-primary">{property.bathrooms}</div>
                   </div>
