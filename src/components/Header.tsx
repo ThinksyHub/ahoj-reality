@@ -4,7 +4,7 @@ import logo from "@/assets/logo_header.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const [lang, setLang] = useState("ENG");
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
@@ -63,6 +63,14 @@ const Header = () => {
               CHCEM KÚPIŤ
             </a>
           </div>
+
+          {/* Language Toggle */}
+          <button
+            onClick={() => setLang(lang === "ENG" ? "SK" : "ENG")}
+            className="px-5 py-3 font-semibold transition-all duration-300 hover:bg-golden/5"
+          >
+            {lang}
+          </button>
 
 
           {/* Search Button - Mobile Only

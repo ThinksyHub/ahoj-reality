@@ -40,3 +40,20 @@
 .read-the-docs {
   color: #888;
 }
+html {
+  scrollbar-gutter: stable;
+}
+
+/* Fully disable Radix's scroll lock */
+body[data-scroll-locked] {
+  pointer-events: auto !important;
+  overflow: visible !important;
+  position: static !important;
+}
+
+/* Fallback for inline styles Radix applies */
+body[style*="overflow: hidden"],
+body[style*="pointer-events: none"] {
+  overflow: auto !important;
+  pointer-events: auto !important;
+}
