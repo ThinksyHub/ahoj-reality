@@ -3,10 +3,10 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 
-import propertyRoutes from "./routes/properties.ts";
-import citiesRoutes from "./routes/cities.ts"
-import propertyTypesRoutes from "./routes/property_types.ts"
-import partnersRoutes from "./routes/partners.ts"
+import propertyRoutes from "./routes/properties.js";
+import citiesRoutes from "./routes/cities.js"
+import propertyTypesRoutes from "./routes/property_types.js"
+import partnersRoutes from "./routes/partners.js"
 
 const app = express();
 app.use(cors());

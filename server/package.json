@@ -8,10 +8,10 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview",
+    "preview": "vite preview --host 0.0.0.0 --port 4173",
     "server:dev": "tsx server/server.ts",
     "server:build": "tsc -p tsconfig.node.json",
-    "server:start": "node server/dist/server.js",
+    "server:start": "node dist/server.js",
     "dev:all": "concurrently \"npm run server:dev\" \"npm run dev\"",
     "start:all": "concurrently \"npm run server:start\" \"npm run preview\""
   },

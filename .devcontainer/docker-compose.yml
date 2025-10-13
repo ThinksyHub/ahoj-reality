@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  server:
+    image: thinksydockerhub/ahoj-server:latest
+    container_name: ahoj-server
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+
+  frontend:
+    image: thinksydockerhub/ahoj-front:latest
+    container_name: ahoj-frontend
+    ports:
+      - "4173:4173"
+    environment:
+      - PORT=4173
+      - HOST=0.0.0.0
+    depends_on:
+      - server
+    restart: unless-stopped

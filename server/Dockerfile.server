@@ -1,0 +1,23 @@
+# 1. Use lightweight Node.js image
+FROM node:24-alpine
+
+# 2. Set working directory
+WORKDIR /app
+
+# 3. Copy only server folder (includes tsconfig.node.json + package.json)
+COPY server ./server
+
+# 4. Move inside server folder
+WORKDIR /app/server
+
+# 5. Install dependencies
+RUN npm install
+
+# 6. Build TypeScript
+RUN npm run server:build
+
+# 7. Expose port
+EXPOSE 5000
+
+# 8. Start server
+CMD ["npm", "run", "server:start"]

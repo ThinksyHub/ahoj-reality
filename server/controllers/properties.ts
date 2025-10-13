@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import { db } from "../db.ts";
+import { db } from "../db.js";
 import type { RowDataPacket } from "mysql2";
 
 export const getAllProperties = (_req: Request, res: Response) => {

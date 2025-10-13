@@ -1,5 +1,5 @@
 import express from 'express'
-import { getPartners } from '../controllers/partners.ts'
+import { getPartners } from '../controllers/partners.js'
 
 const router = express.Router();
 
