@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
 import { FaPinterest } from "react-icons/fa";
 import logo from "@/assets/logo.png";
 
@@ -46,7 +46,7 @@ const Footer = () => {
             <h4 className="font-heading text-lg font-light mb-6 text-golden-luxury">Služby</h4>
             <ul className="space-y-3">
               <li><a href="/homestaging" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Homestaging</a></li>
-              <li><a href="/nehnutelnosti" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Nehnuteľnosti</a></li>
+              <li><a href="/ponuka-nehnutelnosti" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Nehnuteľnosti</a></li>
               <li><a href="/cennik" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Cenník</a></li>
               <li><a href="/kariera" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Kariéra u nás</a></li>
               <li><a href="/eticky-kodex" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Etický kódex</a></li>
@@ -60,8 +60,8 @@ const Footer = () => {
             <ul className="space-y-3">
               <li><a href="/cookies" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Cookies</a></li>
               <li><a href="/obchodne-podmienky" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Obchodné podmienky</a></li>
-              <li><a href="#" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Všeobecné podmienky</a></li>
-              <li><a href="#" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">GDPR</a></li>
+              <li><a href="/vseobecne-podmienky" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">Všeobecné podmienky</a></li>
+              <li><a href="/gdpr" className="text-muted-dark-foreground/80 hover:text-golden transition-colors font-light">GDPR</a></li>
             </ul>
           </div>
 
@@ -75,7 +75,14 @@ const Footer = () => {
               <a href="https://www.instagram.com/ahoj_reality/" className="w-10 h-10 bg-golden/10 hover:bg-golden rounded-lg flex items-center justify-center transition-colors group">
                 <Instagram className="w-5 h-5 text-golden group-hover:text-golden-foreground" />
               </a>
+              <a href="" className="w-10 h-10 bg-golden/10 hover:bg-golden rounded-lg flex items-center justify-center transition-colors group">
+                <Youtube className="w-5 h-5 text-golden group-hover:text-golden-foreground" />
+              </a>
             </div>
+            <div className="flex justify-start" style={{paddingTop: '20px'}}>
+            <img src="/src/assets/realitna-unia-logo.png" style={{maxHeight: '100px'}}/>
+            <img src="/src/assets/realitna-unia-logo_2.png" style={{maxHeight: '100px'}}/>
+          </div>
           </div>
         </div>
 

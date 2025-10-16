@@ -92,14 +92,14 @@ const Testimonials = () => {
         <div className="mt-20 bg-gradient-primary rounded-2xl p-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl md:text-5xl font-bold text-golden mb-2">200+</div>
-              <div className="text-primary-foreground font-medium">Predaných nehnuteľností</div>
-              <div className="text-muted-dark-foreground/70 text-sm">Úspešne zrealizované</div>
+              <div className="text-4xl md:text-5xl font-bold text-golden mb-2">21</div>
+              <div className="text-primary-foreground font-medium">Dní priemerný čas predaja</div>
+              {/* <div className="text-muted-dark-foreground/70 text-sm">Úspešne zrealizované</div> */}
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-bold text-golden mb-2">50M+</div>
-              <div className="text-primary-foreground font-medium">Celkový objem predaja</div>
-              <div className="text-muted-dark-foreground/70 text-sm">V eurách</div>
+              <div className="text-4xl md:text-5xl font-bold text-golden mb-2">TOP 1</div>
+              <div className="text-primary-foreground font-medium">v meste Bardejov podľa recenzií klientov</div>
+              {/* <div className="text-muted-dark-foreground/70 text-sm">V eurách</div> */}
             </div>
             <div>
               <div className="text-4xl md:text-5xl font-bold text-golden mb-2">100%</div>

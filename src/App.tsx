@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Contact from "./pages/Contact";
 import Properties from "./pages/Properties";
-import Makleri from "./pages/AboutUs";
 import Referencie from "./pages/Referencie";
 import Blog from "./pages/Blog";
 import ChcemPredat from "./pages/ChcemPredat";
@@ -18,6 +17,12 @@ import AboutUs from "./pages/AboutUs";
 import Admin from "./pages/Admin";
 import ScrollToTop from "./lib/ScrollToTop";
 import Homestaging from "./pages/Homestaging";
+import EtickyKodex from "./pages/EtickyKodex";
+import Gdpr from "./pages/Gdpr";
+import Cookies from "./pages/Cookies";
+import ObchodnePodmienky from "./pages/ObchodnePodmienky";
+import VseobecnePodmienky from "./pages/VseobecnePodmienky";
+import Kariera from "./pages/Kariera";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +46,12 @@ const App = () => (
           <Route path="/cennik" element={<Cennik />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/homestaging" element={<Homestaging />}/>
+          <Route path="/eticky-kodex" element={<EtickyKodex />}/>
+          <Route path="/gdpr" element={<Gdpr />}/>
+          <Route path="/obchodne-podmienky" element={<ObchodnePodmienky />}/>
+          <Route path="/vseobecne-podmienky" element={<VseobecnePodmienky />}/>
+          <Route path="/cookies" element={<Cookies />}/>
+          <Route path="/kariera" element={<Kariera />}/>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

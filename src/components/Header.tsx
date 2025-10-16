@@ -52,16 +52,17 @@ const Header = () => {
           <div className="hidden lg:flex rounded-lg overflow-hidden border border-golden">
             <a 
               href="/chcem-predat"
-              className="px-8 py-3 bg-white text-golden font-semibold transition-all duration-300 hover:bg-golden/5"
+              className="px-8 py-3 bg-white text-black font-semibold transition-all duration-300 hover:bg-golden/5"
             >
               CHCEM PREDAŤ
             </a>
-            <a 
+            <a
               href="/chcem-kupit"
-              className="px-8 py-3 bg-gradient-to-r from-golden to-accent text-white font-semibold transition-all duration-300"
+              className="px-8 py-3 bg-gradient-to-r from-[#decd87cc] to-[#c49a36cc] text-black font-semibold transition-all duration-300 hover:from-[#c49a36] hover:to-[#decd87]"
             >
               CHCEM KÚPIŤ
             </a>
+
           </div>
 
           {/* Language Toggle */}
