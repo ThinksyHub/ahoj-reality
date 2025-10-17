@@ -4,7 +4,7 @@ import Testimonials from "@/components/Testimonials";
 import Partners from "@/components/Partners";
 import QuoteBanner from "@/components/QuoteBanner";
 import Licenses from "@/components/Licenses";
-import Contact from "@/components/Contact";
+import ContactForm from "@/components/ContactForm.tsx";
 import Footer from "@/components/Footer";
 import Search from "@/components/Search";
 
@@ -18,7 +18,7 @@ const Index = () => {
       <QuoteBanner />
       <Licenses />
       <Partners />
-      <Contact />
+      <ContactForm />
       <Footer />
     </div>
   );

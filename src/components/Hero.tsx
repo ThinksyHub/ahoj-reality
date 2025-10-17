@@ -154,7 +154,6 @@ const Hero = ({ onSearch }) => {
 
           <div className="flex justify-end" style={{paddingTop: '20px'}}>
             <img src="/src/assets/realitna-unia-logo.png" style={{maxHeight: '100px'}}/>
-            <img src="/src/assets/realitna-unia-logo_2.png" style={{maxHeight: '100px'}}/>
           </div>
         </div>
       </div>

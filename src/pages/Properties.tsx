@@ -6,7 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Input } from "@/components/ui/input";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Bed, Bath, Square, Heart } from "lucide-react";
+import { Bed, Square, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export interface Property {

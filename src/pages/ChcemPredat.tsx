@@ -86,10 +86,12 @@ const ChcemPredat = () => {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-white mb-6">
-              Predajte svoju nehnuteľnosť <span className="text-gradient-golden">výhodne a bez starostí</span>
+              <span className="text-gradient-golden"> Poznáte niekoho, kto predáva nehnuteľnosť? </span>
             </h1>
             <p className="text-lg text-white/90 max-w-4xl mx-auto font-light">
-              Naším cieľom je, aby ste získali čo najlepšiu cenu a celý proces bol pre vás jednoduchý, rýchly a bezpečný.
+              Dajte nám o tom vedieť a získajte <span className="text-gradient-golden">10 % z našej provízie.</span> <br/>
+              Stačí nám poslať kontakt na predávajúceho a o všetko ostatné sa postaráme my – férovo, rýchlo a bez
+              starostí. Vy len sledujete, ako vám pribudne odmena.<span className="text-gradient-golden"> Tipnite – my predáme.</span>
             </p>
           </div>
         </div>

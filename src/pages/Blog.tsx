@@ -80,7 +80,6 @@ const Blog = () => {
     }
   ];
 
-  const categories = ["Všetko", "Predaj", "Trh", "Financovanie", "Právo", "Tipy", "Investície"];
   const featuredPost = blogPosts.find(post => post.featured);
   const regularPosts = blogPosts.filter(post => !post.featured);
 
@@ -111,19 +110,6 @@ const Blog = () => {
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
               Sledujte naše najnovšie články a ostávajte v obraze o dianí na realitnom trhu
             </p>
-          </div>
-
-          {/* Categories Filter */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map((category) => (
-              <Badge
-                key={category}
-                variant="outline"
-                className="px-4 py-2 cursor-pointer hover:bg-golden/10 hover:border-golden/30 transition-all duration-300"
-              >
-                {category}
-              </Badge>
-            ))}
           </div>
 
           {/* Featured Article */}

@@ -7,7 +7,7 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Property, PropertyType } from "./Properties";
+import {City, Property, PropertyType} from "./Properties";
 import DOMPurify from "dompurify";
 
 const PropertyDetail = () => {
@@ -17,8 +17,9 @@ const PropertyDetail = () => {
   const [isFeaturesExpanded, setIsFeaturesExpanded] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [property, setProperty] = useState<Property>();
-  const [images, setImages] = useState<String[]>([]);
+  const [images, setImages] = useState<string[]>([]);
   const [propertyTypes, setPropertyTypes] = useState<PropertyType[]>([]);
+  const [cities, setCities] = useState<City[]>([]);
 
   useEffect(() => {
     fetch(`/api/properties/${id}`)
@@ -34,6 +35,13 @@ const PropertyDetail = () => {
       ]);
     })
     .catch((err) => console.error(err));
+  }, []);
+
+  useEffect(() => {
+    fetch("/api/cities")
+        .then((res) => res.json())
+        .then((data) => setCities(data))
+        .catch((err) => console.error(err));
   }, []);
 
   useEffect(() => {
@@ -155,15 +163,7 @@ const PropertyDetail = () => {
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center space-x-2 text-muted-foreground">
                     <MapPin className="w-5 h-5 text-golden" />
-                    <span className="text-lg">{property.address}</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Button size="sm" variant="ghost" className="text-muted-foreground hover:text-golden">
-                      <Heart className="w-5 h-5" />
-                    </Button>
-                    <Button size="sm" variant="ghost" className="text-muted-foreground hover:text-golden">
-                      <Share2 className="w-5 h-5" />
-                    </Button>
+                    <span className="text-lg">{property.address}, {cities.find((city) => city.id === property.city_id)?.city_name}</span>
                   </div>
                 </div>
               </div>
@@ -260,14 +260,12 @@ const PropertyDetail = () => {
               <div className="mb-8 flex justify-end">
                 <div className="text-right">
                   <div className="text-3xl font-bold text-primary flex items-center">
-                    <Star className="w-6 h-6 text-golden mr-2" />
-                    299,900 €
-                    <Star className="w-6 h-6 text-golden ml-2" />
+                    {property.sale_price || property.rent_price} €
                   </div>
                 </div>
               </div>
 
-              {/* Contact Section */}
+              {/* ContactForm Section */}
               <div>
                 <Card className="p-6 bg-card border border-border/10 shadow-sm">
                   <h3 className="font-serif text-xl font-normal text-primary text-center mb-6">Kontaktujte nás</h3>

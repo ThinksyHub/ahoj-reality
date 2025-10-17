@@ -1,175 +1,360 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
+import { Switch } from "@/components/ui/switch";
 import { Badge } from "@/components/ui/badge";
-import { Trash2, Edit, Plus } from "lucide-react";
+import { Trash2, Edit, Plus, Save, X } from "lucide-react";
+import { Property, City, PropertyType } from "@/pages/Properties.tsx";
 
 const Admin = () => {
-  const [posts, setPosts] = useState([
-    {
-      id: 1,
-      title: "3-izbový byt v centre Bratislavy",
-      price: "299,900€",
-      location: "Bratislava - Staré Mesto",
-      status: "published"
-    },
-    {
-      id: 2,
-      title: "Rodinný dom s garážou",
-      price: "450,000€", 
-      location: "Nitra",
-      status: "draft"
-    }
-  ]);
+  const [properties, setProperties] = useState<Property[]>([]);
+  const [cities, setCities] = useState<City[]>([]);
+  const [types, setTypes] = useState<PropertyType[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [editingProperty, setEditingProperty] = useState<Property | null>(null);
 
-  const [newPost, setNewPost] = useState({
-    title: "",
-    price: "",
-    location: "",
-    description: ""
+  const [formData, setFormData] = useState<Partial<Property>>({
+    property_name: "",
+    property_purpose: "Sale",
+    property_type: "",
+    description: "",
+    sale_price: "",
+    rent_price: "",
+    address: "",
+    city_id: null,
+    area: null,
+    bedrooms: null,
+    bathrooms: null,
+    featured_property: 0,
+    status: 1,
   });
 
-  const handleAddPost = () => {
-    if (newPost.title && newPost.price) {
-      setPosts([...posts, {
-        id: Date.now(),
-        title: newPost.title,
-        price: newPost.price,
-        location: newPost.location,
-        status: "draft"
-      }]);
-      setNewPost({ title: "", price: "", location: "", description: "" });
+  // === FETCH ALL DATA ===
+  const fetchProperties = async () => {
+    try {
+      setLoading(true);
+      const res = await fetch("/api/properties/");
+      const data = await res.json();
+      setProperties(data);
+    } catch (err) {
+      console.error("Error fetching properties:", err);
+    } finally {
+      setLoading(false);
     }
   };
 
-  const handleDeletePost = (id: number) => {
-    setPosts(posts.filter(post => post.id !== id));
+  const fetchCities = async () => {
+    try {
+      const res = await fetch("/api/cities/");
+      const data = await res.json();
+      setCities(data);
+    } catch (err) {
+      console.error("Error fetching cities:", err);
+    }
+  };
+
+  const fetchPropertyTypes = async () => {
+    try {
+      const res = await fetch("/api/property_types/");
+      const data = await res.json();
+      setTypes(data);
+    } catch (err) {
+      console.error("Error fetching property types:", err);
+    }
+  };
+
+  useEffect(() => {
+    fetchProperties();
+    fetchCities();
+    fetchPropertyTypes();
+  }, []);
+
+  // === CREATE / UPDATE ===
+  const handleSaveProperty = async () => {
+    if (!formData.property_name) return alert("Zadajte názov nehnuteľnosti.");
+
+    const isEditing = !!editingProperty;
+    const url = isEditing
+        ? `/api/properties/${editingProperty.id}`
+        : "/api/properties/";
+    const method = isEditing ? "PUT" : "POST";
+
+    try {
+      const res = await fetch(url, {
+        method,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error("Failed to save property");
+      await fetchProperties();
+      resetForm();
+    } catch (err) {
+      console.error(err);
+      alert("Nepodarilo sa uložiť nehnuteľnosť.");
+    }
+  };
+
+  // === DELETE ===
+  const handleDeleteProperty = async (id: number) => {
+    if (!confirm("Naozaj chcete vymazať túto nehnuteľnosť?")) return;
+    try {
+      const res = await fetch(`/api/properties/${id}`, { method: "DELETE" });
+      if (!res.ok) throw new Error("Delete failed");
+      await fetchProperties();
+    } catch (err) {
+      console.error(err);
+      alert("Nepodarilo sa odstrániť nehnuteľnosť.");
+    }
+  };
+
+  // === EDIT ===
+  const handleEditProperty = (property: Property) => {
+    setEditingProperty(property);
+    setFormData(property);
+  };
+
+  const resetForm = () => {
+    setEditingProperty(null);
+    setFormData({
+      property_name: "",
+      property_purpose: "Sale",
+      property_type: "",
+      description: "",
+      sale_price: "",
+      rent_price: "",
+      address: "",
+      city_id: null,
+      area: null,
+      bedrooms: null,
+      bathrooms: null,
+      featured_property: 0,
+      status: 1,
+    });
   };
 
   return (
-    <div className="min-h-screen bg-background p-6">
-      <div className="max-w-6xl mx-auto">
-        <header className="mb-8">
-          <h1 className="text-3xl font-bold text-foreground mb-2">Admin Panel</h1>
-          <p className="text-muted-foreground">Správa nehnuteľností a obsahu</p>
-        </header>
+      <div className="min-h-screen bg-background p-6">
+        <div className="max-w-6xl mx-auto">
+          <header className="mb-8">
+            <h1 className="text-3xl font-bold text-foreground mb-2">Admin Panel</h1>
+            <p className="text-muted-foreground">Správa nehnuteľností a obsahu</p>
+          </header>
 
-        <Tabs defaultValue="posts" className="space-y-6">
-          <TabsList>
-            <TabsTrigger value="posts">Nehnuteľnosti</TabsTrigger>
-            <TabsTrigger value="settings">Nastavenia</TabsTrigger>
-            <TabsTrigger value="analytics">Štatistiky</TabsTrigger>
-          </TabsList>
+          <Tabs defaultValue="posts" className="space-y-6">
+            <TabsList>
+              <TabsTrigger value="posts">Nehnuteľnosti</TabsTrigger>
+              <TabsTrigger value="settings">Nastavenia</TabsTrigger>
+              <TabsTrigger value="analytics">Štatistiky</TabsTrigger>
+            </TabsList>
 
-          <TabsContent value="posts" className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Plus className="h-5 w-5" />
-                  Pridať novú nehnuteľnosť
-                </CardTitle>
-                <CardDescription>
-                  Vytvorte nový záznam nehnuteľnosti
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <Input
-                    placeholder="Názov nehnuteľnosti"
-                    value={newPost.title}
-                    onChange={(e) => setNewPost({...newPost, title: e.target.value})}
-                  />
-                  <Input
-                    placeholder="Cena (napr. 299,900€)"
-                    value={newPost.price}
-                    onChange={(e) => setNewPost({...newPost, price: e.target.value})}
-                  />
-                </div>
-                <Input
-                  placeholder="Lokalita"
-                  value={newPost.location}
-                  onChange={(e) => setNewPost({...newPost, location: e.target.value})}
-                />
-                <Textarea
-                  placeholder="Popis nehnuteľnosti"
-                  value={newPost.description}
-                  onChange={(e) => setNewPost({...newPost, description: e.target.value})}
-                />
-                <Button onClick={handleAddPost} className="w-full md:w-auto">
-                  Pridať nehnuteľnosť
-                </Button>
-              </CardContent>
-            </Card>
+            {/* === CRUD TAB === */}
+            <TabsContent value="posts" className="space-y-6">
+              {/* --- Add / Edit Form --- */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    {editingProperty ? <Edit className="h-5 w-5" /> : <Plus className="h-5 w-5" />}
+                    {editingProperty ? "Upraviť nehnuteľnosť" : "Pridať novú nehnuteľnosť"}
+                  </CardTitle>
+                  <CardDescription>
+                    {editingProperty
+                        ? "Upravte detaily existujúcej nehnuteľnosti"
+                        : "Vytvorte nový záznam nehnuteľnosti"}
+                  </CardDescription>
+                </CardHeader>
 
-            <Card>
-              <CardHeader>
-                <CardTitle>Existujúce nehnuteľnosti</CardTitle>
-                <CardDescription>
-                  Spravujte už vytvorené nehnuteľnosti
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  {posts.map((post) => (
-                    <div key={post.id} className="flex items-center justify-between p-4 border rounded-lg">
-                      <div className="flex-1">
-                        <h3 className="font-semibold">{post.title}</h3>
-                        <p className="text-sm text-muted-foreground">{post.location}</p>
-                        <div className="flex items-center gap-2 mt-2">
-                          <span className="font-medium text-primary">{post.price}</span>
-                          <Badge variant={post.status === "published" ? "default" : "secondary"}>
-                            {post.status === "published" ? "Publikované" : "Koncept"}
-                          </Badge>
-                        </div>
-                      </div>
-                      <div className="flex gap-2">
-                        <Button variant="outline" size="sm">
-                          <Edit className="h-4 w-4" />
-                        </Button>
-                        <Button 
-                          variant="destructive" 
-                          size="sm"
-                          onClick={() => handleDeletePost(post.id)}
-                        >
-                          <Trash2 className="h-4 w-4" />
-                        </Button>
-                      </div>
+                <CardContent className="space-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <Input
+                        placeholder="Názov nehnuteľnosti"
+                        value={formData.property_name || ""}
+                        onChange={(e) => setFormData({ ...formData, property_name: e.target.value })}
+                    />
+                    <Select
+                        value={formData.property_purpose}
+                        onValueChange={(v) => setFormData({ ...formData, property_purpose: v })}
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Účel nehnuteľnosti" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Sale">Predaj</SelectItem>
+                        <SelectItem value="Rent">Prenájom</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <Select
+                        value={formData.property_type?.toString() || ""}
+                        onValueChange={(v) => setFormData({ ...formData, property_type: v })}
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Typ nehnuteľnosti" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {types.map((t) => (
+                            <SelectItem key={t.id} value={t.id.toString()}>
+                              {t.types}
+                            </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+
+                    <Select
+                        value={formData.city_id?.toString() || ""}
+                        onValueChange={(v) => setFormData({ ...formData, city_id: parseInt(v) })}
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Mesto" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {cities.map((c) => (
+                            <SelectItem key={c.id} value={c.id.toString()}>
+                              {c.city_name}
+                            </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <Input
+                        placeholder="Cena predaja (€)"
+                        value={formData.sale_price || ""}
+                        onChange={(e) => setFormData({ ...formData, sale_price: e.target.value })}
+                    />
+                    <Input
+                        placeholder="Cena prenájmu (€)"
+                        value={formData.rent_price || ""}
+                        onChange={(e) => setFormData({ ...formData, rent_price: e.target.value })}
+                    />
+                    <Input
+                        placeholder="Rozloha (m²)"
+                        type="number"
+                        value={formData.area || ""}
+                        onChange={(e) => setFormData({ ...formData, area: parseInt(e.target.value) })}
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <Input
+                        placeholder="Počet izieb"
+                        type="number"
+                        value={formData.bedrooms || ""}
+                        onChange={(e) => setFormData({ ...formData, bedrooms: parseInt(e.target.value) })}
+                    />
+                    <Input
+                        placeholder="Počet kúpeľní"
+                        type="number"
+                        value={formData.bathrooms || ""}
+                        onChange={(e) => setFormData({ ...formData, bathrooms: parseInt(e.target.value) })}
+                    />
+                    <div className="flex items-center gap-2">
+                      <Switch
+                          checked={!!formData.status}
+                          onCheckedChange={(v) => setFormData({ ...formData, status: v ? 1 : 0 })}
+                      />
+                      <span>Aktívna</span>
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
+                  </div>
 
-          <TabsContent value="settings">
-            <Card>
-              <CardHeader>
-                <CardTitle>Nastavenia systému</CardTitle>
-                <CardDescription>Konfigurácia webovej stránky</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">Nastavenia budú dostupné v budúcej verzii.</p>
-              </CardContent>
-            </Card>
-          </TabsContent>
+                  <Input
+                      placeholder="Adresa"
+                      value={formData.address || ""}
+                      onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                  />
+                  <Textarea
+                      placeholder="Popis nehnuteľnosti"
+                      value={formData.description || ""}
+                      onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                  />
 
-          <TabsContent value="analytics">
-            <Card>
-              <CardHeader>
-                <CardTitle>Štatistiky a analytika</CardTitle>
-                <CardDescription>Prehľad návštevnosti a výkonnosti</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">Analytické údaje budú dostupné v budúcej verzii.</p>
-              </CardContent>
-            </Card>
-          </TabsContent>
-        </Tabs>
+                  <div className="flex gap-2">
+                    <Button onClick={handleSaveProperty} className="w-full md:w-auto">
+                      {editingProperty ? (
+                          <>
+                            <Save className="h-4 w-4 mr-2" /> Uložiť zmeny
+                          </>
+                      ) : (
+                          <>
+                            <Plus className="h-4 w-4 mr-2" /> Pridať nehnuteľnosť
+                          </>
+                      )}
+                    </Button>
+
+                    {editingProperty && (
+                        <Button variant="secondary" onClick={resetForm}>
+                          <X className="h-4 w-4 mr-2" /> Zrušiť úpravu
+                        </Button>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* --- Property List --- */}
+              <Card>
+                <CardHeader>
+                  <CardTitle>Existujúce nehnuteľnosti</CardTitle>
+                  <CardDescription>Spravujte vytvorené nehnuteľnosti</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  {loading ? (
+                      <p>Načítavam...</p>
+                  ) : (
+                      <div className="space-y-4">
+                        {properties.length === 0 ? (
+                            <p className="text-muted-foreground">Žiadne nehnuteľnosti.</p>
+                        ) : (
+                            properties.map((property) => (
+                                <div
+                                    key={property.id}
+                                    className="flex items-center justify-between p-4 border rounded-lg hover:bg-muted/50 transition"
+                                >
+                                  <div className="flex-1">
+                                    <h3 className="font-semibold">{property.property_name}</h3>
+                                    <p className="text-sm text-muted-foreground">{property.address}</p>
+                                    <div className="flex items-center gap-2 mt-2">
+                              <span className="font-medium text-primary">
+                                {property.sale_price || property.rent_price || "—"}
+                              </span>
+                                      <Badge variant={property.status ? "default" : "secondary"}>
+                                        {property.status ? "Aktívna" : "Neaktívna"}
+                                      </Badge>
+                                    </div>
+                                  </div>
+                                  <div className="flex gap-2">
+                                    <Button
+                                        variant="outline"
+                                        size="sm"
+                                        onClick={() => handleEditProperty(property)}
+                                    >
+                                      <Edit className="h-4 w-4" />
+                                    </Button>
+                                    <Button
+                                        variant="destructive"
+                                        size="sm"
+                                        onClick={() => handleDeleteProperty(property.id)}
+                                    >
+                                      <Trash2 className="h-4 w-4" />
+                                    </Button>
+                                  </div>
+                                </div>
+                            ))
+                        )}
+                      </div>
+                  )}
+                </CardContent>
+              </Card>
+            </TabsContent>
+          </Tabs>
+        </div>
       </div>
-    </div>
   );
 };
 
