@@ -33,6 +33,7 @@ export interface Property {
   property_images3: string | null;
   property_images4: string | null;
   property_images5: string | null;
+  property_images: string[] | null;
   status: number;
   user_id: number;
   created_at: string;
@@ -57,6 +58,7 @@ export interface Filters {
     priceFrom: string;
     priceTo: string;
 }
+
 const Properties = () => {
   const [filters, setFilters] = useState<Filters>({
     city_id: 0,
