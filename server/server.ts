@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import path from "path";
-import { fileURLToPath } from "url";
 
 import propertyRoutes from "./routes/properties.js";
 import citiesRoutes from "./routes/cities.js"
@@ -17,10 +16,6 @@ app.use("/api/properties", propertyRoutes);
 app.use("/api/cities", citiesRoutes);
 app.use("/api/property_types", propertyTypesRoutes)
 app.use("/api/partners", partnersRoutes)
-
-// Serve React build in production
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 if (process.env.NODE_ENV === "production") {
   const frontendPath = path.join(__dirname, "../dist");

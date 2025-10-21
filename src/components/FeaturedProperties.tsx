@@ -1,4 +1,4 @@
-import { Bed, Bath, Square, MapPin, Heart, Euro } from "lucide-react";
+import { Bed, Square, MapPin, Heart, Euro } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
@@ -42,7 +42,7 @@ const FeaturedProperties = ({ filteredProperties }: FeaturedProperty) => {
               {/* Image Container */}
               <div className="relative overflow-hidden">
                 <img
-                  src={`/properties/${property.featured_image}-b.jpg`}
+                  src={`/properties/${property.featured_image}`}
                   alt={property.property_name}
                   className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                 />

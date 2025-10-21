@@ -9,7 +9,7 @@ export const getAllProperties = (_req: Request, res: Response) => {
         // Parse JSON column before returning
         const parsed = (results as RowDataPacket[]).map((row) => ({
             ...row,
-            property_images: row.property_images ? JSON.parse(row.property_images) : [],
+            property_images: row.property_images || [],
         }));
 
         res.json(parsed);
@@ -28,9 +28,22 @@ export const getProperty = (req: Request, res: Response) => {
                 return res.status(404).json({ message: "Property not found" });
 
             const property = results[0];
-            property.property_images = property.property_images
-                ? JSON.parse(property.property_images)
-                : [];
+
+            // ✅ Safely handle property_images (whether string, object, or empty)
+            let images: unknown[] = [];
+            if (property.property_images) {
+                if (typeof property.property_images === "string") {
+                    try {
+                        images = JSON.parse(property.property_images);
+                    } catch {
+                        images = [];
+                    }
+                } else if (Array.isArray(property.property_images)) {
+                    images = property.property_images;
+                }
+            }
+
+            property.property_images = images;
 
             res.json(property);
         }

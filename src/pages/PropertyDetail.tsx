@@ -81,7 +81,7 @@ const PropertyDetail = () => {
                     <div className="cursor-pointer">
                       <AspectRatio ratio={4/3} className="overflow-hidden">
                         <img
-                          src={`/properties/${property.featured_image}-b.jpg`}
+                          src={`/properties/${property.featured_image}`}
                           alt={property.property_name}
                           className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                         />
@@ -91,7 +91,7 @@ const PropertyDetail = () => {
                   <DialogContent className="max-w-4xl w-full p-0 border-0">
                     <div className="relative">
                       <img
-                        src={`/properties/${property.featured_image}-b.jpg`}
+                        src={`/properties/${property.featured_image}`}
                         alt={property.property_name}
                         className="w-full h-auto max-h-[80vh] object-contain"
                       />
@@ -110,7 +110,7 @@ const PropertyDetail = () => {
                         <div className="cursor-pointer">
                           <AspectRatio ratio={4/3} className="overflow-hidden">
                             <img
-                              src={`/properties/${image}-b.jpg`}
+                              src={`/properties/${image}`}
                               alt={``}
                               onError={(e) => {
                                 e.currentTarget.style.display = "none";
@@ -123,7 +123,7 @@ const PropertyDetail = () => {
                       <DialogContent className="max-w-4xl w-full p-0 border-0">
                         <div className="relative">
                           <img
-                            src={`/properties/${image}-b.jpg`}
+                            src={`/properties/${image}`}
                             alt={`${property.property_name} ${index + 2}`}
                             className="w-full h-auto max-h-[80vh] object-contain"
                           />

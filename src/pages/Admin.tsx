@@ -9,6 +9,7 @@ import {Switch} from "@/components/ui/switch";
 import {Badge} from "@/components/ui/badge";
 import {Trash2, Edit, Plus, Save, X} from "lucide-react";
 import {Property, City, PropertyType} from "@/pages/Properties.tsx";
+import * as e from "cors";
 
 const Admin = () => {
     const [properties, setProperties] = useState<Property[]>([]);
@@ -16,10 +17,6 @@ const Admin = () => {
     const [types, setTypes] = useState<PropertyType[]>([]);
     const [loading, setLoading] = useState(false);
     const [editingProperty, setEditingProperty] = useState<Property | null>(null);
-    const [featuredImageFile, setFeaturedImageFile] = useState<File | null>(null);
-    const [featuredImageUrl, setFeaturedImageUrl] = useState<string | null>(null);
-    const [propertyImagesFiles, setPropertyImagesFiles] = useState<File[]>([]);
-    const [propertyImagesUrls, setPropertyImagesUrls] = useState<string[]>([]);
 
     const [formData, setFormData] = useState<Partial<Property>>({
         property_name: "",
@@ -34,6 +31,8 @@ const Admin = () => {
         bedrooms: null,
         bathrooms: null,
         featured_property: 0,
+        featured_image: "",
+        property_images: [],
         status: 1,
     });
 
@@ -136,6 +135,8 @@ const Admin = () => {
             bedrooms: null,
             bathrooms: null,
             featured_property: 0,
+            featured_image: "",
+            property_images: [],
             status: 1,
         });
     };
@@ -171,251 +172,252 @@ const Admin = () => {
                                 </CardDescription>
                             </CardHeader>
 
-                          <CardContent className="space-y-4">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                              <Input
-                                  placeholder="Názov nehnuteľnosti"
-                                  value={formData.property_name || ""}
-                                  onChange={(e) => setFormData({...formData, property_name: e.target.value})}
-                              />
-                              <Select
-                                  value={formData.property_purpose}
-                                  onValueChange={(v) => setFormData({...formData, property_purpose: v})}
-                              >
-                                <SelectTrigger>
-                                  <SelectValue placeholder="Účel nehnuteľnosti"/>
-                                </SelectTrigger>
-                                <SelectContent>
-                                  <SelectItem value="Sale">Predaj</SelectItem>
-                                  <SelectItem value="Rent">Prenájom</SelectItem>
-                                </SelectContent>
-                              </Select>
-                            </div>
+                            <CardContent className="space-y-4">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <Input
+                                        placeholder="Názov nehnuteľnosti"
+                                        value={formData.property_name || ""}
+                                        onChange={(e) => setFormData({...formData, property_name: e.target.value})}
+                                    />
+                                    <Select
+                                        value={formData.property_purpose}
+                                        onValueChange={(v) => setFormData({...formData, property_purpose: v})}
+                                    >
+                                        <SelectTrigger>
+                                            <SelectValue placeholder="Účel nehnuteľnosti"/>
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="Sale">Predaj</SelectItem>
+                                            <SelectItem value="Rent">Prenájom</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                              <Select
-                                  value={formData.property_type?.toString() || ""}
-                                  onValueChange={(v) => setFormData({...formData, property_type: v})}
-                              >
-                                <SelectTrigger>
-                                  <SelectValue placeholder="Typ nehnuteľnosti"/>
-                                </SelectTrigger>
-                                <SelectContent>
-                                  {types.map((t) => (
-                                      <SelectItem key={t.id} value={t.id.toString()}>
-                                        {t.types}
-                                      </SelectItem>
-                                  ))}
-                                </SelectContent>
-                              </Select>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <Select
+                                        value={formData.property_type?.toString() || ""}
+                                        onValueChange={(v) => setFormData({...formData, property_type: v})}
+                                    >
+                                        <SelectTrigger>
+                                            <SelectValue placeholder="Typ nehnuteľnosti"/>
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            {types.map((t) => (
+                                                <SelectItem key={t.id} value={t.id.toString()}>
+                                                    {t.types}
+                                                </SelectItem>
+                                            ))}
+                                        </SelectContent>
+                                    </Select>
 
-                              <Select
-                                  value={formData.city_id?.toString() || ""}
-                                  onValueChange={(v) => setFormData({...formData, city_id: parseInt(v)})}
-                              >
-                                <SelectTrigger>
-                                  <SelectValue placeholder="Mesto"/>
-                                </SelectTrigger>
-                                <SelectContent>
-                                  {cities.map((c) => (
-                                      <SelectItem key={c.id} value={c.id.toString()}>
-                                        {c.city_name}
-                                      </SelectItem>
-                                  ))}
-                                </SelectContent>
-                              </Select>
-                            </div>
+                                    <Select
+                                        value={formData.city_id?.toString() || ""}
+                                        onValueChange={(v) => setFormData({...formData, city_id: parseInt(v)})}
+                                    >
+                                        <SelectTrigger>
+                                            <SelectValue placeholder="Mesto"/>
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            {cities.map((c) => (
+                                                <SelectItem key={c.id} value={c.id.toString()}>
+                                                    {c.city_name}
+                                                </SelectItem>
+                                            ))}
+                                        </SelectContent>
+                                    </Select>
+                                </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                              <Input
-                                  placeholder="Cena predaja (€)"
-                                  value={formData.sale_price || ""}
-                                  onChange={(e) => setFormData({...formData, sale_price: e.target.value})}
-                              />
-                              <Input
-                                  placeholder="Cena prenájmu (€)"
-                                  value={formData.rent_price || ""}
-                                  onChange={(e) => setFormData({...formData, rent_price: e.target.value})}
-                              />
-                              <Input
-                                  placeholder="Rozloha (m²)"
-                                  type="number"
-                                  value={formData.area || ""}
-                                  onChange={(e) => setFormData({...formData, area: parseInt(e.target.value)})}
-                              />
-                            </div>
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <Input
+                                        placeholder="Cena predaja (€)"
+                                        value={formData.sale_price || ""}
+                                        onChange={(e) => setFormData({...formData, sale_price: e.target.value})}
+                                    />
+                                    <Input
+                                        placeholder="Cena prenájmu (€)"
+                                        value={formData.rent_price || ""}
+                                        onChange={(e) => setFormData({...formData, rent_price: e.target.value})}
+                                    />
+                                    <Input
+                                        placeholder="Rozloha (m²)"
+                                        type="number"
+                                        value={formData.area || ""}
+                                        onChange={(e) => setFormData({...formData, area: parseInt(e.target.value)})}
+                                    />
+                                </div>
 
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                              <Input
-                                  placeholder="Počet izieb"
-                                  type="number"
-                                  value={formData.bedrooms || ""}
-                                  onChange={(e) => setFormData({...formData, bedrooms: parseInt(e.target.value)})}
-                              />
-                              <Input
-                                  placeholder="Počet kúpeľní"
-                                  type="number"
-                                  value={formData.bathrooms || ""}
-                                  onChange={(e) => setFormData({
-                                    ...formData,
-                                    bathrooms: parseInt(e.target.value)
-                                  })}
-                              />
-                              <div className="flex items-center gap-2">
-                                <Switch
-                                    checked={!!formData.status}
-                                    onCheckedChange={(v) => setFormData({...formData, status: v ? 1 : 0})}
+                                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                    <Input
+                                        placeholder="Počet izieb"
+                                        type="number"
+                                        value={formData.bedrooms || ""}
+                                        onChange={(e) => setFormData({...formData, bedrooms: parseInt(e.target.value)})}
+                                    />
+                                    <Input
+                                        placeholder="Počet kúpeľní"
+                                        type="number"
+                                        value={formData.bathrooms || ""}
+                                        onChange={(e) => setFormData({
+                                            ...formData,
+                                            bathrooms: parseInt(e.target.value)
+                                        })}
+                                    />
+                                    <div className="flex items-center gap-2">
+                                        <Switch
+                                            checked={!!formData.status}
+                                            onCheckedChange={(v) => setFormData({...formData, status: v ? 1 : 0})}
+                                        />
+                                        <span>Aktívna</span>
+                                    </div>
+                                </div>
+
+                                <Input
+                                    placeholder="Adresa"
+                                    value={formData.address || ""}
+                                    onChange={(e) => setFormData({...formData, address: e.target.value})}
                                 />
-                                <span>Aktívna</span>
-                              </div>
-                            </div>
+                                <Textarea
+                                    placeholder="Popis nehnuteľnosti"
+                                    value={formData.description || ""}
+                                    onChange={(e) => setFormData({...formData, description: e.target.value})}
+                                />
 
-                            <Input
-                                placeholder="Adresa"
-                                value={formData.address || ""}
-                                onChange={(e) => setFormData({...formData, address: e.target.value})}
-                            />
-                            <Textarea
-                                placeholder="Popis nehnuteľnosti"
-                                value={formData.description || ""}
-                                onChange={(e) => setFormData({...formData, description: e.target.value})}
-                            />
+                                <div>
+                                    <label className="block mb-1 font-medium">Hlavný obrázok</label>
 
-                            <div>
-                              <label className="block mb-1 font-medium">Hlavný obrázok</label>
-
-                              <div className="flex gap-2">
-                                {featuredImageUrl ? (
-                                    <div className="relative group">
-                                      <img
-                                          src={featuredImageUrl}
-                                          alt="Featured"
-                                          className="h-24 w-24 object-cover rounded cursor-pointer"
-                                      />
-                                      <button
-                                          type="button"
-                                          className="absolute top-0 right-0 bg-red-500 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition"
-                                          onClick={() => {
-                                            setFeaturedImageFile(null);
-                                            setFeaturedImageUrl(null);
-                                          }}
-                                      >
-                                        <X className="h-3 w-3"/>
-                                      </button>
+                                    <div className="flex gap-2">
+                                        {formData.featured_image ? (
+                                            <div className="relative group">
+                                                <img
+                                                    src={`/properties/${formData.featured_image}`}
+                                                    alt="Featured"
+                                                    className="h-24 w-24 object-cover rounded cursor-pointer"
+                                                />
+                                                <button
+                                                    type="button"
+                                                    className="absolute top-0 right-0 bg-red-500 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition"
+                                                    onClick={() => {
+                                                        setFormData({...formData, featured_image: ""});
+                                                    }}
+                                                >
+                                                    <X className="h-3 w-3"/>
+                                                </button>
+                                            </div>
+                                        ) : (
+                                            <label
+                                                className="h-24 w-24 flex items-center justify-center border border-dashed rounded cursor-pointer">
+                                                <input
+                                                    type="file"
+                                                    accept="image/*"
+                                                    className="hidden"
+                                                    onChange={(e) => {
+                                                        if (e.target.files?.[0]) {
+                                                            const file = e.target.files[0];
+                                                            const tempUrl = URL.createObjectURL(file);
+                                                            setFormData({...formData, featured_image: tempUrl});
+                                                        }
+                                                    }}
+                                                />
+                                                <Plus className="h-6 w-6 text-muted-foreground"/>
+                                            </label>
+                                        )}
                                     </div>
-                                ) : (
-                                    <label
-                                        className="h-24 w-24 flex items-center justify-center border border-dashed rounded cursor-pointer">
-                                      <input
-                                          type="file"
-                                          accept="image/*"
-                                          className="hidden"
-                                          onChange={(e) => {
-                                            if (e.target.files?.[0]) {
-                                              const file = e.target.files[0];
-                                              const tempUrl = URL.createObjectURL(file);
-                                              setFeaturedImageFile(file);
-                                              setFeaturedImageUrl(tempUrl);
-                                            }
-                                          }}
-                                      />
-                                      <Plus className="h-6 w-6 text-muted-foreground"/>
-                                    </label>
-                                )}
-                              </div>
-                            </div>
+                                </div>
 
-                            <div>
-                              <label className="block mb-1 font-medium">Ďalšie obrázky</label>
+                                <div>
+                                    <label className="block mb-1 font-medium">Ďalšie obrázky</label>
 
-                              <div className="flex mt-2">
-                                {Array.from({length: propertyImagesUrls.length + 1}).map((_, i) => (
-                                    <div key={i} className="flex items-center gap-2 mb-2">
-                                      {propertyImagesUrls[i] ? (
-                                          <div className="block pt-4 pr-2" style={{textAlign: 'center'}}>
-                                            <img src={propertyImagesUrls[i]}
-                                                 className="h-24 w-24 object-cover rounded"/>
-                                            <Button
-                                                variant="destructive"
-                                                size="sm"
-                                                className="mt-2"
-                                                onClick={() => {
-                                                  const newUrls = propertyImagesUrls.filter((_, idx) => idx !== i);
-                                                  setPropertyImagesUrls(newUrls);
-                                                }}
-                                            >
-                                              <Trash2 className="h-4 w-4"/>
-                                            </Button>
-                                          </div>
-                                      ) : (
-                                          // Empty slot for new image
-                                          <Input
-                                              type="file"
-                                              accept="image/*"
-                                              className="block"
-                                              onChange={(e) => {
-                                                if (e.target.files?.[0]) {
-                                                  const file = e.target.files[0];
-                                                  const tempUrl = URL.createObjectURL(file);
-                                                  setPropertyImagesUrls([...propertyImagesUrls, tempUrl]);
-                                                }
-                                              }}
-                                          />
-                                      )}
+                                    <div className="flex mt-2">
+                                        {Array.from({length: formData.property_images.length + 1}).map((_, i) => (
+                                            <div key={i} className="flex items-center gap-2 mb-2">
+                                                {formData.property_images[i] ? (
+                                                    <div className="block pt-4 pr-2" style={{textAlign: 'center'}}>
+                                                        <img src={`/properties/${formData.property_images[i]}`}
+                                                             className="h-24 w-24 object-cover rounded"/>
+                                                        <Button
+                                                            variant="destructive"
+                                                            size="sm"
+                                                            className="mt-2"
+                                                            onClick={() => {
+                                                                const newUrls = formData.property_images.filter((_, idx) => idx !== i);
+                                                                setFormData({...formData, property_images: newUrls});
+                                                            }}
+                                                        >
+                                                            <Trash2 className="h-4 w-4"/>
+                                                        </Button>
+                                                    </div>
+                                                ) : (
+                                                    // Empty slot for new image
+                                                    <Input
+                                                        type="file"
+                                                        accept="image/*"
+                                                        className="block"
+                                                        onChange={(e) => {
+                                                            if (e.target.files?.[0]) {
+                                                                const file = e.target.files[0];
+                                                                const tempUrl = URL.createObjectURL(file);
+                                                                setFormData({
+                                                                    ...formData,
+                                                                    property_images: [...(formData.property_images || []), tempUrl],
+                                                                });
+                                                            }
+                                                        }}
+                                                    />
+                                                )}
+                                            </div>
+                                        ))}
                                     </div>
-                                ))}
-                              </div>
-                            </div>
+                                </div>
 
 
-                            <div className="flex gap-2">
-                              <Button onClick={handleSaveProperty} className="w-full md:w-auto">
-                                {editingProperty ? (
-                                    <>
-                                      <Save className="h-4 w-4 mr-2"/> Uložiť zmeny
-                                    </>
-                                ) : (
-                                    <>
-                                      <Plus className="h-4 w-4 mr-2"/> Pridať nehnuteľnosť
-                                    </>
-                                )}
-                              </Button>
+                                <div className="flex gap-2">
+                                    <Button onClick={handleSaveProperty} className="w-full md:w-auto">
+                                        {editingProperty ? (
+                                            <>
+                                                <Save className="h-4 w-4 mr-2"/> Uložiť zmeny
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Plus className="h-4 w-4 mr-2"/> Pridať nehnuteľnosť
+                                            </>
+                                        )}
+                                    </Button>
 
-                              {editingProperty && (
-                                  <Button variant="secondary" onClick={resetForm}>
-                                    <X className="h-4 w-4 mr-2"/> Zrušiť úpravu
-                                  </Button>
-                              )}
-                            </div>
-                          </CardContent>
+                                    {editingProperty && (
+                                        <Button variant="secondary" onClick={resetForm}>
+                                            <X className="h-4 w-4 mr-2"/> Zrušiť úpravu
+                                        </Button>
+                                    )}
+                                </div>
+                            </CardContent>
                         </Card>
 
-                      {/* --- Property List --- */}
-                      <Card>
-                        <CardHeader>
-                          <CardTitle>Existujúce nehnuteľnosti</CardTitle>
-                          <CardDescription>Spravujte vytvorené nehnuteľnosti</CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                          {loading ? (
-                              <p>Načítavam...</p>
-                          ) : (
-                              <div className="space-y-4">
-                                {properties.length === 0 ? (
-                                    <p className="text-muted-foreground">Žiadne nehnuteľnosti.</p>
+                        {/* --- Property List --- */}
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>Existujúce nehnuteľnosti</CardTitle>
+                                <CardDescription>Spravujte vytvorené nehnuteľnosti</CardDescription>
+                            </CardHeader>
+                            <CardContent>
+                                {loading ? (
+                                    <p>Načítavam...</p>
                                 ) : (
-                                    properties.map((property) => (
-                                        <div
-                                            key={property.id}
-                                            className="flex items-center justify-between p-4 border rounded-lg hover:bg-muted/50 transition"
-                                        >
-                                        <div className="flex-1">
+                                    <div className="space-y-4">
+                                        {properties.length === 0 ? (
+                                            <p className="text-muted-foreground">Žiadne nehnuteľnosti.</p>
+                                        ) : (
+                                            properties.map((property) => (
+                                                <div
+                                                    key={property.id}
+                                                    className="flex items-center justify-between p-4 border rounded-lg hover:bg-muted/50 transition"
+                                                >
+                                                    <div className="flex-1">
                                                         <h3 className="font-semibold">{property.property_name}</h3>
                                                         <p className="text-sm text-muted-foreground">{property.address}</p>
                                                         <div className="flex items-center gap-2 mt-2">
-                              <span className="font-medium text-primary">
-                                {property.sale_price || property.rent_price || "—"}
-                              </span>
+                                                          <span className="font-medium text-primary">
+                                                            {property.sale_price || property.rent_price || "—"}
+                                                          </span>
                                                             <Badge variant={property.status ? "default" : "secondary"}>
                                                                 {property.status ? "Aktívna" : "Neaktívna"}
                                                             </Badge>
