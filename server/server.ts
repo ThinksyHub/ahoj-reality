@@ -6,6 +6,7 @@ import propertyRoutes from "./routes/properties.js";
 import citiesRoutes from "./routes/cities.js"
 import propertyTypesRoutes from "./routes/property_types.js"
 import partnersRoutes from "./routes/partners.js"
+import uploadRoutes from "./routes/uploads.js";
 
 const app = express();
 app.use(cors());
@@ -16,6 +17,8 @@ app.use("/api/properties", propertyRoutes);
 app.use("/api/cities", citiesRoutes);
 app.use("/api/property_types", propertyTypesRoutes)
 app.use("/api/partners", partnersRoutes)
+app.use("/api/upload", uploadRoutes);
+
 
 if (process.env.NODE_ENV === "production") {
   const frontendPath = path.join(__dirname, "../dist");

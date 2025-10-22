@@ -9,7 +9,6 @@ import {Switch} from "@/components/ui/switch";
 import {Badge} from "@/components/ui/badge";
 import {Trash2, Edit, Plus, Save, X} from "lucide-react";
 import {Property, City, PropertyType} from "@/pages/Properties.tsx";
-import * as e from "cors";
 
 const Admin = () => {
     const [properties, setProperties] = useState<Property[]>([]);
@@ -310,14 +309,31 @@ const Admin = () => {
                                                     type="file"
                                                     accept="image/*"
                                                     className="hidden"
-                                                    onChange={(e) => {
+                                                    onChange={async (e) => {
                                                         if (e.target.files?.[0]) {
                                                             const file = e.target.files[0];
-                                                            const tempUrl = URL.createObjectURL(file);
-                                                            setFormData({...formData, featured_image: tempUrl});
+                                                            const formDataUpload = new FormData();
+                                                            formDataUpload.append("file", file);
+
+                                                            const res = await fetch("/api/upload", {
+                                                                method: "POST",
+                                                                body: formDataUpload,
+                                                            });
+
+                                                            const data = await res.json();
+                                                            if (res.ok) {
+                                                                // Save filename to formData
+                                                                setFormData({
+                                                                    ...formData,
+                                                                    featured_image: data.filename
+                                                                });
+                                                            } else {
+                                                                alert("Nepodarilo sa nahrať obrázok");
+                                                            }
                                                         }
                                                     }}
                                                 />
+
                                                 <Plus className="h-6 w-6 text-muted-foreground"/>
                                             </label>
                                         )}
