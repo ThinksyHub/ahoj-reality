@@ -343,13 +343,15 @@ const Admin = () => {
                                 <div>
                                     <label className="block mb-1 font-medium">Ďalšie obrázky</label>
 
-                                    <div className="flex mt-2">
+                                    <div className="flex flex-wrap gap-4 mt-2">
                                         {Array.from({length: formData.property_images.length + 1}).map((_, i) => (
-                                            <div key={i} className="flex items-center gap-2 mb-2">
+                                            <div key={i} className="flex flex-col items-center">
                                                 {formData.property_images[i] ? (
-                                                    <div className="block pt-4 pr-2" style={{textAlign: 'center'}}>
-                                                        <img src={`/properties/${formData.property_images[i]}`}
-                                                             className="h-24 w-24 object-cover rounded"/>
+                                                    <div className="pt-4 pr-2 text-center">
+                                                        <img
+                                                            src={`/properties/${formData.property_images[i]}`}
+                                                            className="h-24 w-24 object-cover rounded border"
+                                                        />
                                                         <Button
                                                             variant="destructive"
                                                             size="sm"
@@ -363,19 +365,42 @@ const Admin = () => {
                                                         </Button>
                                                     </div>
                                                 ) : (
-                                                    // Empty slot for new image
                                                     <Input
                                                         type="file"
                                                         accept="image/*"
                                                         className="block"
-                                                        onChange={(e) => {
-                                                            if (e.target.files?.[0]) {
-                                                                const file = e.target.files[0];
-                                                                const tempUrl = URL.createObjectURL(file);
-                                                                setFormData({
-                                                                    ...formData,
-                                                                    property_images: [...(formData.property_images || []), tempUrl],
+                                                        onChange={async (e) => {
+                                                            if (!e.target.files?.[0]) return;
+                                                            const file = e.target.files[0];
+
+                                                            // ✅ Upload file to backend
+                                                            const formDataUpload = new FormData();
+                                                            formDataUpload.append("file", file);
+
+                                                            try {
+                                                                const response = await fetch("http://localhost:5000/api/upload", {
+                                                                    method: "POST",
+                                                                    body: formDataUpload,
                                                                 });
+
+                                                                const result = await response.json();
+
+                                                                if (response.ok) {
+                                                                    // ✅ Store filename returned by server
+                                                                    setFormData({
+                                                                        ...formData,
+                                                                        property_images: [
+                                                                            ...(formData.property_images || []),
+                                                                            result.filename,
+                                                                        ],
+                                                                    });
+                                                                } else {
+                                                                    console.error("Upload failed:", result);
+                                                                    alert("Nepodarilo sa nahrať obrázok.");
+                                                                }
+                                                            } catch (error) {
+                                                                console.error("Upload error:", error);
+                                                                alert("Chyba pri nahrávaní obrázka.");
                                                             }
                                                         }}
                                                     />
