@@ -47,4 +47,21 @@ router.post("/", (req, res) => {
     });
 });
 
+router.delete("/:filename", (req, res) => {
+    const filename = req.params.filename;
+    const filePath = path.join(process.cwd(), "public", "properties", filename);
+
+    fs.unlink(filePath, (err) => {
+        if (err) {
+            if (err.code === "ENOENT") {
+                return res.status(404).json({ error: "File not found" });
+            }
+            console.error("File deletion error:", err);
+            return res.status(500).json({ error: "Could not delete file" });
+        }
+
+        return res.json({ message: "File deleted successfully" });
+    });
+});
+
 export default router;

@@ -50,7 +50,7 @@ const FeaturedProperties = ({ filteredProperties }: FeaturedProperty) => {
                 {/* Category and Transaction Type Badges */}
                 <div className="absolute top-4 left-4 flex flex-col gap-2">
                   <span className="bg-golden text-black px-3 py-1 rounded-full text-sm font-light">
-                    {property.property_purpose}
+                    {(property.property_purpose === 'Rent') ? 'Prenájom' : 'Predaj'}
                   </span>
                   <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-light">
                     {propertyTypes.find((t) => t.id === Number(property.property_type))?.types ?? "Unknown"}

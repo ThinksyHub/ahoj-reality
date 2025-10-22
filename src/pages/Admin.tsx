@@ -253,7 +253,7 @@ const Admin = () => {
                                         onChange={(e) => setFormData({...formData, bedrooms: parseInt(e.target.value)})}
                                     />
                                     <Input
-                                        placeholder="Počet kúpeľní"
+                                        placeholder="Počet balkónov"
                                         type="number"
                                         value={formData.bathrooms || ""}
                                         onChange={(e) => setFormData({
@@ -292,17 +292,36 @@ const Admin = () => {
                                                     alt="Featured"
                                                     className="h-24 w-24 object-cover rounded cursor-pointer"
                                                 />
+
+                                                {/* 🟥 Delete image button */}
                                                 <button
                                                     type="button"
                                                     className="absolute top-0 right-0 bg-red-500 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition"
-                                                    onClick={() => {
-                                                        setFormData({...formData, featured_image: ""});
+                                                    onClick={async () => {
+                                                        const filename = formData.featured_image;
+                                                        try {
+                                                            const res = await fetch(`/api/upload/${filename}`, {
+                                                                method: "DELETE",
+                                                            });
+
+                                                            if (res.ok) {
+                                                                setFormData({...formData, featured_image: ""});
+                                                            } else {
+                                                                const result = await res.json();
+                                                                console.error("Delete failed:", result);
+                                                                alert("Nepodarilo sa vymazať obrázok.");
+                                                            }
+                                                        } catch (err) {
+                                                            console.error("Error deleting image:", err);
+                                                            alert("Chyba pri mazaní obrázka.");
+                                                        }
                                                     }}
                                                 >
                                                     <X className="h-3 w-3"/>
                                                 </button>
                                             </div>
                                         ) : (
+                                            // 🟩 Upload button
                                             <label
                                                 className="h-24 w-24 flex items-center justify-center border border-dashed rounded cursor-pointer">
                                                 <input
@@ -315,20 +334,25 @@ const Admin = () => {
                                                             const formDataUpload = new FormData();
                                                             formDataUpload.append("file", file);
 
-                                                            const res = await fetch("/api/upload", {
-                                                                method: "POST",
-                                                                body: formDataUpload,
-                                                            });
-
-                                                            const data = await res.json();
-                                                            if (res.ok) {
-                                                                // Save filename to formData
-                                                                setFormData({
-                                                                    ...formData,
-                                                                    featured_image: data.filename
+                                                            try {
+                                                                const res = await fetch("/api/upload", {
+                                                                    method: "POST",
+                                                                    body: formDataUpload,
                                                                 });
-                                                            } else {
-                                                                alert("Nepodarilo sa nahrať obrázok");
+
+                                                                const data = await res.json();
+                                                                if (res.ok) {
+                                                                    setFormData({
+                                                                        ...formData,
+                                                                        featured_image: data.filename,
+                                                                    });
+                                                                } else {
+                                                                    console.error("Upload failed:", data);
+                                                                    alert("Nepodarilo sa nahrať obrázok.");
+                                                                }
+                                                            } catch (err) {
+                                                                console.error("Upload error:", err);
+                                                                alert("Chyba pri nahrávaní obrázka.");
                                                             }
                                                         }
                                                     }}
@@ -356,13 +380,33 @@ const Admin = () => {
                                                             variant="destructive"
                                                             size="sm"
                                                             className="mt-2"
-                                                            onClick={() => {
-                                                                const newUrls = formData.property_images.filter((_, idx) => idx !== i);
-                                                                setFormData({...formData, property_images: newUrls});
+                                                            onClick={async () => {
+                                                                const filename = formData.property_images[i];
+                                                                try {
+                                                                    const res = await fetch(`http://localhost:5000/api/upload/${filename}`, {
+                                                                        method: "DELETE",
+                                                                    });
+
+                                                                    if (res.ok) {
+                                                                        const newUrls = formData.property_images.filter((_, idx) => idx !== i);
+                                                                        setFormData({
+                                                                            ...formData,
+                                                                            property_images: newUrls
+                                                                        });
+                                                                    } else {
+                                                                        const result = await res.json();
+                                                                        console.error("Delete failed:", result);
+                                                                        alert("Nepodarilo sa vymazať obrázok.");
+                                                                    }
+                                                                } catch (error) {
+                                                                    console.error("Error deleting image:", error);
+                                                                    alert("Chyba pri mazaní obrázka.");
+                                                                }
                                                             }}
                                                         >
                                                             <Trash2 className="h-4 w-4"/>
                                                         </Button>
+
                                                     </div>
                                                 ) : (
                                                     <Input
@@ -409,7 +453,6 @@ const Admin = () => {
                                         ))}
                                     </div>
                                 </div>
-
 
                                 <div className="flex gap-2">
                                     <Button onClick={handleSaveProperty} className="w-full md:w-auto">

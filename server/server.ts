@@ -19,7 +19,6 @@ app.use("/api/property_types", propertyTypesRoutes)
 app.use("/api/partners", partnersRoutes)
 app.use("/api/upload", uploadRoutes);
 
-
 if (process.env.NODE_ENV === "production") {
   const frontendPath = path.join(__dirname, "../dist");
   app.use(express.static(frontendPath));

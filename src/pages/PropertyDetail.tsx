@@ -155,7 +155,7 @@ const PropertyDetail = () => {
                       {propertyTypes.find((t) => t.id === Number(property.property_type))?.types ?? "Unknown" }
                     </span>
                     <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
-                      {property.property_purpose}
+                      {(property.property_purpose === 'Rent') ? 'Prenájom' : 'Predaj'}
                     </span>
                   </div>
                 </div>
