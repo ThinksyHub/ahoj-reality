@@ -1,5 +1,9 @@
 import { Phone, Mail, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
 import logo from "@/assets/logo.png";
+import image1 from "@/assets/Logo_dla-klienta-kopia1.png"
+import image2 from "@/assets/Logo_dla-klienta-kopia2.png"
+import image3 from "@/assets/Logo_dla-klienta-kopia3.png"
+
 
 const Footer = () => {
   return (
@@ -104,9 +108,9 @@ const Footer = () => {
                 </a>
               </div>
               <div className="flex justify-start" style={{paddingTop: '20px', justifyContent: 'space-between'}}>
-                <img src="src/assets/Logo_dla-klienta-kopia1.png" style={{maxHeight: '100px'}}/>
-                <img src="src/assets/Logo_dla-klienta-kopia2.png" style={{maxHeight: '100px'}}/>
-                <img src="src/assets/Logo_dla-klienta-kopia3.png" style={{maxHeight: '100px'}}/>
+                <img src={image1} style={{maxHeight: '100px'}}/>
+                <img src={image2} style={{maxHeight: '100px'}}/>
+                <img src={image3} style={{maxHeight: '100px'}}/>
               </div>
             </div>
           </div>

@@ -10,17 +10,33 @@ import Search from "@/components/Search";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
-      <Header />
-      <Search />
-      <Advantages />
-      <Testimonials />
-      <QuoteBanner />
-      <Licenses />
-      <Partners />
-      <ContactForm />
-      <Footer />
-    </div>
+      <div className="min-h-screen">
+          <Header/>
+          <section className="w-full">
+              <Search/>
+          </section>
+          <section className="w-full">
+              <Advantages/>
+          </section>
+          <section className="w-full">
+              <Testimonials/>
+          </section>
+          <section className="w-full">
+              <QuoteBanner/>
+          </section>
+          <section className="w-full">
+              <Licenses/>
+          </section>
+          <section className="w-full">
+              <Partners/>
+          </section>
+          <section className="w-full">
+              <ContactForm/>
+          </section>
+          <section className="w-full">
+              <Footer/>
+          </section>
+      </div>
   );
 };
 

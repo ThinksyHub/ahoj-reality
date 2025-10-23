@@ -60,10 +60,15 @@ const ContactForm = () => {
                     <p className="text-muted-foreground font-light">info@ahojreality.sk</p>
                   </div>
                 </div>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2602.1537592523528!2d21.26650497620469!3d49.29243037139426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473e80d94bcceb0b%3A0x355b15dbb1308208!2sAHOJ%20reality!5e0!3m2!1sen!2ssk!4v1760621085750!5m2!1sen!2ssk"
-                    width="600" height="450" loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"></iframe>
+                <div className="w-full h-64 md:h-80 lg:h-96 mt-6 rounded-lg overflow-hidden">
+                  <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2602.1537592523528!2d21.26650497620469!3d49.29243037139426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473e80d94bcceb0b%3A0x355b15dbb1308208!2sAHOJ%20reality!5e0!3m2!1sen!2ssk!4v1760621085750!5m2!1sen!2ssk"
+                      className="w-full h-full border-0"
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+
               </div>
             </div>
 
@@ -77,7 +82,7 @@ const ContactForm = () => {
 
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
+                <div>
                   <label className="block text-sm font-light text-primary mb-2">
                     Meno
                   </label>

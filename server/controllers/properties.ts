@@ -58,9 +58,9 @@ export const createProperty = (req: Request, res: Response) => {
       property_name, property_slug, property_purpose, property_type, description,
       sale_price, rent_price, address, city_id, area, bedrooms, bathrooms,
       map_latitude, map_longitude, property_features, featured_property,
-      featured_image, property_images, status, user_id
+      featured_image, property_images, status, user_id, youtube_url
     )
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CAST(? AS JSON), ?, ?)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CAST(? AS JSON), ?, ?, ?)
   `;
 
     const slug =
@@ -90,6 +90,7 @@ export const createProperty = (req: Request, res: Response) => {
         JSON.stringify(property.property_images || []),
         property.status || 1,
         property.user_id || 1,
+        property.youtube_url || ""
     ];
 
     db.query<ResultSetHeader>(sql, values, (err, result) => {
@@ -111,7 +112,7 @@ export const updateProperty = (req: Request, res: Response) => {
       property_name = ?, property_slug = ?, property_purpose = ?, property_type = ?, description = ?,
       sale_price = ?, rent_price = ?, address = ?, city_id = ?, area = ?, bedrooms = ?, bathrooms = ?,
       map_latitude = ?, map_longitude = ?, property_features = ?, featured_property = ?,
-      featured_image = ?, property_images = CAST(? AS JSON), status = ?, user_id = ?
+      featured_image = ?, property_images = CAST(? AS JSON), status = ?, user_id = ?, youtube_url = ?
     WHERE id = ?
   `;
 
@@ -136,6 +137,7 @@ export const updateProperty = (req: Request, res: Response) => {
         JSON.stringify(property.property_images || []),
         property.status,
         property.user_id,
+        property.youtube_url,
         id,
     ];
 

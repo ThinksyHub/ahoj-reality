@@ -1,14 +1,18 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 import {Button} from "@/components/ui/button";
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 import {Input} from "@/components/ui/input";
-import {Textarea} from "@/components/ui/textarea";
 import {Select, SelectTrigger, SelectValue, SelectContent, SelectItem} from "@/components/ui/select";
 import {Switch} from "@/components/ui/switch";
 import {Badge} from "@/components/ui/badge";
 import {Trash2, Edit, Plus, Save, X} from "lucide-react";
 import {Property, City, PropertyType} from "@/pages/Properties.tsx";
+import {getYoutubeEmbedUrl} from "@/lib/getYoutubeEmbedUrl.ts";
+import {navigate} from "next/dist/client/components/segment-cache";
+import {Link} from "react-router-dom";
 
 const Admin = () => {
     const [properties, setProperties] = useState<Property[]>([]);
@@ -32,6 +36,7 @@ const Admin = () => {
         featured_property: 0,
         featured_image: "",
         property_images: [],
+        youtube_url: "",
         status: 1,
     });
 
@@ -98,6 +103,7 @@ const Admin = () => {
             console.error(err);
             alert("Nepodarilo sa uložiť nehnuteľnosť.");
         }
+        resetForm()
     };
 
     // === DELETE ===
@@ -111,6 +117,7 @@ const Admin = () => {
             console.error(err);
             alert("Nepodarilo sa odstrániť nehnuteľnosť.");
         }
+        resetForm()
     };
 
     // === EDIT ===
@@ -136,6 +143,7 @@ const Admin = () => {
             featured_property: 0,
             featured_image: "",
             property_images: [],
+            youtube_url: "",
             status: 1,
         });
     };
@@ -147,6 +155,11 @@ const Admin = () => {
                     <h1 className="text-3xl font-bold text-foreground mb-2">Admin Panel</h1>
                     <p className="text-muted-foreground">Správa nehnuteľností a obsahu</p>
                 </header>
+                <Link to="/">
+                    <Button className="btn-black mb-4">
+                        Späť na hlavnú stránku
+                    </Button>
+                </Link>
 
                 <Tabs defaultValue="posts" className="space-y-6">
                     <TabsList>
@@ -230,13 +243,21 @@ const Admin = () => {
                                     <Input
                                         placeholder="Cena predaja (€)"
                                         value={formData.sale_price || ""}
-                                        onChange={(e) => setFormData({...formData, sale_price: e.target.value})}
+                                        onChange={(e) => {
+                                            const sanitized = e.target.value.replace(/\D/g, ""); // remove everything except digits
+                                            setFormData({ ...formData, sale_price: sanitized });
+                                        }}
                                     />
+
                                     <Input
                                         placeholder="Cena prenájmu (€)"
                                         value={formData.rent_price || ""}
-                                        onChange={(e) => setFormData({...formData, rent_price: e.target.value})}
+                                        onChange={(e) => {
+                                            const sanitized = e.target.value.replace(/\D/g, "");
+                                            setFormData({ ...formData, rent_price: sanitized });
+                                        }}
                                     />
+
                                     <Input
                                         placeholder="Rozloha (m²)"
                                         type="number"
@@ -275,11 +296,19 @@ const Admin = () => {
                                     value={formData.address || ""}
                                     onChange={(e) => setFormData({...formData, address: e.target.value})}
                                 />
-                                <Textarea
-                                    placeholder="Popis nehnuteľnosti"
-                                    value={formData.description || ""}
-                                    onChange={(e) => setFormData({...formData, description: e.target.value})}
-                                />
+
+                                <div>
+                                    <label className="block mb-1 font-medium">Popis nehnuteľnosti</label>
+                                    <ReactQuill
+                                        key={editingProperty?.id || "new"}
+                                        theme="snow"
+                                        value={formData.description || ""}
+                                        onChange={(value) =>
+                                            setFormData((prev) => ({ ...prev, description: value }))
+                                        }
+                                    />
+                                </div>
+
 
                                 <div>
                                     <label className="block mb-1 font-medium">Hlavný obrázok</label>
@@ -454,9 +483,35 @@ const Admin = () => {
                                     </div>
                                 </div>
 
+                                {/* 🆕 YouTube video section */}
+                                <div>
+                                    <label className="block mb-1 font-medium">YouTube video URL</label>
+                                    <Input
+                                        type="url"
+                                        placeholder="https://www.youtube.com/watch?v=..."
+                                        value={formData.youtube_url || ""}
+                                        onChange={(e) => setFormData({ ...formData, youtube_url: e.target.value })}
+                                    />
+                                    {formData.youtube_url && getYoutubeEmbedUrl(formData.youtube_url) && (
+                                        <div className="mt-3">
+                                            <p className="text-sm text-muted-foreground mb-2">Náhľad videa:</p>
+                                            <iframe
+                                                width="300"
+                                                height="170"
+                                                src={getYoutubeEmbedUrl(formData.youtube_url)}
+                                                title="YouTube preview"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowFullScreen
+                                                className="rounded-lg border"
+                                            ></iframe>
+                                        </div>
+                                    )}
+                                </div>
+
+
                                 <div className="flex gap-2">
                                     <Button onClick={handleSaveProperty} className="w-full md:w-auto">
-                                        {editingProperty ? (
+                                    {editingProperty ? (
                                             <>
                                                 <Save className="h-4 w-4 mr-2"/> Uložiť zmeny
                                             </>

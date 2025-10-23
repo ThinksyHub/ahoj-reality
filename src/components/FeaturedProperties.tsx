@@ -2,7 +2,7 @@ import { Bed, Square, MapPin, Heart, Euro } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { Property, PropertyType } from "@/pages/Properties";
+import {City, Property, PropertyType} from "@/pages/Properties";
 import { useEffect, useState } from "react";
 
 interface FeaturedProperty {
@@ -11,6 +11,14 @@ interface FeaturedProperty {
 
 const FeaturedProperties = ({ filteredProperties }: FeaturedProperty) => {
   const [propertyTypes, setPropertTypes] = useState<PropertyType[]>([]);
+  const [cities, setCities] = useState<City[]>([]);
+
+  useEffect(() => {
+    fetch("/api/cities")
+        .then((res) => res.json())
+        .then((data) => setCities(data))
+        .catch((err) => console.error(err));
+  }, []);
 
   useEffect(() => {
     fetch("api/property_types")
@@ -57,16 +65,14 @@ const FeaturedProperties = ({ filteredProperties }: FeaturedProperty) => {
                   </span>
                 </div>
 
-                {/* Heart Icon */}
-                <button className="absolute top-4 right-4 w-10 h-10 bg-primary-foreground/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-golden hover:text-golden-foreground transition-all duration-300">
-                  <Heart className="w-5 h-5" />
-                </button>
-
                 {/* Price Overlay */}
                 <div className="absolute bottom-4 left-4">
-                  <span className="text-2xl font-bold text-white drop-shadow-lg">
-                    {property.sale_price}
-                    {(property.sale_price != null) ? <Euro className="w-4 h-4 text-golden" /> : ''}
+                  <span className="text-2xl font-bold text-white drop-shadow-lg flex center">
+                    {(property.sale_price || property.rent_price) && (
+                        <div className="text-3xl font-bold text-primary flex items-center text-white">
+                          {(Number(property.sale_price) || Number(property.rent_price)).toLocaleString()} €
+                        </div>
+                    )}
                   </span>
                 </div>
               </div>
@@ -74,8 +80,10 @@ const FeaturedProperties = ({ filteredProperties }: FeaturedProperty) => {
               {/* Property Details */}
               <div className="p-6">
                 <div className="flex items-center space-x-2 text-muted-foreground mb-2">
-                  <MapPin className="w-4 h-4 text-golden" />
-                  <span className="text-sm">{property.address}</span>
+                  <MapPin className="w-4 h-4 text-golden"/>
+                  <span className="text-sm whitespace-nowrap overflow-hidden text-ellipsis block">
+                    {property.address}, {cities.find((city) => city.id === property.city_id)?.city_name}
+                  </span>
                 </div>
 
                 <h3 className="font-heading text-xl font-light text-primary mb-4 group-hover:text-golden transition-colors truncate">
@@ -107,9 +115,11 @@ const FeaturedProperties = ({ filteredProperties }: FeaturedProperty) => {
                     </Button>
                   </Link>
                   <div className="text-center">
-                    <button className="text-sm text-black hover:text-golden transition-colors">
-                      Naplánovať<br />prehliadku
-                    </button>
+                    <Link to={`/contact`}>
+                      <Button  className="text-sm text-white hover:text-golden transition-colors">
+                        Naplánovať<br />prehliadku
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </div>

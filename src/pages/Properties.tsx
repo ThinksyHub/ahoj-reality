@@ -34,6 +34,7 @@ export interface Property {
   property_images4: string | null;
   property_images5: string | null;
   property_images: string[] | null;
+  youtube_url: string,
   status: number;
   user_id: number;
   created_at: string;
@@ -271,22 +272,21 @@ const Properties = () => {
                     {/* Category and Transaction Type Badges */}
                     <div className="absolute top-4 left-4 flex flex-col gap-2">
                       <span className="bg-golden text-black px-3 py-1 rounded-full text-sm font-light">
-                        {property.property_purpose}
+                        {(property.property_purpose === "Prenájom") ? "" : "Predaj"}
                       </span>
                       <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-light">
                         {propertyTypes.find((t) =>  t.id === Number(property.property_type))?.types ?? "Unknown"}
                       </span>
                     </div>
 
-                    {/* Heart Icon */}
-                    <button className="absolute top-4 right-4 w-10 h-10 bg-primary-foreground/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-golden hover:text-golden-foreground transition-all duration-300">
-                      <Heart className="w-5 h-5" />
-                    </button>
-
                     {/* Price Overlay */}
                     <div className="absolute bottom-4 left-4">
                       <span className="text-2xl font-bold text-white drop-shadow-lg">
-                        {property.sale_price}
+                        {(property.sale_price || property.rent_price) && (
+                            <div className="text-3xl font-bold text-primary flex items-center text-white">
+                              {(Number(property.sale_price) || Number(property.rent_price)).toLocaleString()} €
+                            </div>
+                        )}
                       </span>
                     </div>
                   </div>
@@ -294,8 +294,10 @@ const Properties = () => {
                   {/* Property Details */}
                   <div className="p-6">
                     <div className="flex items-center space-x-2 text-muted-foreground mb-2">
-                      <MapPin className="w-4 h-4 text-golden" />
-                      <span className="text-sm">{property.address}</span>
+                      <MapPin className="w-4 h-4 text-golden"/>
+                      <span className="text-sm whitespace-nowrap overflow-hidden text-ellipsis block">
+                        {property.address}, {cities.find((city) => city.id === property.city_id)?.city_name}
+                      </span>
                     </div>
 
                     <h3 className="font-heading text-xl font-light text-primary mb-4 group-hover:text-golden transition-colors truncate">
@@ -326,9 +328,11 @@ const Properties = () => {
                         </Button>
                       </Link>
                       <div className="text-center">
-                        <button className="text-sm text-black hover:text-golden transition-colors">
-                          Naplánovať<br />prehliadku
-                        </button>
+                        <Link to={`/contact`}>
+                          <Button className="text-sm text-white hover:text-golden transition-colors">
+                            Naplánovať<br/>prehliadku
+                          </Button>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -339,7 +343,7 @@ const Properties = () => {
             {/* Call to Action Text */}
             <div className="text-center mt-16 max-w-3xl mx-auto">
               <div className="bg-muted/30 p-8 rounded-2xl border border-border/20">
-                <p className="text-lg text-muted-foreground font-light leading-relaxed">
+              <p className="text-lg text-muted-foreground font-light leading-relaxed">
                   Nenašli ste, čo hľadáte? Dajte nám vedieť, akú nehnuteľnosť si predstavujete, a my vás budeme kontaktovať hneď, ako pribudne vhodná ponuka.
                 </p>
                 <Link to={"/contact"}>
