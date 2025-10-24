@@ -237,19 +237,19 @@ const Properties = () => {
         </section>
         <section className="flex justify-center gap-6">
           <div style={{textAlign: 'center'}}>
-            <img src="/src/assets/icons/ponuka-nehnutelnosti_BYT.png"/>
+            <img src="/assets/icons/ponuka-nehnutelnosti_BYT.png"/>
             <span>Byty</span>
           </div>
           <div style={{textAlign: 'center'}}>
-            <img src="/src/assets/icons/ponuka-nehnutelnosti_DOMY.png"/>
+            <img src="/assets/icons/ponuka-nehnutelnosti_DOMY.png"/>
             <span>Domy</span>
           </div>
           <div style={{textAlign: 'center'}}>
-            <img src="/src/assets/icons/ponuka-nehnutelnosti_POZEMKY.png"/>
+            <img src="/assets/icons/ponuka-nehnutelnosti_POZEMKY.png"/>
             <span>Pozemky</span>
           </div>
           <div style={{textAlign: 'center'}}>
-            <img src="/src/assets/icons/ponuka-nehnutelnosti_OBJEKTY.png"/>
+            <img src="/assets/icons/ponuka-nehnutelnosti_OBJEKTY.png"/>
             <span>Objekty</span>
           </div>
         </section>
@@ -311,7 +311,7 @@ const Properties = () => {
                         <span>{property.bedrooms} izby</span>
                       </div>
                       <div className="flex items-center space-x-1">
-                        <img className="w-4 h-4" src="/src/assets/icons/balcony.png"/>
+                        <img className="w-4 h-4" src="/assets/icons/balcony.png"/>
                         <span>{property.bathrooms} balk.</span>
                       </div>
                       <div className="flex items-center space-x-1">

@@ -1,8 +1,8 @@
-import rychlostIcon from "@/assets/icons/rychlost.png";
-import kvalitaIcon from "@/assets/icons/kvalita.png";
-import kvalifikaciaIcon from "@/assets/icons/kvalifikacia.png";
-import lojalitaIcon from "@/assets/icons/loajalita.png";
-import ludskostIcon from "@/assets/icons/ludskost.png";
+import rychlostIcon from "/assets/icons/rychlost.png";
+import kvalitaIcon from "/assets/icons/kvalita.png";
+import kvalifikaciaIcon from "/assets/icons/kvalifikacia.png";
+import lojalitaIcon from "/assets/icons/loajalita.png";
+import ludskostIcon from "/assets/icons/ludskost.png";
 
 const advantages = [
   {

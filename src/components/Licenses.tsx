@@ -1,9 +1,9 @@
 import { Award, Shield, CheckCircle, GraduationCap } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import diplomImage from "@/assets/licenses/diplom.jpg";
-import licencia1Image from "@/assets/licenses/licencia-1.jpg";
-import licencia2Image from "@/assets/licenses/licencia-2.jpg";
-import licencia3Image from "@/assets/licenses/licencia-3.jpg";
+import diplomImage from "/assets/licenses/diplom.jpg";
+import licencia1Image from "/assets/licenses/licencia-1.jpg";
+import licencia2Image from "/assets/licenses/licencia-2.jpg";
+import licencia3Image from "/assets/licenses/licencia-3.jpg";
 
 const licenses = [
   {

@@ -1,8 +1,5 @@
 import { Phone, Mail, MapPin, Send } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Card } from "@/components/ui/card";
+import ContactFillingForm from "@/components/ContactFillingForm.tsx";
 
 const ContactForm = () => {
   return (
@@ -75,56 +72,7 @@ const ContactForm = () => {
           </div>
 
           {/* ContactForm Form */}
-          <Card className="p-8 bg-card border-border/20 shadow-elegant">
-            <h3 className="font-heading text-2xl font-light text-primary mb-6">
-              Pošlite nám správu
-            </h3>
-
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-light text-primary mb-2">
-                    Meno
-                  </label>
-                  <Input />
-                </div>
-                <div>
-                  <label className="block text-sm font-light text-primary mb-2">
-                    Priezvisko
-                  </label>
-                  <Input  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-light text-primary mb-2">
-                  Email
-                </label>
-                <Input type="email" />
-              </div>
-
-              <div>
-                <label className="block text-sm font-light text-primary mb-2">
-                  Telefón
-                </label>
-                <Input type="tel" />
-              </div>
-
-              <div>
-                <label className="block text-sm font-light text-primary mb-2">
-                  Správa
-                </label>
-                <Textarea
-                  rows={5}
-                />
-              </div>
-
-              <Button className="bg-black text-white hover:bg-black/90 w-full text-lg py-3 font-light">
-                <Send className="mr-2 w-5 h-5" />
-                Odoslať správu
-              </Button>
-            </form>
-          </Card>
+          <ContactFillingForm></ContactFillingForm>
         </div>
       </div>
     </section>

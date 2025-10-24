@@ -192,7 +192,7 @@ const PropertyDetail = () => {
                                         <div
                                             className="w-6 h-6 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-1">
                                             <img className="w-3 h-3 text-golden"
-                                                 src="/src/assets/icons/balcony_yellow.png"/>
+                                                 src="/assets/icons/balcony_yellow.png"/>
                                         </div>
                                         <div className="text-sm font-bold text-primary">{property.bathrooms}</div>
                                     </div>
@@ -276,28 +276,28 @@ const PropertyDetail = () => {
                 <div className="container mx-auto px-6">
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
                         <div className="flex flex-col items-center space-y-4">
-                            <img src="/src/assets/icons/kvalita.png" alt="Kvalita" className="w-16 h-16"/>
+                            <img src="/assets/icons/kvalita.png" alt="Kvalita" className="w-16 h-16"/>
                             <div>
                                 <div className="text-2xl font-bold text-primary">Kvalita</div>
                                 <div className="text-muted-foreground">Najvyššie štandardy</div>
                             </div>
                         </div>
                         <div className="flex flex-col items-center space-y-4">
-                            <img src="/src/assets/icons/rychlost.png" alt="Rýchlosť" className="w-16 h-16"/>
+                            <img src="/assets/icons/rychlost.png" alt="Rýchlosť" className="w-16 h-16"/>
                             <div>
                                 <div className="text-2xl font-bold text-primary">Rýchlosť</div>
                                 <div className="text-muted-foreground">Efektívne riešenia</div>
                             </div>
                         </div>
                         <div className="flex flex-col items-center space-y-4">
-                            <img src="/src/assets/icons/ludskost.png" alt="Ľudskosť" className="w-16 h-16"/>
+                            <img src="/assets/icons/ludskost.png" alt="Ľudskosť" className="w-16 h-16"/>
                             <div>
                                 <div className="text-2xl font-bold text-primary">Ľudskosť</div>
                                 <div className="text-muted-foreground">Osobný prístup</div>
                             </div>
                         </div>
                         <div className="flex flex-col items-center space-y-4">
-                            <img src="/src/assets/icons/loajalita.png" alt="Loajalita" className="w-16 h-16"/>
+                            <img src="/assets/icons/loajalita.png" alt="Loajalita" className="w-16 h-16"/>
                             <div>
                                 <div className="text-2xl font-bold text-primary">Loajalita</div>
                                 <div className="text-muted-foreground">Dlhodobé partnerstvo</div>

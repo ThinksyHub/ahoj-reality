@@ -1,11 +1,11 @@
 import mysql from 'mysql2'
 
 export const db = mysql.createConnection({
-  host: "db.r6.websupport.sk",
-  port: 3314,
-  user: "ahojreality",
-  password: "2jUwV8fUSU9x@e-",
-  database: "ahojreality"
+  host: "80.211.73.226",
+  port: 3306,
+  user: "njcedf0cp4",
+  password: "22AnkaMilo33@!",
+  database: "jkt239jzrw"
 });
 
 // export const db = mysql.createConnection({

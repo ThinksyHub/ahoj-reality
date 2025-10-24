@@ -1,12 +1,12 @@
-import slovenskaSporitelnaLogo from "@/assets/partners/slovenska-sporitelna.png";
-import primaBankaLogo from "@/assets/partners/prima-banka.png";
-import itkapLogo from "@/assets/partners/itkap.png";
-import otpBankLogo from "@/assets/partners/otp-bank.png";
-import mbankLogo from "@/assets/partners/mbank.png";
-import vubBankaLogo from "@/assets/partners/vub-banka.png";
-import unicreditLogo from "@/assets/partners/unicredit.png";
-import tatraBankaLogo from "@/assets/partners/tatra-banka.png";
-import csobLogo from "@/assets/partners/csob.png";
+import slovenskaSporitelnaLogo from "/assets/partners/slovenska-sporitelna.png";
+import primaBankaLogo from "/assets/partners/prima-banka.png";
+import itkapLogo from "/assets/partners/itkap.png";
+import otpBankLogo from "/assets/partners/otp-bank.png";
+import mbankLogo from "/assets/partners/mbank.png";
+import vubBankaLogo from "/assets/partners/vub-banka.png";
+import unicreditLogo from "/assets/partners/unicredit.png";
+import tatraBankaLogo from "/assets/partners/tatra-banka.png";
+import csobLogo from "/assets/partners/csob.png";
 
 const partners = [
   {

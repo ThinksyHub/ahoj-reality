@@ -23,40 +23,57 @@ import Cookies from "./pages/Cookies";
 import ObchodnePodmienky from "./pages/ObchodnePodmienky";
 import VseobecnePodmienky from "./pages/VseobecnePodmienky";
 import Kariera from "./pages/Kariera";
+import BlogDetail from "@/pages/BlogDetail.tsx";
+import {useEffect, useState} from "react";
+import Login from "@/components/Login.tsx";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
+const App = () => {
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("isAdmin");
+    if (stored === "true") setIsAdmin(true);
+  }, []);
+
+  const handleLogin = () => setIsAdmin(true);
+
+  return (<QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
+      <Toaster/>
+      <Sonner/>
       <BrowserRouter>
-        <ScrollToTop />
+        <ScrollToTop/>
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/ponuka-nehnutelnosti" element={<Properties />} />
-          <Route path="/o-nas" element={<AboutUs />} />
-          <Route path="/referencie" element={<Referencie />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/chcem-predat" element={<ChcemPredat />} />
-          <Route path="/chcem-kupit" element={<ChcemKupit />} />
-          <Route path="/property/:id" element={<PropertyDetail />} />
-          <Route path="/cennik" element={<Cennik />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/homestaging" element={<Homestaging />}/>
-          <Route path="/eticky-kodex" element={<EtickyKodex />}/>
-          <Route path="/gdpr" element={<Gdpr />}/>
-          <Route path="/obchodne-podmienky" element={<ObchodnePodmienky />}/>
-          <Route path="/vseobecne-podmienky" element={<VseobecnePodmienky />}/>
-          <Route path="/cookies" element={<Cookies />}/>
-          <Route path="/kariera" element={<Kariera />}/>
-          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<Index/>}/>
+          <Route path="/contact" element={<Contact/>}/>
+          <Route path="/ponuka-nehnutelnosti" element={<Properties/>}/>
+          <Route path="/o-nas" element={<AboutUs/>}/>
+          <Route path="/referencie" element={<Referencie/>}/>
+          <Route path="/blog" element={<Blog/>}/>
+          <Route path="/chcem-predat" element={<ChcemPredat/>}/>
+          <Route path="/chcem-kupit" element={<ChcemKupit/>}/>
+          <Route path="/property/:id" element={<PropertyDetail/>}/>
+          <Route path="/cennik" element={<Cennik/>}/>
+          <Route path="/homestaging" element={<Homestaging/>}/>
+          <Route path="/eticky-kodex" element={<EtickyKodex/>}/>
+          <Route path="/gdpr" element={<Gdpr/>}/>
+          <Route path="/obchodne-podmienky" element={<ObchodnePodmienky/>}/>
+          <Route path="/vseobecne-podmienky" element={<VseobecnePodmienky/>}/>
+          <Route path="/cookies" element={<Cookies/>}/>
+          <Route path="/kariera" element={<Kariera/>}/>
+          <Route path="*" element={<NotFound/>}/>
+          <Route path="/blog/:id" element={<BlogDetail/>}/>
+          {/* Admin route */}
+          <Route
+              path="/admin"
+              element={isAdmin ? <Admin/> : <Login onLogin={handleLogin}/>}
+          />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
-  </QueryClientProvider>
-);
+  </QueryClientProvider>)
+};
 
 export default App;

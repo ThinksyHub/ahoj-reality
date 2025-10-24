@@ -1,12 +1,10 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Camera, Target, FileText, Users, Shield, Phone, Mail, MapPin, User, ArrowRight, CheckCircle } from "lucide-react";
 import TestimonialsSlider from "@/components/testimonials/TestimonialsSlider";
-import heroImage from "@/assets/hero-chcem-predat.jpg";
+import heroImage from "/assets/hero-chcem-predat.jpg";
+import ContactFillingForm from "@/components/ContactFillingForm.tsx";
 
 const ChcemPredat = () => {
   const benefits = [
@@ -184,111 +182,7 @@ const ChcemPredat = () => {
               </p>
             </div>
 
-            <Card className="overflow-hidden shadow-2xl border-border/20">
-              <CardContent className="p-8 md:p-12">
-                <form className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-semibold text-primary mb-2">
-                        Meno a priezvisko *
-                      </label>
-                      <Input 
-                        placeholder="Vaše meno"
-                        className="border-golden/20 focus:border-golden/50 focus:ring-golden/30"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-primary mb-2">
-                        Telefón *
-                      </label>
-                      <Input 
-                        placeholder="+421 xxx xxx xxx"
-                        className="border-golden/20 focus:border-golden/50 focus:ring-golden/30"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-primary mb-2">
-                      Email *
-                    </label>
-                    <Input 
-                      type="email"
-                      placeholder="vas.email@example.com"
-                      className="border-golden/20 focus:border-golden/50 focus:ring-golden/30"
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-semibold text-primary mb-2">
-                        Typ nehnuteľnosti
-                      </label>
-                      <select className="w-full px-3 py-2 border border-golden/20 rounded-md focus:outline-none focus:ring-2 focus:ring-golden/30 focus:border-golden/50">
-                        <option value="">Vyberte typ</option>
-                        <option value="byt">Byt</option>
-                        <option value="dom">Dom</option>
-                        <option value="pozemok">Pozemok</option>
-                        <option value="komercia">Komerčná nehnuteľnosť</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-primary mb-2">
-                        Lokalita
-                      </label>
-                      <Input 
-                        placeholder="Mesto, časť"
-                        className="border-golden/20 focus:border-golden/50 focus:ring-golden/30"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-primary mb-2">
-                      Dodatočné informácie
-                    </label>
-                    <Textarea 
-                      placeholder="Opíšte svoju nehnuteľnosť, vaše predstavy o cene, termíne predaja..."
-                      rows={4}
-                      className="border-golden/20 focus:border-golden/50 focus:ring-golden/30"
-                    />
-                  </div>
-
-                  <div className="flex items-center space-x-2">
-                    <input type="checkbox" id="gdpr" className="rounded border-golden/20" />
-                    <label htmlFor="gdpr" className="text-sm text-muted-foreground">
-                      Súhlasím so spracovaním osobných údajov podľa GDPR
-                    </label>
-                  </div>
-
-                  <Button 
-                    type="submit" 
-                    size="lg"
-                    className="w-full bg-gradient-to-r from-golden to-accent text-white font-semibold py-4 text-lg hover:shadow-lg transition-all duration-300"
-                  >
-                    Nechať si ohodnotiť nehnuteľnosť
-                  </Button>
-                </form>
-
-                <div className="mt-8 pt-8 border-t border-golden/10">
-                  <h3 className="text-lg font-semibold text-primary mb-4">Alebo nás kontaktujte priamo:</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-                    <div className="flex items-center space-x-2">
-                      <Phone className="w-4 h-4 text-golden" />
-                      <span>+421 901 234 567</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Mail className="w-4 h-4 text-golden" />
-                      <span>info@ahojreality.sk</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <MapPin className="w-4 h-4 text-golden" />
-                      <span>Bratislava, Slovensko</span>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <ContactFillingForm></ContactFillingForm>
           </div>
         </div>
       </section>

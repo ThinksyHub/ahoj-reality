@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/logo_header.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,7 +14,7 @@ const Header = () => {
           <div className="flex items-center space-x-3">
             <a href="/" className="relative group">
               <img
-                  src={logo}
+                  src="/assets/logo_uprava2.png"
                   alt="AHOJ Reality"
                   className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
                   style={{minWidth: "90px", minHeight: "90px"}}
@@ -41,7 +40,7 @@ const Header = () => {
             </a>
             <a href="/referencie"
                className="text-primary hover:text-golden transition-all duration-300 font-light py-3 px-2 relative group">
-              <span className="font-medium">Referencie</span>
+              <span className="font-medium">Recenzie</span>
               <div
                   className="absolute bottom-0 left-0 w-full h-0.5 bg-golden scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></div>
             </a>
@@ -97,7 +96,7 @@ const Header = () => {
                   O nás
                 </a>
                 <a href="/referencie" className="text-primary hover:text-golden transition-colors font-light py-2">
-                  Referencie
+                  Recenzie
                 </a>
                 <a href="/blog" className="text-primary hover:text-golden transition-colors font-light py-2">
                   Blog

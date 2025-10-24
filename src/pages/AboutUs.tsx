@@ -6,27 +6,27 @@ import { Award, Shield, CheckCircle, GraduationCap } from "lucide-react";
 import SectionHeader from "@/components/makleri/SectionHeader";
 
 // Assets
-import kvalifikaciaIcon from "@/assets/icons/kvalifikacia.png";
-import loajalitaIcon from "@/assets/icons/loajalita.png";
-import ludskostIcon from "@/assets/icons/ludskost.png";
-import rychlostIcon from "@/assets/icons/rychlost.png";
-import diplomImage from "@/assets/licenses/diplom.jpg";
-import licencia1Image from "@/assets/licenses/licencia-1.jpg";
-import licencia2Image from "@/assets/licenses/licencia-2.jpg";
-import licencia3Image from "@/assets/licenses/licencia-3.jpg";
-import gabrielaVarholikovaPhoto from "@/assets/team/gabriela-varholikova.jpg";
-import kristinaKaraffovaPhoto from "@/assets/team/kristina-karaffova.jpg";
-import team from "@/assets/team/AHOJreality.jpg";
-import billboard1 from "@/assets/billboards/billboard1.jpg";
-import billboard2 from "@/assets/billboards/billboard2.jpg";
-import csob from "@/assets/partners/csob.png";
-import mbank from "@/assets/partners/mbank.png";
-import otpBank from "@/assets/partners/otp-bank.png";
-import primaBanka from "@/assets/partners/prima-banka.png";
-import slovenskaSporitelna from "@/assets/partners/slovenska-sporitelna.png";
-import tatraBanka from "@/assets/partners/tatra-banka.png";
-import unicredit from "@/assets/partners/unicredit.png";
-import vubBanka from "@/assets/partners/vub-banka.png";
+import kvalifikaciaIcon from "/assets/icons/kvalifikacia.png";
+import loajalitaIcon from "/assets/icons/loajalita.png";
+import ludskostIcon from "/assets/icons/ludskost.png";
+import rychlostIcon from "/assets/icons/rychlost.png";
+import diplomImage from "/assets/licenses/diplom.jpg";
+import licencia1Image from "/assets/licenses/licencia-1.jpg";
+import licencia2Image from "/assets/licenses/licencia-2.jpg";
+import licencia3Image from "/assets/licenses/licencia-3.jpg";
+import gabrielaVarholikovaPhoto from "/assets/team/gabriela-varholikova.jpg";
+import kristinaKaraffovaPhoto from "/assets/team/kristina-karaffova.jpg";
+import team from "/assets/team/AHOJreality.jpg";
+import billboard1 from "/assets/billboards/billboard1.jpg";
+import billboard2 from "/assets/billboards/billboard2.jpg";
+import csob from "/assets/partners/csob.png";
+import mbank from "/assets/partners/mbank.png";
+import otpBank from "/assets/partners/otp-bank.png";
+import primaBanka from "/assets/partners/prima-banka.png";
+import slovenskaSporitelna from "/assets/partners/slovenska-sporitelna.png";
+import tatraBanka from "/assets/partners/tatra-banka.png";
+import unicredit from "/assets/partners/unicredit.png";
+import vubBanka from "/assets/partners/vub-banka.png";
 
 const AboutUs = () => {
   const maklers = [
