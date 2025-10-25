@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import path from "path";
 
 import propertyRoutes from "./routes/properties.js";
 import citiesRoutes from "./routes/cities.js"
@@ -64,12 +63,10 @@ chokidar.watch(publicFolder, { ignoreInitial: true }).on("all", (event, filePath
   if (event === "add" || event === "change") {
     fs.copy(filePath, destPath)
         .then(() => console.log(`[COPY] ${relativePath} → dist`))
-        .catch(err => console.error(`[ERROR] Failed to copy ${relativePath}:`, err));
   }
   if (event === "unlink") {
     fs.remove(destPath)
         .then(() => console.log(`[REMOVE] ${relativePath} from dist`))
-        .catch(err => console.error(`[ERROR] Failed to remove ${relativePath}:`, err));
   }
 });
 
