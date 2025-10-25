@@ -13,6 +13,10 @@ import blogRoutes from "./routes/blogs.js";
 import blogUploadsRoutes from "./routes/blogUpload.js";
 import reviewRoutes from "./routes/review.js";
 
+import chokidar from "chokidar";
+import fs from "fs-extra";
+import path from "path";
+
 
 const app = express();
 app.use(cors());
@@ -48,3 +52,24 @@ const PORT = 5000;
 app.listen(PORT, '0.0.0.0' , () =>
   console.log(`Server running on http://localhost:${PORT}`)
 );
+
+const publicFolder = path.join(process.cwd(), "public");
+const distFolder = path.join(process.cwd(), "dist");
+
+// Watch for changes in public folder
+chokidar.watch(publicFolder, { ignoreInitial: true }).on("all", (event, filePath) => {
+  const relativePath = path.relative(publicFolder, filePath);
+  const destPath = path.join(distFolder, relativePath);
+
+  if (event === "add" || event === "change") {
+    fs.copy(filePath, destPath)
+        .then(() => console.log(`[COPY] ${relativePath} → dist`))
+        .catch(err => console.error(`[ERROR] Failed to copy ${relativePath}:`, err));
+  }
+  if (event === "unlink") {
+    fs.remove(destPath)
+        .then(() => console.log(`[REMOVE] ${relativePath} from dist`))
+        .catch(err => console.error(`[ERROR] Failed to remove ${relativePath}:`, err));
+  }
+});
+
