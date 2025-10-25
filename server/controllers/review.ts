@@ -1,61 +1,107 @@
 import type { Request, Response } from "express";
 import { db } from "../db.js";
-import type { ResultSetHeader, RowDataPacket } from "mysql2";
+import type { RowDataPacket, ResultSetHeader } from "mysql2";
 
-export const getAllReviews = (_req: Request, res: Response) => {
-    db.query<RowDataPacket[]>("SELECT * FROM reviews ORDER BY id DESC", (err, results) => {
-        if (err) return res.status(500).json({ error: err.message });
-        res.json(results);
-    });
+// 🟢 Get all reviews
+export const getAllReviews = async (_req: Request, res: Response): Promise<void> => {
+    try {
+        const [rows] = await db.query<RowDataPacket[]>(
+            "SELECT * FROM reviews ORDER BY id DESC"
+        );
+        res.json(rows);
+    } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : "Unknown error";
+        console.error("❌ Error fetching reviews:", message);
+        res.status(500).json({ error: message });
+    }
 };
 
-export const getReview = (req: Request, res: Response) => {
-    const { id } = req.params;
-    db.query<RowDataPacket[]>("SELECT * FROM reviews WHERE id = ?", [id], (err, results) => {
-        if (err) return res.status(500).json({ error: err.message });
-        if (!results.length) return res.status(404).json({ message: "Recenzia nenájdená" });
-        res.json(results[0]);
-    });
-};
+// 🟢 Get single review
+export const getReview = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const { id } = req.params;
+        const [rows] = await db.query<RowDataPacket[]>(
+            "SELECT * FROM reviews WHERE id = ?",
+            [id]
+        );
 
-export const createReview = (req: Request, res: Response) => {
-    const { name, source, text, rating } = req.body;
-
-    db.query<ResultSetHeader>(
-        "INSERT INTO reviews (name, source, text, rating) VALUES (?, ?, ?, ?)",
-        [name, source, text, rating],
-        (err, result) => {
-            if (err) return res.status(500).json({ error: err.message });
-            res.status(201).json({ message: "Recenzia vytvorená", id: result.insertId });
+        if (rows.length === 0) {
+            res.status(404).json({ message: "Recenzia nenájdená" });
+            return;
         }
-    );
+
+        res.json(rows[0]);
+    } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : "Unknown error";
+        console.error("❌ Error fetching review:", message);
+        res.status(500).json({ error: message });
+    }
 };
 
-export const updateReview = (req: Request, res: Response) => {
-    const { id } = req.params;
-    const { name, source, text, rating } = req.body;
+// 🟢 Create review
+export const createReview = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const { name, source, text, rating } = req.body;
 
-    db.query<ResultSetHeader>(
-        "UPDATE reviews SET name=?, source=?, text=?, rating=? WHERE id=?",
-        [name, source, text, rating, id],
-        (err, result) => {
-            if (err) return res.status(500).json({ error: err.message });
-            if (result.affectedRows === 0) return res.status(404).json({ message: "Recenzia nenájdená" });
-            res.json({ message: "Recenzia aktualizovaná" });
-        }
-    );
+        const [result] = await db.query<ResultSetHeader>(
+            "INSERT INTO reviews (name, source, text, rating) VALUES (?, ?, ?, ?)",
+            [name, source, text, rating]
+        );
+
+        res.status(201).json({
+            message: "Recenzia vytvorená",
+            id: result.insertId,
+        });
+    } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : "Unknown error";
+        console.error("❌ Error creating review:", message);
+        res.status(500).json({ error: message });
+    }
 };
 
-export const deleteReview = (req: Request, res: Response) => {
-    const { id } = req.params;
+// 🟢 Update review
+export const updateReview = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const { id } = req.params;
+        const { name, source, text, rating } = req.body;
 
-    db.query<ResultSetHeader>(
-        "DELETE FROM reviews WHERE id=?",
-        [id],
-        (err, result) => {
-            if (err) return res.status(500).json({ error: err.message });
-            if (result.affectedRows === 0) return res.status(404).json({ message: "Recenzia nenájdená" });
-            res.json({ message: "Recenzia vymazaná" });
+        const [result] = await db.query<ResultSetHeader>(
+            "UPDATE reviews SET name=?, source=?, text=?, rating=? WHERE id=?",
+            [name, source, text, rating, id]
+        );
+
+        if (result.affectedRows === 0) {
+            res.status(404).json({ message: "Recenzia nenájdená" });
+            return;
         }
-    );
+
+        res.json({ message: "Recenzia aktualizovaná" });
+    } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : "Unknown error";
+        console.error("❌ Error updating review:", message);
+        res.status(500).json({ error: message });
+    }
+};
+
+// 🟢 Delete review
+export const deleteReview = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const { id } = req.params;
+
+        const [result] = await db.query<ResultSetHeader>(
+            "DELETE FROM reviews WHERE id=?",
+            [id]
+        );
+
+        if (result.affectedRows === 0) {
+            res.status(404).json({ message: "Recenzia nenájdená" });
+            return;
+        }
+
+        res.json({ message: "Recenzia vymazaná" });
+    } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : "Unknown error";
+        console.error("❌ Error deleting review:", message);
+        res.status(500).json({ error: message });
+    }
 };

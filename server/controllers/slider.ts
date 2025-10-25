@@ -1,54 +1,83 @@
 import type { Request, Response } from "express";
 import { db } from "../db.js";
-import fs from "fs";
+import fs from "fs/promises";
 import path from "path";
 import type { RowDataPacket, ResultSetHeader } from "mysql2";
 
-// Get all slider images
-export const getAllSliderImages = (_req: Request, res: Response) => {
-    db.query("SELECT * FROM slider ORDER BY id ASC", (err, results) => {
-        if (err) return res.status(500).json({ error: err.message });
-
-        const images = (results as RowDataPacket[]).map(row => row.filename);
+// 🟢 Get all slider images
+export const getAllSliderImages = async (_req: Request, res: Response): Promise<void> => {
+    try {
+        const [rows] = await db.query<RowDataPacket[]>(
+            "SELECT * FROM slider ORDER BY id ASC"
+        );
+        const images = rows.map((row) => row.filename as string);
         res.json(images);
-    });
+    } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : "Unknown error";
+        console.error("❌ Error fetching slider images:", message);
+        res.status(500).json({ error: message });
+    }
 };
 
-// Add new slider image (expects filename in body)
-export const addSliderImage = (req: Request, res: Response) => {
-    const { filename } = req.body;
-    if (!filename) return res.status(400).json({ error: "Filename is required" });
-
-    db.query<ResultSetHeader>(
-        "INSERT INTO slider (filename) VALUES (?)",
-        [filename],
-        (err, result) => {
-            if (err) return res.status(500).json({ error: err.message });
-            res.status(201).json({ message: "Image added", id: result.insertId, filename });
+// 🟢 Add new slider image
+export const addSliderImage = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const { filename } = req.body;
+        if (!filename) {
+            res.status(400).json({ error: "Filename is required" });
+            return;
         }
-    );
+
+        const [result] = await db.query<ResultSetHeader>(
+            "INSERT INTO slider (filename) VALUES (?)",
+            [filename]
+        );
+
+        res.status(201).json({
+            message: "Image added",
+            id: result.insertId,
+            filename,
+        });
+    } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : "Unknown error";
+        console.error("❌ Error adding slider image:", message);
+        res.status(500).json({ error: message });
+    }
 };
 
-// Delete slider image (removes DB record + local file)
-export const deleteSliderImage = (req: Request, res: Response) => {
-    const { filename } = req.params;
-    if (!filename) return res.status(400).json({ error: "Filename is required" });
-
-    // Delete file from uploads folder
-    const filePath = path.join(process.cwd(), "uploads", filename);
-    fs.unlink(filePath, (err) => {
-        if (err && err.code !== "ENOENT") console.error("Failed to delete file:", err);
-    });
-
-    // Delete DB record
-    db.query<ResultSetHeader>(
-        "DELETE FROM slider WHERE filename = ?",
-        [filename],
-        (err, result) => {
-            if (err) return res.status(500).json({ error: err.message });
-            if (result.affectedRows === 0)
-                return res.status(404).json({ message: "Image not found" });
-            res.json({ message: "Image deleted successfully" });
+// 🟢 Delete slider image
+export const deleteSliderImage = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const { filename } = req.params;
+        if (!filename) {
+            res.status(400).json({ error: "Filename is required" });
+            return;
         }
-    );
+
+        // Delete file from uploads folder
+        const filePath = path.join(process.cwd(), "uploads", filename);
+        try {
+            await fs.unlink(filePath);
+            console.log("🗑️ File deleted:", filename);
+        } catch (fileErr) {
+                console.error("❌ Failed to delete file:", fileErr);
+        }
+
+        // Delete DB record
+        const [result] = await db.query<ResultSetHeader>(
+            "DELETE FROM slider WHERE filename = ?",
+            [filename]
+        );
+
+        if (result.affectedRows === 0) {
+            res.status(404).json({ message: "Image not found" });
+            return;
+        }
+
+        res.json({ message: "Image deleted successfully" });
+    } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : "Unknown error";
+        console.error("❌ Error deleting slider image:", message);
+        res.status(500).json({ error: message });
+    }
 };
