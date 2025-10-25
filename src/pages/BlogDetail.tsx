@@ -37,7 +37,7 @@ const BlogDetail = () => {
                         year: "numeric",
                     })}
                 </p>
-                <img src={`/public/blog/${blog.main_image}`} alt={blog.title} className="w-full mb-6" />
+                <img src={`/blog/${blog.main_image}`} alt={blog.title} className="w-full mb-6" />
                 <div dangerouslySetInnerHTML={{ __html: blog.content }} />
             </div>
             <Footer />

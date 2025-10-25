@@ -81,7 +81,7 @@ const Hero = ({ onSearch }) => {
                 className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${
                     index === currentSlide ? "opacity-100" : "opacity-0"
                 }`}
-                style={{ backgroundImage: `url('/public/uploads/slider/${img}')` }}
+                style={{ backgroundImage: `url('/uploads/slider/${img}')` }}
             />
         ))}
 

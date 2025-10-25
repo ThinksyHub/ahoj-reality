@@ -74,7 +74,7 @@ const PropertyDetail = () => {
                                         <div className="cursor-pointer">
                                             <AspectRatio ratio={4 / 3} className="overflow-hidden">
                                                 <img
-                                                    src={`/public/properties/${selectedImage || property.featured_image}`}
+                                                    src={`/properties/${selectedImage || property.featured_image}`}
                                                     alt={property.property_name}
                                                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                                                 />
@@ -84,7 +84,7 @@ const PropertyDetail = () => {
                                     <DialogContent className="max-w-5xl w-full p-0 border-0">
                                         <div className="relative">
                                             <img
-                                                src={`/public/properties/${selectedImage || property.featured_image}`}
+                                                src={`/properties/${selectedImage || property.featured_image}`}
                                                 alt={property.property_name}
                                                 className="w-full h-auto max-h-[80vh] object-contain"
                                             />
@@ -109,7 +109,7 @@ const PropertyDetail = () => {
                                             >
                                                 <AspectRatio ratio={4 / 3}>
                                                     <img
-                                                        src={`/public/properties/${image}`}
+                                                        src={`/properties/${image}`}
                                                         alt={`${property.property_name} ${index + 1}`}
                                                         onError={(e) => (e.currentTarget.style.display = "none")}
                                                         className="w-full h-full object-cover"

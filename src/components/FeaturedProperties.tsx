@@ -50,7 +50,7 @@ const FeaturedProperties = ({ filteredProperties }: FeaturedProperty) => {
               {/* Image Container */}
               <div className="relative overflow-hidden">
                 <img
-                  src={`/public/properties/${property.featured_image}`}
+                  src={`/properties/${property.featured_image}`}
                   alt={property.property_name}
                   className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
