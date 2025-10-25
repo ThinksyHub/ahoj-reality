@@ -70,7 +70,7 @@ const Blog = () => {
                                     className="overflow-hidden hover-lift bg-card border-border/20 shadow-elegant group">
                                 <div className="relative overflow-hidden">
                                   <img
-                                      src={`/blog/${post.main_image}`} // adjust path to match your backend
+                                      src={`/public/blog/${post.main_image}`} // adjust path to match your backend
                                       alt={post.title}
                                       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-700"
                                   />

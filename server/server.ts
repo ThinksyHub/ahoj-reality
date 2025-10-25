@@ -29,16 +29,20 @@ app.use("/api/upload/slider", sliderUploadRoutes);
 app.use("/api/blogs", blogRoutes);
 app.use("/api/upload/blog", blogUploadsRoutes);
 app.use("/api/review", reviewRoutes);
-app.use(express.static(path.join(process.cwd(), "public")));
 
+// Serve uploads and public assets first
+app.use("/public", express.static(path.join(process.cwd(), "public")));
+
+// Then serve frontend in production
 if (process.env.NODE_ENV === "production") {
-  const frontendPath = path.join(__dirname, "../dist");
+  const frontendPath = path.join(process.cwd(), "dist");
   app.use(express.static(frontendPath));
 
   app.get("*", (_req, res) => {
     res.sendFile(path.join(frontendPath, "index.html"));
   });
 }
+
 
 const PORT = 5000;
 app.listen(PORT, '0.0.0.0' , () =>

@@ -2,14 +2,12 @@ import {useParams, useNavigate, Link} from "react-router-dom";
 import {Bed, Square, MapPin, Car, ChevronDown, ChevronUp} from "lucide-react";
 import React, {useEffect, useState} from "react";
 import {Button} from "@/components/ui/button";
-import {Card} from "@/components/ui/card";
 import {AspectRatio} from "@/components/ui/aspect-ratio";
 import {Dialog, DialogContent, DialogTrigger} from "@/components/ui/dialog";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {City, Property, PropertyType} from "./Properties";
 import DOMPurify from "dompurify";
-import {Input} from "@/components/ui/input.tsx";
 import {getYoutubeEmbedUrl} from "@/lib/getYoutubeEmbedUrl.ts";
 
 const PropertyDetail = () => {
@@ -76,7 +74,7 @@ const PropertyDetail = () => {
                                         <div className="cursor-pointer">
                                             <AspectRatio ratio={4 / 3} className="overflow-hidden">
                                                 <img
-                                                    src={`/properties/${selectedImage || property.featured_image}`}
+                                                    src={`/public/properties/${selectedImage || property.featured_image}`}
                                                     alt={property.property_name}
                                                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                                                 />
@@ -86,7 +84,7 @@ const PropertyDetail = () => {
                                     <DialogContent className="max-w-5xl w-full p-0 border-0">
                                         <div className="relative">
                                             <img
-                                                src={`/properties/${selectedImage || property.featured_image}`}
+                                                src={`/public/properties/${selectedImage || property.featured_image}`}
                                                 alt={property.property_name}
                                                 className="w-full h-auto max-h-[80vh] object-contain"
                                             />
@@ -111,7 +109,7 @@ const PropertyDetail = () => {
                                             >
                                                 <AspectRatio ratio={4 / 3}>
                                                     <img
-                                                        src={`/properties/${image}`}
+                                                        src={`/public/properties/${image}`}
                                                         alt={`${property.property_name} ${index + 1}`}
                                                         onError={(e) => (e.currentTarget.style.display = "none")}
                                                         className="w-full h-full object-cover"

@@ -376,7 +376,7 @@ const Admin = () => {
                                         {formData.featured_image ? (
                                             <div className="relative group">
                                                 <img
-                                                    src={`/properties/${formData.featured_image}`}
+                                                    src={`/public/properties/${formData.featured_image}`}
                                                     alt="Featured"
                                                     className="h-24 w-24 object-cover rounded cursor-pointer"
                                                 />
@@ -461,7 +461,7 @@ const Admin = () => {
                                                 {formData.property_images[i] ? (
                                                     <div className="pt-4 pr-2 text-center">
                                                         <img
-                                                            src={`/properties/${formData.property_images[i]}`}
+                                                            src={`/public/properties/${formData.property_images[i]}`}
                                                             className="h-24 w-24 object-cover rounded border"
                                                         />
                                                         <Button
@@ -659,7 +659,7 @@ const Admin = () => {
                                             {sliderImages[i] ? (
                                                 <div className="relative group">
                                                     <img
-                                                        src={`/uploads/slider/${sliderImages[i]}`}
+                                                        src={`/public/uploads/slider/${sliderImages[i]}`}
                                                         alt={`Slider ${i}`}
                                                         className="h-24 w-40 object-cover rounded border"
                                                     />
@@ -745,7 +745,7 @@ const Admin = () => {
                                 {blogForm.main_image ? (
                                     <div className="relative group">
                                         <img
-                                            src={`/blog/${blogForm.main_image}`}
+                                            src={`/public/blog/${blogForm.main_image}`}
                                             alt="Blog main"
                                             className="h-40 w-60 object-cover rounded"
                                         />
@@ -817,7 +817,7 @@ const Admin = () => {
                                             <div key={b.id} className="flex items-center justify-between p-4 border rounded-lg hover:bg-muted/50 transition">
                                                 <div className="flex-1">
                                                     <h3 className="font-semibold">{b.title}</h3>
-                                                    {b.main_image && <img src={`/blog/${b.main_image}`} className="h-20 w-32 object-cover mt-2 rounded"/>}
+                                                    {b.main_image && <img src={`/public/blog/${b.main_image}`} className="h-20 w-32 object-cover mt-2 rounded"/>}
                                                 </div>
                                                 <div className="flex gap-2">
                                                     <Button variant="outline" size="sm" onClick={() => handleEditBlog(b)}>

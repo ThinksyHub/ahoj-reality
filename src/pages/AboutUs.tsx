@@ -27,6 +27,7 @@ import slovenskaSporitelna from "/assets/partners/slovenska-sporitelna.png";
 import tatraBanka from "/assets/partners/tatra-banka.png";
 import unicredit from "/assets/partners/unicredit.png";
 import vubBanka from "/assets/partners/vub-banka.png";
+import {Link} from "react-router-dom";
 
 const AboutUs = () => {
   const maklers = [
@@ -131,10 +132,6 @@ const AboutUs = () => {
     },
     { title: 'Čo považujete za svoj najväčší prínos pre Bardejov alebo miestnu komunitu?',
       text: 'Znalosť v svojom obore, chuť sa vzdelávať a osobnostne rásť, kde som získala najvyššie možné vzdelanie profesionálnych poradcov na Slovensku – RSc. (Real estate consultant). Absolvovaní a zápis do verejného registra elitných realitných poradcov. Najväčším prínosom pre mňa je úsmev a recenzie od mojich spokojných klientov. Za tým sa skrýva aj úspech a prínos pre náš Bardejov. Už dvakrát po sebe sa mi podarilo umiestniť v ankete: Oby nehnuteľnosti na 1. mieste v meste Bardejov na základe recenzií od našich klientov, čo si veľmi vážim.'
-    },
-    {
-      title: 'Čo považujete za svoj najväčší prínos pre Bardejov alebo miestnu komunitu?',
-      text: 'Znalosť v svojom obore, chuť sa vzdelávať a osobnostne rásť, kde som získala najvyššie možné vzdelanie profesionálnych poradcov na Slovensku – RSc. (Real estate consultant). Absolventi sú zapísaní do verejného registra elitných realitných poradcov. Najväčším prínosom pre mňa je úsmev a recenzie od mojich spokojných klientov. Za tým sa skrýva môj úspech a prínos pre náš Bardejov. Už 3 roky po sebe sme sa umiestnili v ankete Orly nehnuteľností na 1. mieste v meste Bardejov na základe recenzií od našich klientov, čo si veľmi vážim.'
     },
     {
       title: 'Na čo ste vo svojom živote najviac hrdá?',
@@ -260,9 +257,11 @@ const AboutUs = () => {
                   </p>
                 </div>
                 <div className="flex justify-end">
-                  <Button className="mt-12 bg-golden text-white hover:bg-golden/90">
-                    Kontaktujte nás
-                  </Button>
+                 <Link to={"/contact"}>
+                   <Button className="mt-12 bg-golden text-white hover:bg-golden/90">
+                     Kontaktujte nás
+                   </Button>
+                 </Link>
                 </div>
               </div>
             </div>
@@ -396,9 +395,11 @@ const AboutUs = () => {
               Pripojte sa k stovkám spokojných klientov, ktorí si vybrali našu
               realitku pre profesionálny a ľudský prístup.
             </p>
-            <Button className="bg-golden text-white hover:bg-golden/90">
-              Kontaktujte nás
-            </Button>
+            <Link to={"/contact"}>
+              <Button className="mt-12 bg-golden text-white hover:bg-golden/90">
+                Kontaktujte nás
+              </Button>
+            </Link>
           </div>
         </section>
 

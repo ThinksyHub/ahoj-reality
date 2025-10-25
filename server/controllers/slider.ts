@@ -60,7 +60,7 @@ export const deleteSliderImage = async (req: Request, res: Response): Promise<vo
             await fs.unlink(filePath);
             console.log("🗑️ File deleted:", filename);
         } catch (fileErr) {
-                console.error("❌ Failed to delete file:", fileErr);
+                console.error("❌ Failed to delete file:", );
         }
 
         // Delete DB record

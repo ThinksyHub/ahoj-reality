@@ -6,7 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Input } from "@/components/ui/input";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Bed, Square, Heart } from "lucide-react";
+import { Bed, Square } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export interface Property {
@@ -264,7 +264,7 @@ const Properties = () => {
                   {/* Image Container */}
                   <div className="relative overflow-hidden">
                     <img
-                      src={`/properties/${property.featured_image}`}
+                      src={`/public/properties/${property.featured_image}`}
                       alt={property.property_name}
                       className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                     />
