@@ -471,7 +471,7 @@ const Admin = () => {
                                                             onClick={async () => {
                                                                 const filename = formData.property_images[i];
                                                                 try {
-                                                                    const res = await fetch(`http://localhost:5000/api/upload/${filename}`, {
+                                                                    const res = await fetch(`/api/upload/${filename}`, {
                                                                         method: "DELETE",
                                                                     });
 
