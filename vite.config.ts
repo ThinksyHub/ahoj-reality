@@ -7,6 +7,7 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "0.0.0.0",
     port: 5173, // use the default vite dev port
+    allowedHosts: ['.ahojreality.sk', 'localhost', '127.0.0.1'],
     proxy: {
       '/api': {
         target: mode === "development"
