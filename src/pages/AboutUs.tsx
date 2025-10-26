@@ -33,7 +33,7 @@ const AboutUs = () => {
   const maklers = [
     {
       id: 1,
-      name: "Mgr. Kristína Karaffová",
+      name: "Mgr. Kristína Karaffová, RSc.",
       position: "Zakladateľka a majiteľka AHOJ reality",
       description:
           "Zakladateľka a majiteľka AHOJ reality, ktorá v oblasti realít pôsobí od roku 2010. Od roku 2010 až do roku 2016 pôsobila v spoločnosti Profit finance, s.r.o, ako konateľka spoločnosti, taktiež aj ako maklérka, kde v realitnom trhu nadobudla bohaté skúsenosti a prax.",
@@ -237,7 +237,7 @@ const AboutUs = () => {
                     Súčasťou jej činnosti je aj finančné poradenstvo a právny servis, aby celý proces prebehol rýchlo,
                     bezpečne a bez starostí. Klienti tak v jednom mieste získavajú všetko, čo potrebujú pre úspešnú
                     realizáciu svojho realitného zámeru – od prvotnej konzultácie až po podpis zmluvy.
-                    Za značkou AHOJ reality stojí Mgr. Kristína
+                    Za značkou AHOJ reality stojí Mgr. Kristína, RSc.
                     Karaffová, zakladateľka a majiteľka firmy, ktorá sa realitnému trhu venuje už od roku 2010. Počas
                     svojho pôsobenia si vybudovala výborné meno vďaka profesionalite, zodpovednosti a dôrazu na detail.
                     Od roku 2010 do roku 2016 pôsobila ako konateľka a maklérka v spoločnosti Profit finance, s.r.o.,
