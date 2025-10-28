@@ -36,7 +36,12 @@ const AboutUs = () => {
       name: "Mgr. Kristína Karaffová, RSc.",
       position: "Zakladateľka a majiteľka AHOJ reality",
       description:
-          "Zakladateľka a majiteľka AHOJ reality, ktorá v oblasti realít pôsobí od roku 2010. Od roku 2010 až do roku 2016 pôsobila v spoločnosti Profit finance, s.r.o, ako konateľka spoločnosti, taktiež aj ako maklérka, kde v realitnom trhu nadobudla bohaté skúsenosti a prax.",
+          "V realitách pôsobím od roku 2010, vďaka čomu som v realitnom svete nadobudla svoje bohaté skúsenosti a prax. Nepredávam len nehnuteľnosti – pomáham ľuďom začať ich novú kapitolu života.\n" +
+          "Každý príbeh je iný, a preto verím v individuálny prístup, otvorenosť a poctivú prácu.\n" +
+          "Moja najväčšia odmena? Keď klient povie: „S vami to bolo jednoduché.“\n" +
+          "Realitám sa venujem s energiou a vášňou, klientom dávam zážitok z aktuálnej obhliadky nehnuteľnosti,  vďaka čomu si nájdu svoj vysnívaný domov. \n" +
+          "Dôvera, odbornosť a osobný prístup sú u mňa samozrejmosťou.\n" +
+          "Ak hľadáte niekoho, kto sa do vašej situácie naozaj vcíti a postará sa o všetko od A po Z, ste na správnom mieste.",
       phone: "+421 917 927 536",
       email: "info@ahojreality.sk",
       image: kristinaKaraffovaPhoto,
@@ -131,19 +136,11 @@ const AboutUs = () => {
       text: 'Moja súčasná situácia je práca v realitnom svete, kde pomáham ľuďom splniť si ich sny o bývaní. Som zakladateľkou realitnej kancelárie AHOJ reality s.r.o, kde som konateľkou od roku 2021. V oblasti realít však pôsobím od roku 2010 (ako konateľka a zároveň ako maklérka), kde som v realitnom odvetví nadobudla bohaté skúsenosti. Pohybovala som sa doposiaľ aj vo Finančnom a Hypotekárnom poradenstve. Vďaka tomu viem klientom zaručiť ich pokojný proces k nadobudnutiu ich vysnívanej nehnuteľnosti.'
     },
     { title: 'Čo považujete za svoj najväčší prínos pre Bardejov alebo miestnu komunitu?',
-      text: 'Znalosť v svojom obore, chuť sa vzdelávať a osobnostne rásť, kde som získala najvyššie možné vzdelanie profesionálnych poradcov na Slovensku – RSc. (Real estate consultant). Absolvovaní a zápis do verejného registra elitných realitných poradcov. Najväčším prínosom pre mňa je úsmev a recenzie od mojich spokojných klientov. Za tým sa skrýva aj úspech a prínos pre náš Bardejov. Už dvakrát po sebe sa mi podarilo umiestniť v ankete: Oby nehnuteľnosti na 1. mieste v meste Bardejov na základe recenzií od našich klientov, čo si veľmi vážim.'
+      text: 'Znalosť v svojom obore, chuť sa vzdelávať a osobnostne rásť, kde som získala najvyššie možné vzdelanie profesionálnych poradcov na Slovensku – RSc. (Real estate consultant). Absolvovaní (Absolventi) a zápis do verejného registra elitných realitných poradcov. Najväčším prínosom pre mňa je úsmev a recenzie od mojich spokojných klientov. Za tým sa skrýva aj úspech a prínos pre náš (naše mesto) Bardejov. Už dvakrát (trikrát)  po sebe sa mi podarilo umiestniť v ankete: Oby (ORLY) nehnuteľnosti na 1. mieste v meste Bardejov na základe recenzií od našich klientov, čo si veľmi vážim.'
     },
     {
       title: 'Na čo ste vo svojom živote najviac hrdá?',
       text: 'Na svoju prácu, ktorú robím s láskou a ktorá je mojím poslaním.'
-    },
-    {
-      title: 'Ako by ste sa opísali ako človek? (povaha, silné stránky)',
-      text: 'Mojimi charakterovými črtami je spoľahlivosť, pracovitosť, priateľskosť. Rada komunikujem s ľuďmi, v každom sa snažím vidieť ich pozitívnu stránku. Rada sa učím novým veciam. Som cieľavedomá. Moja silná stránka je vzdelanie, rýchlosť a viera dokázať aj nemožné.'
-    },
-    {
-      title: 'Máte životné motto alebo myšlienku, ktorá Vás vystihuje?',
-      text: 'Cesta k úspechu vedie cez údolie pokory.'
     },
     {
       title: 'Ako by ste sa opísali ako človek? (povaha, silné stránky)',
@@ -164,10 +161,10 @@ const AboutUs = () => {
         <section className="py-24 bg-white text-center pt-52">
           <div className="container mx-auto px-6 max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-serif text-primary mb-6">
-              Ako vzniklo <span className="text-golden">AHOJ reality</span>
+              Ako vzniklo <span className="text-golden"><strong>AHOJ reality</strong></span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Realitná kancelária AHOJ reality poskytuje komplexný servis v
+              Realitná kancelária <strong>AHOJ reality</strong> poskytuje komplexný servis v
               oblasti realít. To znamená poradenstvo, služby v oblasti kúpy,
               predaja, financovania a prenájmu nehnuteľností.
             </p>
@@ -225,19 +222,19 @@ const AboutUs = () => {
             </div>
               <div className="max-w-none">
                 <h2 className="text-3xl font-serif text-primary mb-10">
-                  AHOJ reality – o nás
+                  <strong>AHOJ reality</strong> – o nás
                 </h2>
 
                 <div className="text-muted-foreground leading-relaxed text-[17px] font-light space-y-6">
                   <p>
-                    Realitná kancelária <span className="text-primary font-medium">AHOJ reality</span> je spoľahlivým
+                    Realitná kancelária <span className="text-primary font-medium"><strong>AHOJ reality</strong></span> je spoľahlivým
                     partnerom v oblasti nehnuteľností, ktorý svojim klientom prináša komplexné služby od A po Z.
                     Spoločnosť sa zameriava na profesionálne sprostredkovanie predaja, kúpy a prenájmu nehnuteľností,
                     pričom dôraz kladie na individuálny prístup ku každému klientovi.
                     Súčasťou jej činnosti je aj finančné poradenstvo a právny servis, aby celý proces prebehol rýchlo,
                     bezpečne a bez starostí. Klienti tak v jednom mieste získavajú všetko, čo potrebujú pre úspešnú
                     realizáciu svojho realitného zámeru – od prvotnej konzultácie až po podpis zmluvy.
-                    Za značkou AHOJ reality stojí Mgr. Kristína, RSc.
+                    Za značkou <strong>AHOJ reality</strong> stojí Mgr. Kristína, RSc.
                     Karaffová, zakladateľka a majiteľka firmy, ktorá sa realitnému trhu venuje už od roku 2010. Počas
                     svojho pôsobenia si vybudovala výborné meno vďaka profesionalite, zodpovednosti a dôrazu na detail.
                     Od roku 2010 do roku 2016 pôsobila ako konateľka a maklérka v spoločnosti Profit finance, s.r.o.,
@@ -247,8 +244,8 @@ const AboutUs = () => {
                     stavať na osobnom prístupe, dôvere a dlhodobých vzťahoch s klientmi.
                   </p>
                   <p>
-                    Pod jej vedením sa AHOJ reality stala synonymom
-                    spoľahlivosti, profesionality a ľudského prístupu. Kristína Karaffová verí, že úspešná realitná
+                    Pod jej vedením sa <strong>AHOJ reality</strong> stala synonymom
+                    spoľahlivosti, profesionality a ľudského prístupu. Mgr. Kristína Karaffová, RSc. verí, že úspešná realitná
                     kancelária nie je len o číslach a obchodoch, ale predovšetkým o pochopení potrieb ľudí, ktorí
                     hľadajú
                     nový domov, investičnú príležitosť či priestor na nové začiatky.

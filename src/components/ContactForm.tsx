@@ -33,7 +33,7 @@ const ContactForm = () => {
                   </div>
                   <div>
                     <h4 className="font-light text-primary mb-1">Adresa</h4>
-                    <p className="text-muted-foreground font-light">AHOJ reality<br/>Partizánska 6 (Bocianie
+                    <p className="text-muted-foreground font-light"><strong>AHOJ reality</strong><br/>Partizánska 423/6 (Bocianie
                       hniezdo)<br/>085 01 Bardejov</p>
                   </div>
                 </div>

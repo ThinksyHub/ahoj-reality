@@ -24,7 +24,7 @@ const Footer = () => {
                 <div className="flex items-start space-x-3">
                   <MapPin className="w-5 h-5 text-golden mt-1 flex-shrink-0"/>
                   <div>
-                    <p className="text-muted-dark-foreground/90 font-light">AHOJ reality</p>
+                    <p className="text-muted-dark-foreground/90 font-light"><strong>AHOJ reality</strong></p>
                     <p className="text-muted-dark-foreground/90 font-light">Partizánska 423/6 (Bocianie hniezdo)</p>
                     <p className="text-muted-dark-foreground/90 font-light">085 01 Bardejov</p>
                   </div>
@@ -119,7 +119,7 @@ const Footer = () => {
           <div className="border-t border-golden/20 py-6">
             <div className="text-center">
               <div className="text-sm text-muted-dark-foreground/70 font-light">
-                Copyright © {new Date().getFullYear()} AHOJ Reality. Všetky práva vyhradené.
+                Copyright © {new Date().getFullYear()} <strong>AHOJ Reality</strong>. Všetky práva vyhradené.
               </div>
             </div>
           </div>

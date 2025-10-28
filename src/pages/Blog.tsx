@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {Card, CardContent} from "@/components/ui/card";
-import {Clock, ArrowRight, User} from "lucide-react";
+import {Clock, ArrowRight} from "lucide-react";
 import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 

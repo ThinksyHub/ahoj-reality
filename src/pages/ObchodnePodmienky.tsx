@@ -9,7 +9,7 @@ const ObchodnePodmienky = () => {
           <h2 className="text-4xl font-bold mb-10 text-center">Všeobecné obchodné podmienky (VOP)</h2>
 
           <p className="mb-6">
-            Realitná spoločnosť AHOJ reality, s.r.o., so sídlom Slnečná ulica 4342/9, 085 01 Bardejov-Bardejovská Nová Ves, IČO: 53 942 345, zapísaná v Obchodnom registri Okresného súdu Prešov, oddiel: Sro, Vložka: 42599/P (ďalej len „Realitná kancelária“ alebo „Sprostredkovateľ“) sa špecializuje na sprostredkovanie kúpy, predaja a prenájmu nehnuteľností. Tieto VOP upravujú podmienky poskytovania služieb klientom a záujemcom o nehnuteľnosti.
+            Realitná spoločnosť <strong>AHOJ reality</strong>, s.r.o., so sídlom Slnečná ulica 4342/9, 085 01 Bardejov-Bardejovská Nová Ves, IČO: 53 942 345, zapísaná v Obchodnom registri Okresného súdu Prešov, oddiel: Sro, Vložka: 42599/P (ďalej len „Realitná kancelária“ alebo „Sprostredkovateľ“) sa špecializuje na sprostredkovanie kúpy, predaja a prenájmu nehnuteľností. Tieto VOP upravujú podmienky poskytovania služieb klientom a záujemcom o nehnuteľnosti.
           </p>
 
           <h3 className="text-2xl font-semibold mt-10 mb-3">Článok I. Všeobecné ustanovenia</h3>
@@ -22,7 +22,7 @@ const ObchodnePodmienky = () => {
 
           <h3 className="text-2xl font-semibold mt-10 mb-3">Článok II. Organizačná štruktúra</h3>
           <p className="mb-6">
-            Spoločnosť zabezpečuje metodické, materiálne, finančné a personálne vedenie pobočiek, školenia a vzdelávanie realitných maklérov. Makléri sú samostatné subjekty, prepojené so spoločnosťou zmluvne, a vykonávajú realitnú činnosť pod obchodnou značkou „AHOJ reality“. Všetky pobočky a makléri dodržiavajú Etický kódex, Reklamačný poriadok a VOP.
+            Spoločnosť zabezpečuje metodické, materiálne, finančné a personálne vedenie pobočiek, školenia a vzdelávanie realitných maklérov. Makléri sú samostatné subjekty, prepojené so spoločnosťou zmluvne, a vykonávajú realitnú činnosť pod obchodnou značkou „<strong>AHOJ reality</strong>“. Všetky pobočky a makléri dodržiavajú Etický kódex, Reklamačný poriadok a VOP.
           </p>
 
           <h3 className="text-2xl font-semibold mt-10 mb-3">Článok III. Predmet činnosti a systém práce</h3>

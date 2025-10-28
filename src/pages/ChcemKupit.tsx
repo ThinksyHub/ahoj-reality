@@ -87,7 +87,7 @@ const ChcemKupit = () => {
               Pomôžeme vám nájsť váš <span className="text-gradient-golden">vysnívaný domov</span>
             </h1>
             <p className="text-lg text-primary/80 max-w-4xl mx-auto font-light">
-              Či už hľadáte prvý byt, rodinný dom alebo investičnú nehnuteľnosť, v Ahoj Reality vás prevedieme celým procesom – od výberu až po podpis zmluvy.
+              Či už hľadáte prvý byt, rodinný dom alebo investičnú nehnuteľnosť, v <strong>Ahoj Reality</strong> vás prevedieme celým procesom – od výberu až po podpis zmluvy.
             </p>
           </div>
         </div>
@@ -137,7 +137,7 @@ const ChcemKupit = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="font-serif text-4xl md:text-5xl font-normal text-primary mb-6">
-              Prečo si vybrať <span className="text-gradient-golden">Ahoj Reality</span> pri kúpe
+              Prečo si vybrať <span className="text-gradient-golden"><strong>Ahoj Reality</strong></span> pri kúpe
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
               Váš spoľahlivý partner pri hľadaní nového domova

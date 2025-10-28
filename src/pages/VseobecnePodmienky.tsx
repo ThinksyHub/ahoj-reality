@@ -15,7 +15,7 @@ const VseobecnePodmienky = () => {
 
         <h3 className="text-2xl font-semibold mt-10 mb-3">1. Všeobecné ustanovenia</h3>
         <p className="mb-6">
-          AHOJ reality poskytuje realitné, poradenské a sprostredkovateľské služby v súlade s platnými právnymi
+          <strong>AHOJ reality</strong> poskytuje realitné, poradenské a sprostredkovateľské služby v súlade s platnými právnymi
           predpismi Slovenskej republiky a s cieľom zabezpečiť maximálnu spokojnosť klienta.
         </p>
 

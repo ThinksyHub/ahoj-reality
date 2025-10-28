@@ -26,6 +26,7 @@ import Kariera from "./pages/Kariera";
 import BlogDetail from "@/pages/BlogDetail.tsx";
 import {useEffect, useState} from "react";
 import Login from "@/components/Login.tsx";
+import CoockiesPopup from "@/components/CoockiesPopup.tsx";
 
 const queryClient = new QueryClient();
 
@@ -71,6 +72,7 @@ const App = () => {
               element={isAdmin ? <Admin/> : <Login onLogin={handleLogin}/>}
           />
         </Routes>
+        <CoockiesPopup/>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>)

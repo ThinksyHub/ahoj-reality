@@ -40,16 +40,12 @@ const Cennik = () => {
                       <td className="p-4 text-muted-foreground">3% z kúpnej ceny (minimálne 2.000 €)</td>
                     </tr>
                     <tr className="border-b border-border/10">
-                      <td className="p-4 text-muted-foreground">Nehnuteľnosti od 60.000 € - Bratislava</td>
-                      <td className="p-4 text-primary font-semibold">3% z kúpnej ceny</td>
+                      <td className="p-4 text-muted-foreground">Nehnuteľnosti od 60.000 €</td>
+                      <td className="p-4 text-primary font-semibold">od 3% do 5% z kúpnej ceny</td>
                     </tr>
                     <tr className="border-b border-border/10">
-                      <td className="p-4 text-muted-foreground">Rodinné domy - Bratislava</td>
-                      <td className="p-4 text-muted-foreground">4% z kúpnej ceny</td>
-                    </tr>
-                    <tr className="border-b border-border/10">
-                      <td className="p-4 text-muted-foreground">Nehnuteľnosti mimo Bratislavy</td>
-                      <td className="p-4 text-muted-foreground">4% z kúpnej ceny</td>
+                      <td className="p-4 text-muted-foreground">Rodinné domy</td>
+                      <td className="p-4 text-muted-foreground">od 3% do 5% z kúpnej ceny</td>
                     </tr>
                     <tr>
                       <td className="p-4 text-muted-foreground">Nehnuteľnosti v zahraničí</td>
