@@ -20,7 +20,7 @@ const QuoteBanner = () => {
           <Quote className="w-16 h-16 text-golden mx-auto mb-8 opacity-80" />
           
           <blockquote className="text-3xl md:text-4xl lg:text-5xl font-thin italic text-primary-foreground mb-8 leading-tight">
-            <span className="text-gradient-golden">"Čistý proces, odovzdané kľúče, od A-Z do 1 mesiaca."</span>
+            <span className="text-gradient-golden">"Čistý proces od A - po Z, odovzdané kľúče, spokojnosť klientov."</span>
           </blockquote>
           
           <p className="text-xl text-muted-dark-foreground/90 font-thin italic" style={{fontWeight: "300"}}>

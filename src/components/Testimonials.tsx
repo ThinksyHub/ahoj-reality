@@ -92,7 +92,7 @@ const Testimonials = () => {
         <div className="mt-20 bg-gradient-primary rounded-2xl p-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl md:text-5xl font-bold text-golden mb-2">21</div>
+              <div className="text-4xl md:text-5xl font-bold text-golden mb-2">28</div>
               <div className="text-primary-foreground font-medium">Dní priemerný čas predaja</div>
               {/* <div className="text-muted-dark-foreground/70 text-sm">Úspešne zrealizované</div> */}
             </div>
@@ -107,7 +107,7 @@ const Testimonials = () => {
               <div className="text-muted-dark-foreground/70 text-sm">5-hviezdičkové hodnotenia</div>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-bold text-golden mb-2">10+</div>
+              <div className="text-4xl md:text-5xl font-bold text-golden mb-2">15+</div>
               <div className="text-primary-foreground font-medium">Rokov skúseností</div>
               <div className="text-muted-dark-foreground/70 text-sm">Na trhu nehnuteľností</div>
             </div>

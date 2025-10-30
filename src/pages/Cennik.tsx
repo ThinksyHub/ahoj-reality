@@ -129,6 +129,7 @@ const Cennik = () => {
                     <div className="text-2xl font-bold text-golden mb-2">300 €</div>
                     <p className="text-sm text-muted-foreground">
                       Zastrešíme vám kompletný právny a administratívny servis
+                      Autorizácia zmlúv našim advokátom
                     </p>
                   </div>
 
@@ -170,13 +171,22 @@ const Cennik = () => {
           </div>
 
           {/* Additional Services */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             <Card className="p-6 bg-card border-border/20 shadow-elegant">
               <h3 className="font-serif text-xl font-normal text-primary mb-4">Dokumenty z úradov</h3>
               <div className="space-y-2 text-muted-foreground">
                 <p>• Úradný poplatok (napr. 8€ za LV)</p>
                 <p>• Paušálna suma: <span className="font-semibold text-golden">50€</span></p>
                 <p>• Pohonné hmoty: <span className="font-semibold text-golden">1,80€/km</span> (nad 20km)</p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-card border-border/20 shadow-elegant">
+              <h3 className="font-serif text-xl font-normal text-primary mb-4">Hypotekárne úvery</h3>
+              <div className="space-y-2 text-muted-foreground">
+                <p>• Odporučíme ideálne financovanie</p>
+                <p>• Spolupráca so všetkými bankami</p>
+                <p>• Zabezpečíme celý proces financovania</p>
               </div>
             </Card>
 
@@ -188,16 +198,6 @@ const Cennik = () => {
                 <p>• Cenová mapa: <span className="font-semibold text-golden">50€</span></p>
               </div>
             </Card>
-
-            <Card className="p-6 bg-card border-border/20 shadow-elegant">
-              <h3 className="font-serif text-xl font-normal text-primary mb-4">Hypotekárne úvery</h3>
-              <div className="space-y-2 text-muted-foreground">
-                <p>• Odporučíme ideálne financovanie</p>
-                <p>• Spolupráca so všetkými bankami</p>
-                <p>• Autorizácia zmlúv našim advokátom</p>
-              </div>
-            </Card>
-
           </div>
 
           {/* Important Note */}

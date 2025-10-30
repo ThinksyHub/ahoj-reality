@@ -51,11 +51,11 @@ const AboutUs = () => {
       name: "Gabriela Varholíková",
       position: "Akreditovaný realitný maklér",
       description:
-          "Mám rada ľudí. Milujem obchod. 23  rokov  vo finančnom sprostredkovaní ma veľa naučilo. Posledné roky  som plynule prešla  aj k novému biznisu – realitnej činnosti. Nakoľko systém, ako nadobudnúť nehnuteľnosť, úzko súvisí aj  s jej správne nastaveným spôsobom financovania. Preto  ma chytilo za srdce.“\n" +
-          "Trh je čoraz komplikovanejší a bežný človek sa ťažko  vyzná  a orientuje, čo je pre neho správne a výhodné .. a tiež  nemá dostatok času to zisťovať sám a riskovať, že v procese urobí chybu.“\n" +
-          "A preto, nájsť niekoho, kto vie pripraviť finančný plán  na získanie nehnuteľnosti, je obrovským benefitom.“\n" +
+          "Vo finančnom sprostredkovaní pôsobím už 23 rokov. Posledné roky  sa naplno venujem  aj realitnej činnosti. Systém ako nadobudnúť nehnuteľnosť úzko súvisí aj s jej správne nastaveným spôsobom financovania . Preto  ma to chytilo za srdce.“\n" +
+          "Trh je čoraz komplikovanejší a bežný človek sa ťažko  vyzná  a orientuje, čo je pre neho správne a výhodné .. a tiež  nemá dostatok času to zisťovať sám a riskovať , že v procese urobí chybu.“\n" +
+          "Práve preto, nájsť niekoho, kto vie pripraviť finančný plán  na získanie nehnuteľnosti, je obrovským benefitom.“\n" +
           "Ponúkam Vám svoje vedomosti, skúsenosti, rôzne možnosti skrytých výhod a príjemných prekvapení počas dosiahnutia nášho spoločného cieľa – kúpiť  vysnívanú alebo  plánovanú investičnú nehnuteľnosť.",
-      phone: "0918 973 241",
+      phone: "+421 918 973 241",
       email: "varholikova@ahojreality.sk",
       image: gabrielaVarholikovaPhoto,
     },
@@ -237,8 +237,8 @@ const AboutUs = () => {
                     Súčasťou jej činnosti je aj finančné poradenstvo a právny servis, aby celý proces prebehol rýchlo,
                     bezpečne a bez starostí. Klienti tak v jednom mieste získavajú všetko, čo potrebujú pre úspešnú
                     realizáciu svojho realitného zámeru – od prvotnej konzultácie až po podpis zmluvy.
-                    Za značkou <strong>AHOJ reality</strong> stojí Mgr. Kristína, RSc.
-                    Karaffová, zakladateľka a majiteľka firmy, ktorá sa realitnému trhu venuje už od roku 2010. Počas
+                    Za značkou <strong>AHOJ reality</strong> stojí Mgr. Kristína Karaffová, RSc.
+                    zakladateľka a majiteľka firmy, ktorá sa realitnému trhu venuje už od roku 2010. Počas
                     svojho pôsobenia si vybudovala výborné meno vďaka profesionalite, zodpovednosti a dôrazu na detail.
                     Od roku 2010 do roku 2016 pôsobila ako konateľka a maklérka v spoločnosti Profit finance, s.r.o.,
                     kde

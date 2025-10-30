@@ -3,6 +3,7 @@ import logo from "/assets/logo.png";
 import image1 from "/assets/Logo_dla-klienta-kopia1.png"
 import image2 from "/assets/Logo_dla-klienta-kopia2.png"
 import image3 from "/assets/Logo_dla-klienta-kopia3.png"
+import image4 from "/assets/Logo_dla-klienta-kopia4.png"
 
 
 const Footer = () => {
@@ -111,6 +112,7 @@ const Footer = () => {
                 <img src={image1} style={{maxHeight: '100px'}}/>
                 <img src={image2} style={{maxHeight: '100px'}}/>
                 <img src={image3} style={{maxHeight: '100px'}}/>
+                <img src={image4} style={{maxHeight: '100px'}}/>
               </div>
             </div>
           </div>
