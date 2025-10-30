@@ -49,9 +49,12 @@ const AboutUs = () => {
     {
       id: 2,
       name: "Gabriela Varholíková",
-      position: "Realitná maklérka",
+      position: "Akreditovaný realitný maklér",
       description:
-          "Mám rada ľudí. Milujem obchod, 20 rokov vo finančnom sprostredkovaní ma veľa naučilo. Posledné roky ma začali baviť reality a s tým spojené poradenstvo, ako ľuďom pomôcť kúpiť vysnívanú nehnuteľnosť.",
+          "Mám rada ľudí. Milujem obchod. 23  rokov  vo finančnom sprostredkovaní ma veľa naučilo. Posledné roky  som plynule prešla  aj k novému biznisu – realitnej činnosti. Nakoľko systém, ako nadobudnúť nehnuteľnosť, úzko súvisí aj  s jej správne nastaveným spôsobom financovania. Preto  ma chytilo za srdce.“\n" +
+          "Trh je čoraz komplikovanejší a bežný človek sa ťažko  vyzná  a orientuje, čo je pre neho správne a výhodné .. a tiež  nemá dostatok času to zisťovať sám a riskovať, že v procese urobí chybu.“\n" +
+          "A preto, nájsť niekoho, kto vie pripraviť finančný plán  na získanie nehnuteľnosti, je obrovským benefitom.“\n" +
+          "Ponúkam Vám svoje vedomosti, skúsenosti, rôzne možnosti skrytých výhod a príjemných prekvapení počas dosiahnutia nášho spoločného cieľa – kúpiť  vysnívanú alebo  plánovanú investičnú nehnuteľnosť.",
       phone: "0918 973 241",
       email: "varholikova@ahojreality.sk",
       image: gabrielaVarholikovaPhoto,

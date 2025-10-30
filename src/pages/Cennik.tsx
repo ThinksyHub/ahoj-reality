@@ -125,10 +125,10 @@ const Cennik = () => {
                   </div>
 
                   <div className="bg-background p-6 rounded-lg border border-border/20">
-                    <h3 className="font-semibold text-primary mb-2">Kúpna zmluva</h3>
+                    <h3 className="font-semibold text-primary mb-2">Právne poradenstvo</h3>
                     <div className="text-2xl font-bold text-golden mb-2">300 €</div>
                     <p className="text-sm text-muted-foreground">
-                      Príprava zmluvnej dokumentácie
+                      Zastrešíme vám kompletný právny a administratívny servis
                     </p>
                   </div>
 
@@ -163,6 +163,7 @@ const Cennik = () => {
                       Profesionálne ocenenie pre súdne účely
                     </p>
                   </div>
+                  
                 </div>
               </div>
             </Card>
@@ -187,6 +188,16 @@ const Cennik = () => {
                 <p>• Cenová mapa: <span className="font-semibold text-golden">50€</span></p>
               </div>
             </Card>
+
+            <Card className="p-6 bg-card border-border/20 shadow-elegant">
+              <h3 className="font-serif text-xl font-normal text-primary mb-4">Hypotekárne úvery</h3>
+              <div className="space-y-2 text-muted-foreground">
+                <p>• Odporučíme ideálne financovanie</p>
+                <p>• Spolupráca so všetkými bankami</p>
+                <p>• Autorizácia zmlúv našim advokátom</p>
+              </div>
+            </Card>
+
           </div>
 
           {/* Important Note */}

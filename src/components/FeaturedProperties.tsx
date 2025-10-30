@@ -39,7 +39,7 @@ const FeaturedProperties = ({ filteredProperties }: FeaturedProperty) => {
             Najnovšie <span className="text-gradient-golden">nehnuteľnosti</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
-            Objavte náš starostlivo vybraný výber luxusných nehnuteľností na najprestížnejších lokalitách
+            Objavte náš starostlivo vybraný výber nehnuteľností 
           </p>
         </div>
 
