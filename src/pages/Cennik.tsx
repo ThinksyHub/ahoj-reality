@@ -69,9 +69,7 @@ const Cennik = () => {
                   <p className="text-lg text-muted-foreground mb-2">
                     Výška jednomesačného nájmu
                   </p>
-                  <p className="text-sm text-muted-foreground">
-                    Účtuje sa od toho, kto o poskytnutie služby požiadal (spravidla prenajímateľ nehnuteľnosti).
-                  </p>
+                  
                   <div className="mt-4 text-primary font-semibold text-lg">
                     Minimálna výška provízie: 450 €
                   </div>
