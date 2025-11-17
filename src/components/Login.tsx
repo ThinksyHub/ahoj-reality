@@ -13,7 +13,7 @@ const Login: React.FC<Props> = ({ onLogin }) => {
 
     const handleLogin = () => {
         // hardcoded credentials
-        if (username === "postmaster@ahojreality.sk" && password === "123456") {
+        if (username === "postmaster@ahojreality.sk" && password === "123456" || "varholikova@ahojreality.sk" && password === "22Ahoj33") {
             localStorage.setItem("isAdmin", "true"); // store login state locally
             onLogin();
         } else {
